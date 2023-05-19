@@ -1,3 +1,62 @@
+nav {
+    background: #ffffff8a;
+    backdrop-filter: blur(10px);
+    font-family: poppin med;
+    box-shadow: 2px 2px 7px rgba(201, 201, 201, 0.582);
+}
+.navbar-toggler {
+    border-radius: 50px;
+}
+.navbar-toggler-icon {
+    font-size: 1rem;
+}
+ul {
+    font-family: poppin light;
+}
+li > a {
+    color: rgb(66, 66, 66);
+    border-radius: 50px;
+    margin: 2px;
+    /* padding: 10px; */
+}
+li > a:hover {
+    background: #ff5500bd;
+    color: #fff;
+    
+}
+
+.signUp {
+    border-radius: 50px;
+    font-family: poppin med;
+    background: rgb(8, 156, 255);
+    color: #fff;
+    width: 100px;
+}
+.signUp:hover {
+    background: rgb(24, 142, 221);
+}
+
+footer .social {
+    background: rgb(63, 63, 63);
+}
 footer {
     margin-top: 100px;
+    background: #363636;
+    color: #e7e7e7;
+}
+footer .footer-logo{
+    font-size: 1.3rem;
+    color: greenyellow;
+}
+
+footer .footer-contact i {
+    color: greenyellow;
+}
+
+i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+.social i:hover {
+    color: greenyellow;
 }
