@@ -1,0 +1,93 @@
+
+.header-text {
+    height: 65vh;
+    background-image: linear-gradient(360deg, #85FFBD 0%, #FFFB7D 100%);
+    color: #fff;
+    font-family: poppin bold;
+}
+.header-text h2 {font-size: 3rem;}
+
+
+.search-form {
+    max-width: 750px;
+}
+.search-form > .input-group {
+    margin-top: -50px;
+}
+.search-form input {
+    height: 50px;
+}
+.search-form button {
+    height: 50px;
+    border-radius: 10px 50px 50px 10px;
+    box-shadow: 3px 5px 10px #0554ff63;
+    font-size: 1.2rem;
+}
+.search-form input[type=text] {
+    border-radius: 50px;
+    border: none;
+    background: #fff;
+    box-shadow: 3px 5px 10px #53535352;
+    padding: 0 30px;
+}
+
+
+.svg-curve-white1{
+    filter: drop-shadow(-5px -13px 10px #85ffbe17);
+}
+
+.svg-curve-white2{
+    filter: drop-shadow(5px 13px 10px #85ffbe17);
+}
+
+ .card {
+    border-radius: 10px;
+    max-width: 270px;
+    border: none;
+    box-shadow: 1px 3px 10px rgba(150, 150, 150, 0.151);
+    z-index: 2;
+}
+.card:hover{box-shadow: 1px 7px 20px rgba(150, 150, 150, 0.315);}
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    box-shadow: 1px 3px 10px rgba(150, 150, 150, 0.151);;
+}
+
+.card .card-title {
+    font-family: poppin med;
+    color:#35B6C2;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.card .company-name {
+    font-family: poppin light;
+    color: #a7a7a7;
+}
+
+.card .country-name {
+    font-family: poppin med;
+}
+
+.card .btn-apply, .card .btn {
+    background: #35B6C2;
+    color: #fff;
+    padding: 2px 25px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.card .btn-apply:hover {background: #2c99a3;}
+
+.card .btn-view {
+    border: .5px solid #35B6C2;
+    background: #ffffff;
+    color: #35B6C2;
+    padding: 0 25px;
+    cursor: pointer;
+}
+.card .btn-view:hover {
+    color: #ffffff;
+    background: #35B6C2;
+}

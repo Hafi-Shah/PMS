@@ -1,13 +1,12 @@
 .header-text {
     height: 45vh;
+    /* background-image: linear-gradient(360deg, #ff5500 0%, #ff9e00 100%); */
     background: #ff5500;
     color: #fff;
     font-family: poppin bold;
 }
-.header-text > h2 {font-size: 3rem;}
-.header-text-1 {
-    margin-top: 15vh;
-}
+.header-text h2 {font-size: 3rem;}
+
 .bg-img1 {
     background: url('../../../assets/images/SVG.png');
     background-repeat: no-repeat;
@@ -27,6 +26,7 @@
 .search-form input {
     height: 50px;
 }
+
 .search-form button {
     height: 50px;
     border-radius: 10px 50px 50px 10px;
@@ -38,22 +38,10 @@
     border: none;
     background: #fff;
     box-shadow: 3px 5px 10px #53535352;
+    padding: 0 30px;
 }
 
 
-.bg-img2 {
-    background: url('../../../assets/images/SVG2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 250px;
-    filter: drop-shadow(-5px -13px 10px #ff550017);
-    margin-top: -5px;
-    /* transform: rotateY(180deg); */
-    transform: rotate(5deg);
-    z-index: -1;
-    
-}
 
 .bg-img2-svg {  
     filter: drop-shadow(-5px -13px 10px #ff550017);
@@ -64,4 +52,47 @@
 }
 .user-cards-section {
     margin-top: -15px;
+}
+ .user-cards-section .card{
+    max-width: 400px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 3px 3px 10px rgba(150, 150, 150, 0.151);
+    z-index: 2;
+}
+.user-cards-section .card:hover {
+    box-shadow: 3px 3px 19px rgba(150, 150, 150, 0.288);
+}
+.user-cards-section .user-card-cover-image {
+    width: auto;
+    height: 200;
+    border-radius: 10px;
+}
+
+.user-cards-section .card .profile-pic {
+    width: 80px;
+    height: 80px;
+    margin-top: -44px;
+    border-radius: 50px;
+    box-shadow: 3px 5px 10px #53535352;
+}
+
+.user-cards-section .card .profile-text{
+    margin-top: -20px;
+    line-height: 10px;
+}
+.user-cards-section .card p {
+    font-family: poppin med;
+    font-size: 1.1rem;
+}
+
+.user-cards-section .card .btn-view {
+    margin-top: -35px;
+    padding: 0 40px;
+    border-radius: 8px;
+    background: #35B6C2;
+    color: #fff;
+}
+.user-cards-section .card .btn-view:hover {
+    background: #2b959e;
 }
