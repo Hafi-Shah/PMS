@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './modules/home/home.component';
-import { CompaniesComponent } from './modules/companies/companies.component';
-import { FeedComponent } from './modules/feed/feed.component';
-import { MyProfileComponent } from './modules/my-profile/my-profile.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LayoutModule } from './layout/layout.module';
+
+
 
 
 const routes: Routes = [
-  {path : '' , component: HomeComponent},
-  { path: 'home', component: HomeComponent },
-  {path: 'companies', component: CompaniesComponent},
-  {path: 'feed', component: FeedComponent},
-  {path: 'myProfile', component: MyProfileComponent}
+  //{path : '' , component: LayoutModule, },
+  {
+    path: 'auth', component: AuthComponent, children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent }
+    ]
+  }
 ];
 
 @NgModule({

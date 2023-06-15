@@ -1,0 +1,42 @@
+nav {
+    background: linear-gradient(180deg, #ffffffaf 0%, #ffffff48 100%);
+    backdrop-filter: blur(10px);
+    font-family: poppin med;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.055);
+}
+.navbar-toggler {
+    border-radius: 50px;
+}
+.navbar-toggler-icon {
+    font-size: 1rem;
+}
+.logo {
+    font-family: poppin bold;
+}
+ul {
+    font-family: poppin light;
+    letter-spacing: 1px;
+}
+li > a {
+    color: rgb(66, 66, 66);
+    border-radius: 50px;
+    margin: 2px;
+    /* padding: 10px; */
+}
+li > a:hover {
+    background: #ff8244bd;
+    color: #fff;
+    
+}
+
+.signUp {
+    border-radius: 50px;
+    font-family: poppin med;
+    background: rgb(15, 179, 255);
+    color: #fff;
+    width: 100px;
+    font-size: 0.8rem;
+}
+.signUp:hover {
+    background: rgb(24, 142, 221);
+}

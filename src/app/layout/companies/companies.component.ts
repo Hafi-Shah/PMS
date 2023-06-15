@@ -22,7 +22,14 @@ export class CompaniesComponent {
       }
   ];
 
+
+
   ngOnInit(): void {
-    this.CompanyCardDetails.push()
+    const newCompanyCardDetail: CompanyCardDetail = {
+      companyName: "New Company",
+      companyType: "Type",
+      country: "Country"
+    };
+    this.CompanyCardDetails.push(newCompanyCardDetail);
   }
 }

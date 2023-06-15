@@ -53,7 +53,7 @@
         <div class="col-lg-3 col-sm-6 p-3" *ngFor="let company of CompanyCardDetails">
           <div class="card text-center mx-auto">
             <div class="card-body">
-              <img src="../../../assets/images/avatar.png" class="mb-2 mx-auto d-block" alt="...">
+              <img src="../../../assets/images/avatar.png" class="mb-2 mx-auto d-block" alt="profile pic">
               <h5 class="card-title">{{ company.companyName }}</h5>
               <p class="card-text company-name">{{ company.companyType }}</p>
               <p class="country-name">{{ company.country }}</p>
@@ -65,7 +65,7 @@
           </div>
         </div>
       
-      <p *ngIf="!CompanyCardDetails || CompanyCardDetails.length <= 0">No Companies Found</p>
+      <p *ngIf="!CompanyCardDetails || CompanyCardDetails.length <= 0" class="mx-auto">No Companies Found</p>
 
         
        
