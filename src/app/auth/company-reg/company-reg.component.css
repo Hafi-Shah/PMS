@@ -1,0 +1,44 @@
+section {
+    font-family: poppin med;
+}
+
+.form-box {
+    border-radius: 15px;
+}
+.form-box h5 {
+    font-family: poppin bold;
+    color: #4a4f74;
+}
+
+input , textarea, select{
+    border-radius: 10px;
+    border: 1px solid #4a4f74;
+    font-size: 1rem;
+}
+select {color: #3437528f;}
+option {color: #343752;}
+input::file-selector-button {
+    background: #4a4f74;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.5s;
+    font-size: 0.8rem;
+    font-family: poppin light;
+}
+input::file-selector-button:hover {
+    background: #343752;
+}
+
+input:focus {
+    box-shadow: none;
+}
+button {
+    background: #4a4f74;
+    color: #fff;
+    border-radius: 10px;
+}
+button:hover {
+    background: rgb(59, 62, 90);
+    color: #fff;
+}

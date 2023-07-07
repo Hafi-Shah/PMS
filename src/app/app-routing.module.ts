@@ -1,21 +1,29 @@
 import { NgModule } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './modules/home/home.component';
-import { CompaniesComponent } from './modules/companies/companies.component';
-import { FeedComponent } from './modules/feed/feed.component';
-import { MyProfileComponent } from './modules/my-profile/my-profile.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+
+import { UserRegComponent } from './auth/user-reg/user-reg.component';
+import { CompanyRegComponent } from './auth/company-reg/company-reg.component';
+
+
 
 
 const routes: Routes = [
-  {path : '' , component: HomeComponent},
-  { path: 'home', component: HomeComponent },
-  {path: 'companies', component: CompaniesComponent},
-  {path: 'feed', component: FeedComponent},
-  {path: 'myProfile', component: MyProfileComponent}
+  {
+    path: 'auth', component: AuthComponent, children: [
+      { path: '', component: LoginComponent },
+      { path: 'login', component:  LoginComponent},
+      { path: 'userReg', component:  UserRegComponent},
+      { path: 'companyReg', component:  CompanyRegComponent}
+    ]
+  }
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })], // .../#/crisis-center/
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

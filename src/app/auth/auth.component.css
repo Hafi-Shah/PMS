@@ -1,0 +1,49 @@
+section{
+    font-family: poppin med;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+span {
+    margin: 4px;
+    padding: 5px 13px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s;
+  border-radius: 5px;
+}
+span:hover{
+    color: #fff;
+}
+
+span:nth-child(1){
+    border-color: #d5ee49;
+}
+span:nth-child(1):hover{
+    background: #d5ee49;
+}
+span:nth-child(2){
+    border-color: #FBC04E;
+}
+span:nth-child(2):hover{
+    background: #FBC04E;
+}
+span:nth-child(3){
+    border-color: #499eee;
+}
+span:nth-child(3):hover{
+    background: #499eee;
+}
+span:nth-child(4){
+    background: none;
+    color: rgb(211, 52, 52);
+    border: none;
+    transition: 0.3s;
+}
+span:nth-child(4):hover{
+    background: none;
+    color: rgb(187, 45, 45);
+    border: none;
+    transform: scale(1.4);
+}
+

@@ -4,11 +4,17 @@
 * {transition: .5s;}
 ::-webkit-scrollbar {
     width: 10px;
+    
   }
+  *:focus {
+    outline: 0;
+    box-shadow: none;
+}
 
   html {
     overflow-x: hidden;
     cursor: url('assets/images/cursor3.png'), auto;
+    outline: none;
   }
   
   /* Track */
@@ -52,3 +58,7 @@
     font-family: 'poppin bold';
     src: url('assets/fonts/Poppins-Bold.ttf');
   }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

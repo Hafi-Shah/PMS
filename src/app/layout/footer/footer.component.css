@@ -1,0 +1,27 @@
+footer {
+    margin-top: 100px;
+    background: #363636;
+    color: #e7e7e7;
+}
+
+footer .social {
+    background: rgb(63, 63, 63);
+}
+
+footer .footer-logo{
+    font-size: 1.3rem;
+    color: greenyellow;
+}
+
+footer .footer-contact i {
+    color: greenyellow;
+}
+
+footer i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+.social i:hover {
+    color: greenyellow;
+}
+
