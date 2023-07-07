@@ -3,20 +3,23 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { LayoutModule } from './layout/layout.module';
+
+import { UserRegComponent } from './auth/user-reg/user-reg.component';
+import { CompanyRegComponent } from './auth/company-reg/company-reg.component';
 
 
 
 
 const routes: Routes = [
-  //{path : '' , component: LayoutModule, },
   {
     path: 'auth', component: AuthComponent, children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent }
+      { path: '', component: LoginComponent },
+      { path: 'login', component:  LoginComponent},
+      { path: 'userReg', component:  UserRegComponent},
+      { path: 'companyReg', component:  CompanyRegComponent}
     ]
   }
+
 ];
 
 @NgModule({

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CompanyCardDetail } from './CompanyCardDetail.model';
+import { CompanyCardDetailModel } from '../../models/CompanyCardDetail.model';
+import {CompanyService} from '../../../services/company.service';
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
@@ -9,27 +10,18 @@ import { CompanyCardDetail } from './CompanyCardDetail.model';
 
 export class CompaniesComponent {
 
-  CompanyCardDetails:CompanyCardDetail[] = [ 
-    {
-    companyName: "System Ltd",
-    companyType: "It Export Company",
-    country: "Pakistan"
-    },
-    {
-      companyName: "Aksa",
-      companyType: "Software House",
-      country: "Pakistan"
-      }
-  ];
-
-
+  CompanyCards:CompanyCardDetailModel[] = [];
+constructor(private apiCompanyService:CompanyService) {
+}
+  getCompanyCards(){
+    this.apiCompanyService.getCompanyCards().subscribe((res : any)=>{
+      this.CompanyCards = res;
+    })
+  }
 
   ngOnInit(): void {
-    const newCompanyCardDetail: CompanyCardDetail = {
-      companyName: "New Company",
-      companyType: "Type",
-      country: "Country"
-    };
-    this.CompanyCardDetails.push(newCompanyCardDetail);
+    this.getCompanyCards();
   }
+
+
 }

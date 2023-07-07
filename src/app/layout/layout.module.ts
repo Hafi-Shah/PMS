@@ -10,7 +10,7 @@ import { HomeModule } from './home/home.module';
 import { CompaniesModule } from './companies/companies.module';
 import { FeedModule } from './feed/feed.module';
 import { MyProfileModule } from './my-profile/my-profile.module';
-import { HomeComponent } from './home/home.component';
+
 
 
 

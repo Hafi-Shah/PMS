@@ -1,1 +1,17 @@
-<p>my-profile works!</p>
+
+<section class="isUserNotLogin h-75 h-lg-100 container" *ngIf="!isUserLoggedIn">
+  <div class="card mx-auto shadow bg-white border-0">
+    <div class="card-body">
+      <div class="card-title">
+        <h3 class="bg-light p-2 text-center">For Login Or Registration</h3>
+        <p class="card-text text-center text-secondary">Click Below</p>
+        <div class="mx-auto w-100 text-center">
+          <i class="bi bi-arrow-down-square-fill text-success"></i>
+          <br>
+          <button class="btn btn-primary mt-3 w-100" routerLink="/auth/login">Click Me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

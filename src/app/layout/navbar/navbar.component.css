@@ -10,6 +10,7 @@ nav {
 .navbar-toggler-icon {
     font-size: 1rem;
 }
+
 .logo {
     font-family: poppin bold;
 }
@@ -19,14 +20,14 @@ ul {
 }
 li > a {
     color: rgb(66, 66, 66);
-    border-radius: 50px;
+    border-radius: 5px;
     margin: 2px;
     /* padding: 10px; */
 }
 li > a:hover {
     background: #ff8244bd;
     color: #fff;
-    
+
 }
 
 .signUp {
@@ -40,3 +41,16 @@ li > a:hover {
 .signUp:hover {
     background: rgb(24, 142, 221);
 }
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+
+  .dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+  }
+
+  .dropdown-menu {
+    width: 300px;
+  }

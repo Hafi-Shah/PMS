@@ -1,0 +1,52 @@
+.card {
+    max-width: 500px;
+    margin-top: 22vh;
+    font-family: poppin med;
+    border-radius: 15px;
+}
+.card .login-icon {
+    font-size: 3.5rem;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: 0px 6px 10px #d1d1d1cc;
+    position: relative;
+    top: -76px;
+}
+.card h6 {
+    font-family: poppin bold;
+    font-size: 1.5rem;
+    margin-top: -50px;
+}
+.card .ii {
+    font-size: 1.1rem;
+    margin-left: 5px;
+    color: #657af5;
+}
+input {
+    border-radius: 50px;
+}
+input:focus {
+    box-shadow: none;
+}
+input::placeholder {
+    color: #8a88f0;
+    font-family: poppin light;
+}
+small {
+    color: rgb(161, 161, 161);
+}
+
+.form-group {
+    border: 1px solid #0000FF;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+button {
+    
+    border-radius: 50px;
+}
+button:hover {
+    box-shadow: 1px 8px 15px #94a3fa85;
+}

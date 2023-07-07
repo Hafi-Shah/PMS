@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { LayoutRoutingModule } from './layout/layout-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -18,7 +21,10 @@ import { LayoutRoutingModule } from './layout/layout-routing.module';
     RouterModule,
     LayoutModule,
     AuthModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
