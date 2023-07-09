@@ -10,6 +10,8 @@ import { HomeModule } from './home/home.module';
 import { CompaniesModule } from './companies/companies.module';
 import { FeedModule } from './feed/feed.module';
 import { MyProfileModule } from './my-profile/my-profile.module';
+import {ViewCompanyProfileModule} from "./companies/view-company-profile/view-company-profile.module";
+
 
 
 
@@ -27,7 +29,8 @@ import { MyProfileModule } from './my-profile/my-profile.module';
     HomeModule,
     CompaniesModule,
     FeedModule,
-    MyProfileModule
+    MyProfileModule,
+    ViewCompanyProfileModule,
   ],
   exports:[
     LayoutComponent

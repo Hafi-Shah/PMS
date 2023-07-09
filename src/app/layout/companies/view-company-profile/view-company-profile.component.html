@@ -1,0 +1,66 @@
+<!--
+REQUIRED DATA
+company Name,   [done static]
+Company Type,   [done static]
+Email,          [done static]
+Contact,        [done static]
+Location,       [done static]
+Country,        [done static]
+Description,    [done static]
+Profile Picture [done static]
+-->
+
+<section class="profileTemplate container" *ngIf="companyDetails">
+  <div class="card border-0">
+  <div class="banner w-100 d-flex justify-content-around">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  </div>
+  <div class="card border-0">
+  <div class="profilePic d-flex w-100">
+    <img class="img img-thumbnail mx-auto shadow border-0" src="{{companyDetails.profilePic}}" />
+  </div>
+  <div class="companyName d-flex">
+    <h3 class="mx-auto mt-2">{{companyDetails.companyName}}</h3>
+  </div>
+  <div class="companyType d-flex">
+    <p class="mx-auto">{{companyDetails.companyType}}</p>
+  </div>
+  </div>
+  <div class="card border-0 d-flex userInfo">
+    <div class="row">
+      <div class="col-6 col-lg-6">
+        <div class="p-2 mt-3">
+          <div class="d-inline mt-3 text-start">
+            <p><i class="bi bi-envelope-fill mx-2"></i>{{companyDetails.companyEmail}}</p>
+            <p><i class="bi bi-phone-fill mx-2"></i>{{companyDetails.contactNum}}</p>
+          </div>
+        </div>
+      </div>
+        <div class="col-6 col-lg-6">
+          <div class="p-2 mt-3">
+            <p class="card-text "><i class="bi bi-geo-alt-fill mx-2"></i>{{companyDetails.companyLocation}}</p>
+            <p><i class="bi bi-globe-asia-australia mx-2"></i>{{companyDetails.countryName}}</p>
+          </div>
+        </div>
+  </div>
+  </div>
+  <div class="card description border-0 w-100 mt-4 p-3">
+    <h3 class="card-title mt-2"><i class="bi bi-bricks mx-2"></i>Description</h3>
+    <p class="card-text text-justify p-3">
+      {{companyDetails.companyDescription}}
+    </p>
+  </div>
+  <div class="buttons d-flex justify-content-md-end justify-content-sm-center pt-2 gap-3">
+    <button class="btn btn-outline-secondary" routerLink="/companies">Go Back</button>
+    <button class="btn btn-primary" >Apply</button>
+  </div>
+</section>

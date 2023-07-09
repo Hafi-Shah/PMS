@@ -12,13 +12,7 @@ export class RegisterCompanyService {
 
   constructor(private http: HttpClient) { }
   registerCompany(obj: RegisterCompany):Observable<any>{
-    // debugger;
     let url: string = (environment.basePath).concat(ApiPath.REGISTER_COMPANY);
      return this.http.post(url, obj);
   }
-
-  // getCompanyById(companyId: number):Observable<any>{
-  //   let url: string = (environment.basePath).concat(ApiPath.REGISTER_COMPANY) + '?companyId='+ companyId;
-  //   return this.http.get(url);
-  // }
 }

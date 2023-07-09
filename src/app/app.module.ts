@@ -9,6 +9,7 @@ import { LayoutRoutingModule } from './layout/layout-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AnnouncementModule} from "./layout/announcement/announcement.module";
 
 
 @NgModule({
@@ -24,7 +25,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LayoutRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AnnouncementModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@
         <div class="position-absolute top-50 start-50 translate-middle">
         <h2>Companies</h2>
         <h2>You Must</h2>
-        <h2>Explore To Develope</h2>
+        <h2>Explore To Develop</h2>
     </div>
     </div>
     <div class="bg-img1"></div>
@@ -44,15 +44,13 @@
               <p class="country-name">{{card.country}}</p>
               <div class="d-flex justify-content-around">
                 <button class="btn btn-apply">Apply</button>
-                <button class="btn btn-view">View</button>
+                <button class="btn btn-view" id="{{card.compnanyId}}" (click)="onButtonClick(card.compnanyId)">View</button>
               </div>
             </div>
           </div>
         </div>
 
-      <p *ngIf="!CompanyCards || CompanyCards.length <= 0" class="mx-auto">No Companies Found</p>
-
-
+      <p *ngIf="!CompanyCards || CompanyCards.length <= 0" class="mx-auto w-100">No Companies Found</p>
 
       </div>
 </section>
