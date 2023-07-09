@@ -1,8 +1,8 @@
-<section class="container mt-2 mb-5">
+<section class="container mb-5">
     <form class="pt-3" [formGroup]="formValidation.registrationForm" (ngSubmit)="registerCompany()">
       <div class="row m-4 shadow p-2 form-box">
             <h5 class="text-center mt-3 mb-3">Company Registration Form</h5>
-        <p class="text-center" [ngClass]="isAcountCreated ? 'text-success pb-1' : 'text-danger pb-1'">
+        <p class="text-center p-2" [ngClass]="isAccountCreated ? 'text-white bg-success d-block' : 'text-danger d-block'">
           {{displayMsg}}
         </p>
           <div class="col-md-6 mt-3">
@@ -92,8 +92,7 @@
                 </div>
             </div>
           </div>
-          <button class="btn w-100 mb-2 mt-3" type="submit" >Register</button>
-<!--          <button class="btn w-100 mb-2 mt-3" type="submit" [disabled]="formValidation.registrationForm.invalid" >Register</button>-->
+          <button class="btn w-100 mb-2 mt-3" type="submit" [disabled]="formValidation.registrationForm.invalid" >Register</button>
         </div>
 
       </form>

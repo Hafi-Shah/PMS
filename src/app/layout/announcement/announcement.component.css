@@ -1,0 +1,15 @@
+.ann .card{
+  margin-top: 20vh;
+  max-width: 950px;
+}
+h3 {
+  font-size: 1.6rem;
+  font-family: poppin bold;
+}
+.radio {
+  font-family: poppin med;
+  color: #2b959e;
+}
+.cancel-btn {
+  margin-right: 10px;
+}

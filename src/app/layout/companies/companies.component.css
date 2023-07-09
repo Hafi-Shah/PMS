@@ -3,9 +3,9 @@
     height: 65vh;
     background-image: linear-gradient(360deg, #85FFBD 0%, #FFFB7D 100%);
     color: #fff;
-    font-family: poppin bold;
+
 }
-.header-text h2 {font-size: 3rem;}
+.header-text h2 {font-size: 3rem; font-family: poppin bold;}
 
 
 .search-form {
@@ -81,7 +81,7 @@
 .card .btn-apply:hover {background: #2c99a3;}
 
 .card .btn-view {
-    border: .5px solid #35B6C2;
+    border: 1px solid #35B6C2;
     background: #ffffff;
     color: #35B6C2;
     padding: 0 25px;
@@ -90,4 +90,9 @@
 .card .btn-view:hover {
     color: #ffffff;
     background: #35B6C2;
+}
+.no-found {
+  font-size: 1.5rem;
+  font-family: "poppin bold";
+  color: #2b959e;
 }

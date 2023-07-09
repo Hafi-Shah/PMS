@@ -20,7 +20,7 @@ export class CompanyRegComponent implements OnInit{
   companyTypes:CompanyTypesModel[] = [];
   countries:CountriesModel[] = [];
   displayMsg : string = "";
-  isAcountCreated : boolean = false;
+  isAccountCreated : boolean = false;
   formValidation:FormValidation = new FormValidation();
   registerCompanyModel:RegisterCompany;
   apiRegComp:RegisterCompanyService;
@@ -31,7 +31,7 @@ export class CompanyRegComponent implements OnInit{
   private apiRegisterCompany:RegisterCompanyService
   ) {
     this.registerCompanyModel = new RegisterCompany();
-    this.apiRegComp = apiRegisterCompany; //dependancy injections
+    this.apiRegComp = apiRegisterCompany; //dependency injections
   }
 
 
@@ -47,15 +47,15 @@ registerCompany(){
   this.registerCompanyModel.location = this.formValidation.location.value;
 
   this.apiRegComp.registerCompany(this.registerCompanyModel).subscribe(res =>{
-    if(res == 'Company registered successfully'){
-      this.displayMsg = 'Account Created Succesfully!';
-      this.isAcountCreated = true;
+    if(res.isSuccess){
+      this.displayMsg = res.message;
+      this.isAccountCreated = true;
     } else if (res == 'AlreadyExist'){
       this.displayMsg = 'Already Exist. Try another Email.';
-      this.isAcountCreated = false;
+      this.isAccountCreated = false;
     } else {
       this.displayMsg = 'Something Went Wrong';
-      this.isAcountCreated = false;
+      this.isAccountCreated = false;
     }
     console.log(res);
   });
@@ -68,7 +68,7 @@ registerCompany(){
     reader.readAsDataURL(file);
     reader.onload = () => {
       console.log(reader.result);
-      debugger;
+      // debugger;
       this.registerCompanyModel.profilePic = reader.result as string;
       // Here, you can use the `bytes` array as your byte array representation of the image
 

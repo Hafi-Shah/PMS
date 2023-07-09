@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MyProfileModule} from "./my-profile.module";
+
 
 @Component({
   selector: 'app-my-profile',
@@ -9,7 +9,7 @@ import {MyProfileModule} from "./my-profile.module";
 export class MyProfileComponent {
   isUserLoggedIn: boolean = false;
 
-  loggedInUser() {
-    this.isUserLoggedIn = true; //use when checked from api/dynamically
-  }
+  // loggedInUser() {
+  //   this.isUserLoggedIn = true; //use when checked from api/dynamically
+  // }
 }

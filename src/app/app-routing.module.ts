@@ -6,6 +6,10 @@ import { LoginComponent } from './auth/login/login.component';
 
 import { UserRegComponent } from './auth/user-reg/user-reg.component';
 import { CompanyRegComponent } from './auth/company-reg/company-reg.component';
+import {AnnouncementComponent} from "./layout/announcement/announcement.component";
+
+
+
 
 
 
@@ -18,8 +22,8 @@ const routes: Routes = [
       { path: 'userReg', component:  UserRegComponent},
       { path: 'companyReg', component:  CompanyRegComponent}
     ]
-  }
-
+  },
+  {path: 'announcement', component: AnnouncementComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,70 @@
+<!--
+REQUIRED DATA
+company Name,
+Company Type,
+Email,
+Contact,
+Location,
+Country,
+Description,
+Profile Picture
+-->
+
+<section class="profileTemplate container">
+  <div class="card border-0">
+    <div class="banner w-100 d-flex justify-content-around">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="card border-0">
+    <div class="profilePic d-flex w-100">
+      <img class="img img-thumbnail mx-auto shadow border-0" src="" />
+    </div>
+    <div class="companyName d-flex">
+      <h3 class="mx-auto mt-2">Name</h3>
+    </div>
+    <div class="companyType d-flex">
+      <p class="mx-auto">type</p>
+    </div>
+  </div>
+  <div class="card border-0 d-flex userInfo">
+    <div class="row">
+      <div class=" col-lg-6">
+        <div class="p-2 mt-3">
+          <div class=" text-start">
+            <p><i class="bi bi-envelope-fill mx-2"></i>email</p>
+            <br>
+            <p><i class="bi bi-phone-fill mx-2"></i>contact</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-6">
+        <div class="p-2 mt-3">
+          <p class="card-text "><i class="bi bi-geo-alt-fill mx-2"></i>location</p>
+          <br>
+          <p><i class="bi bi-globe-asia-australia mx-2"></i>country</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card description border-0 w-100 mt-4 p-3">
+    <h3 class="card-title mt-2"><i class="bi bi-bricks mx-2"></i>Description</h3>
+    <p class="card-text text-justify p-3">
+
+    </p>
+  </div>
+  <div class="buttons d-flex justify-content-center pt-2 gap-3">
+    <button class="btn btn-outline-secondary" routerLink="/companies">Go Back</button>
+    <button class="btn btn-primary" routerLink="/announcement">Announce job</button>
+    <button class="btn btn-success" >Update Account</button>
+    <button class="btn btn-danger" >Delete Account</button>
+  </div>
+</section>

@@ -1,9 +1,11 @@
 .isUserNotLogin {
   padding-top: 30vh;
+  padding-bottom: 12vh;
 }
 .isUserNotLogin:has(.card) {
   max-width: 500px;
 }
 .isUserNotLogin h3 {
   font-family: poppin med;
+  font-size: 1.3rem;
 }

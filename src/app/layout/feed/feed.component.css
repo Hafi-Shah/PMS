@@ -36,7 +36,8 @@
     margin-top: -20px;
 }
 .feed-post .profile h6 {
-    font-family: poppin bold;
+    font-family: "poppin bold";
+  font-size: 1.1rem;
 }
 .feed-post .profile .company-type {
     font-family: poppin med;
@@ -60,6 +61,7 @@
     border-radius: 50px;
     font-family: poppin med;
     font-size: 0.7rem;
+  letter-spacing: 1px;
 }
 .feed-post .experties p:nth-child(1),
 .feed-post .experties p:nth-child(2),
@@ -101,9 +103,9 @@
 }
 
 .feed-post .experties p:nth-child(6) {
-    background: rgba(0, 255, 106, 0.13);
-    color: rgba(0, 255, 115, 0.815);
-    border-color: rgba(0, 255, 76, 0.842);
+    background: rgba(102, 0, 255, 0.13);
+    color: rgba(102, 0, 255, 0.84);
+    border-color: rgba(102, 0, 255, 0.84);
 }
 
 .feed-post .apply {

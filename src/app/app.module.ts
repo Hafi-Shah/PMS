@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { LayoutRoutingModule } from './layout/layout-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {AnnouncementModule} from "./layout/announcement/announcement.module";
+import { ToastrModule } from 'ngx-toastr';
+import {TokenInterceptor} from "./core/interceptors/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -24,9 +26,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LayoutRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AnnouncementModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

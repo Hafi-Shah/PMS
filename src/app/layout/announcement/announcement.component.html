@@ -1,0 +1,38 @@
+<section class="ann container mb-5">
+  <div class="card border-0 shadow mx-auto p-2">
+    <div class="card-body">
+      <h3 class="card-title mx-2">Make Your Announcement</h3>
+      <form action="">
+      <mat-form-field class="form-control border-0">
+        <mat-label>Choose Required Skills</mat-label>
+        <mat-select multiple matInput placeholder="No More then 6 skills">
+          <mat-option>Blue</mat-option>
+          <mat-option>Red</mat-option>
+          <mat-option>Yellow</mat-option>
+          <mat-option>Green</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+        <mat-form-field class="form-control border-0">
+          <mat-label>Experience Required (in years)</mat-label>
+          <input matInput placeholder="Type in Number" value="">
+        </mat-form-field>
+
+        <mat-form-field class="form-control border-0">
+          <mat-label>Job Description</mat-label>
+          <textarea matInput placeholder="Maximum 400 words"></textarea>
+        </mat-form-field>
+      <div class="d-flex justify-content-between mx-3">
+        <div>
+          <mat-slide-toggle><span class="radio">Enable Auto Apply</span></mat-slide-toggle>
+        </div>
+        <div>
+          <button class="cancel-btn" routerLink="/my-company-profile" mat-raised-button color="basic">Cancel</button>
+          <button mat-raised-button color="accent">Submit</button>
+        </div>
+      </div>
+        </form>
+    </div>
+  </div>
+</section>
+
