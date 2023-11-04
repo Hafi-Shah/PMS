@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { ViewUserProfileComponent } from './view-user-profile/view-user-profile.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ViewUserProfileComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes) // Import the RouterModule here

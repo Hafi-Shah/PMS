@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import { MyProfileComponent } from './my-profile.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -12,9 +13,11 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [MyProfileComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes) // Import the RouterModule here
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+
+        // Import the RouterModule here
+    ]
 })
 export class MyProfileModule { }

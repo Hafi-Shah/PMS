@@ -23,10 +23,12 @@ export class FormValidation {
         Validators.max(400)
         ]),
 
-      companyEmail : new FormControl("",[
+      companyEmail: new FormControl("", [
         Validators.required,
-        Validators.email
+        Validators.email,
+        Validators.pattern("^[\\w.%+-]+@gmail\\.com$")
       ]),
+
 
       companyPassword : new FormControl("", [
         Validators.required,
@@ -36,7 +38,7 @@ export class FormValidation {
       contactNo : new FormControl("", [
         Validators.required,
         Validators.minLength(11),
-        Validators.maxLength(11),
+        Validators.maxLength(14),
         Validators.pattern("[0-9]*")
       ]),
 

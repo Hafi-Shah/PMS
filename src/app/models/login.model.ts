@@ -3,7 +3,8 @@ export class LoginModel {
   Password : string = '';
 }
 
-// export interface LoginResponse {
-//   token: string;
-//   // other properties if applicable
-// }
+export interface LoginResponse {
+  token: string;
+  userId : number;
+  role : string;
+}

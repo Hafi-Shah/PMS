@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Observable, of} from "rxjs";
+import {AuthService} from "../../../services/auth.service";
+
 
 
 @Component({
@@ -7,9 +10,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent {
-  isUserLoggedIn: boolean = false;
 
-  // loggedInUser() {
-  //   this.isUserLoggedIn = true; //use when checked from api/dynamically
-  // }
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private authService : AuthService) {
+    this.isLoggedIn$ = of(this.authService.isLoggedIn());
+  }
+
+
 }

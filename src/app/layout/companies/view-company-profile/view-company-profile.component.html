@@ -63,6 +63,6 @@ Profile Picture [done static]
   </div>
   <div class="buttons d-flex justify-content-md-end justify-content-sm-center pt-2 gap-3">
     <button class="btn btn-outline-secondary" routerLink="/companies">Go Back</button>
-    <button class="btn btn-primary" >Apply</button>
+    <button class="btn btn-primary" *ngIf="isCompanyRole()">Apply</button>
   </div>
 </section>

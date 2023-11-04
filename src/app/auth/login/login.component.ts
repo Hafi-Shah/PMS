@@ -3,7 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {AuthService} from "../../../services/auth.service";
 import {Router} from "@angular/router";
-import {LoginModel} from "../../models/login.model";
+import {LoginModel, LoginResponse} from "../../models/login.model";
 
 @Component({
   selector: 'app-login',
@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
     private router : Router
   ) {
     this.userLoginModel = new LoginModel();
+    this.userLoginModel.Email = '';
+    this.userLoginModel.Password = '';
     this.apiLoginService = authService;
     sessionStorage.clear();
   }
@@ -34,8 +36,10 @@ export class LoginComponent implements OnInit {
   loginUser() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
+      this.userLoginModel.Email = this.loginForm.value.Email!;
+      this.userLoginModel.Password = this.loginForm.value.Password!;
       this.apiLoginService.onLogin(this.userLoginModel).subscribe(res => {
-        console.log(res.message);
+        console.log(res);
         this.loginForm.reset();
         this.apiLoginService.storeToken(res.token);
         this.toastr.success('Login Successfully');

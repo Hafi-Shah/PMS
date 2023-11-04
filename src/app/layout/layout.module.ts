@@ -6,7 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
 import { LayoutRoutingModule } from './layout-routing.module';
-import { HomeModule } from './home/home.module';
+//import { HomeModule } from './home/home.module';
 import { CompaniesModule } from './companies/companies.module';
 import { FeedModule } from './feed/feed.module';
 import { MyProfileModule } from './my-profile/my-profile.module';
@@ -19,25 +19,29 @@ import {ToastrModule} from "ngx-toastr";
 
 
 
+
+
 @NgModule({
   declarations: [
     LayoutComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule,
     LayoutRoutingModule,
-    HomeModule,
+    
     CompaniesModule,
     FeedModule,
     MyProfileModule,
     ViewCompanyProfileModule,
     MyCompanyProfileModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+
   ],
-  exports:[
+  exports: [
     LayoutComponent
   ]
 })

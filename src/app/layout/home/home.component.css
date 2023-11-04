@@ -1,11 +1,13 @@
 .header-text {
     height: 45vh;
-    /* background-image: linear-gradient(360deg, #ff5500 0%, #ff9e00 100%); */
     background: #ff5500;
     color: #fff;
-    font-family: poppin bold;
+  font-family: poppin bold, serif;
 }
-.header-text h2 {font-size: 3rem; font-family: "poppin bold"}
+.header-text h2 {
+  font-size: 3rem;
+  font-family: "poppin bold", serif;
+}
 
 .bg-img1 {
     background: url('../../../assets/images/SVG.png');

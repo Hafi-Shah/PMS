@@ -3,7 +3,7 @@
         <div class="position-absolute top-50 start-50 translate-middle">
         <h2 class="mb-4">Companies</h2>
         <h2 class="mb-4">You Must</h2>
-        <h2>Explore To Develop</h2>
+        <h2 style="line-height: 50px">Explore To Develop</h2>
     </div>
     </div>
     <div class="bg-img1"></div>
@@ -17,12 +17,14 @@
 
 
 <section class="search-form m-auto container pb-5">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search Company">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button"><i class="bi bi-search-heart-fill"></i></button>
-        </div>
-      </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search Company"
+      [(ngModel)]="filteredString"
+    >
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="button"><i class="bi bi-search-heart-fill"></i></button>
+    </div>
+  </div>
 </section>
 
 <!-- Curve SVG  start-->
@@ -32,31 +34,62 @@
 <!-- Curve SVG End -->
 
 <section class="company-card-section container">
-    <div class="row">
+  <div class="row">
 
 
-        <div class="col-lg-3 col-sm-6 p-3" *ngFor="let card of CompanyCards">
-          <div class="card text-center mx-auto">
-            <div class="card-body">
-              <img src="{{card.profilePic}}" class="mb-2 mx-auto d-block" alt="profile pic" />
-              <h5 class="card-title">{{card.companyName}}</h5>
-              <p class="card-text company-name">{{card.companyType}}</p>
-              <p class="country-name">{{card.country}}</p>
-              <div class="d-flex justify-content-around">
-                <button class="btn btn-apply">Apply</button>
-                <button class="btn btn-view" id="{{card.compnanyId}}" (click)="onButtonClick(card.compnanyId)">View</button>
-              </div>
-            </div>
+    <div class="col-lg-3 col-sm-6 p-3" *ngFor="let card of CompanyCards | filter:filteredString">
+
+      <div class="card text-center mx-auto">
+        <div class="card-body">
+          <img src="{{card.profilePic}}" class="mb-2 mx-auto d-block" loading="lazy"  alt="profile Pic"/>
+          <h5 class="card-title">{{card.companyName}}</h5>
+          <p class="card-text company-name">{{card.companyType}}</p>
+          <p class="country-name">{{card.country}}</p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-apply" *ngIf="isRoleCompany()">Apply</button>
+            <button class="btn btn-view" id="{{card.compnanyId}}" (click)="onButtonClick(card.compnanyId)">View</button>
           </div>
         </div>
-
-      <p class="mx-auto w-100 no-found text-center" *ngIf="!CompanyCards || CompanyCards.length <= 0" >
-        No Companies Found
-        <i class="bi bi-emoji-frown"></i>
-      </p>
-
       </div>
+    </div>
+
+
+    <p class="mx-auto w-100 no-found text-center" *ngIf="!CompanyCards || CompanyCards.length <= 0" >
+      No Companies Found
+      <i class="bi bi-emoji-frown"></i>
+    </p>
+
+  </div>
 </section>
+
+
+
+<!--<section class="company-card-section container">-->
+<!--    <div class="row">-->
+
+
+<!--        <div class="col-lg-3 col-sm-6 p-3" *ngFor="let card of CompanyCards">-->
+<!--          <div class="card text-center mx-auto">-->
+<!--            <div class="card-body">-->
+<!--              <img src="{{card.profilePic}}" class="mb-2 mx-auto d-block" alt="profile pic" />-->
+<!--              <h5 class="card-title">{{card.companyName}}</h5>-->
+<!--              <p class="card-text company-name">{{card.companyType}}</p>-->
+<!--              <p class="country-name">{{card.country}}</p>-->
+<!--              <div class="d-flex justify-content-around">-->
+<!--                <button class="btn btn-apply" *ngIf="isRoleCompany()">Apply</button>-->
+<!--                <button class="btn btn-view" id="{{card.compnanyId}}" (click)="onButtonClick(card.compnanyId)">View</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      <p class="mx-auto w-100 no-found text-center" *ngIf="!CompanyCards || CompanyCards.length <= 0" >-->
+<!--        No Companies Found-->
+<!--        <i class="bi bi-emoji-frown"></i>-->
+<!--      </p>-->
+
+<!--      </div>-->
+<!--</section>-->
 
 
 <!-- Curve SVG  start-->

@@ -1,5 +1,5 @@
 
-<section class="isUserNotLogin h-75 h-lg-100 container" *ngIf="!isUserLoggedIn">
+<section class="isUserNotLogin h-75 h-lg-100 container" *ngIf="(isLoggedIn$ | async) === false">
   <div class="card mx-auto shadow bg-white border-0">
     <div class="card-body">
       <div class="card-title">
@@ -16,7 +16,3 @@
 </section>
 
 
-
-<div *ngIf="!isUserLoggedIn">
-
-</div>

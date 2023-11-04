@@ -10,7 +10,7 @@ Description,
 Profile Picture
 -->
 
-<section class="profileTemplate container">
+<section class="profileTemplate container" *ngIf="storeCompanyDataByRole">
   <div class="card border-0">
     <div class="banner w-100 d-flex justify-content-around">
       <span></span>
@@ -26,13 +26,13 @@ Profile Picture
   </div>
   <div class="card border-0">
     <div class="profilePic d-flex w-100">
-      <img class="img img-thumbnail mx-auto shadow border-0" src="" />
+      <img class="img img-thumbnail mx-auto shadow border-0" src="{{storeCompanyDataByRole.profilePic}}" />
     </div>
     <div class="companyName d-flex">
-      <h3 class="mx-auto mt-2">Name</h3>
+      <h3 class="mx-auto mt-2">{{storeCompanyDataByRole.companyName}}</h3>
     </div>
     <div class="companyType d-flex">
-      <p class="mx-auto">type</p>
+      <p class="mx-auto">{{storeCompanyDataByRole.companyType}}</p>
     </div>
   </div>
   <div class="card border-0 d-flex userInfo">
@@ -40,17 +40,17 @@ Profile Picture
       <div class=" col-lg-6">
         <div class="p-2 mt-3">
           <div class=" text-start">
-            <p><i class="bi bi-envelope-fill mx-2"></i>email</p>
+            <p><i class="bi bi-envelope-fill mx-2"></i>{{storeCompanyDataByRole.companyEmail}}</p>
             <br>
-            <p><i class="bi bi-phone-fill mx-2"></i>contact</p>
+            <p><i class="bi bi-phone-fill mx-2"></i>{{storeCompanyDataByRole.contactNum}}</p>
           </div>
         </div>
       </div>
       <div class="col-6 col-lg-6">
         <div class="p-2 mt-3">
-          <p class="card-text "><i class="bi bi-geo-alt-fill mx-2"></i>location</p>
+          <p class="card-text "><i class="bi bi-geo-alt-fill mx-2"></i>{{storeCompanyDataByRole.companyLocation}}</p>
           <br>
-          <p><i class="bi bi-globe-asia-australia mx-2"></i>country</p>
+          <p><i class="bi bi-globe-asia-australia mx-2"></i>{{storeCompanyDataByRole.countryName}}</p>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@ Profile Picture
   <div class="card description border-0 w-100 mt-4 p-3">
     <h3 class="card-title mt-2"><i class="bi bi-bricks mx-2"></i>Description</h3>
     <p class="card-text text-justify p-3">
-
+      {{storeCompanyDataByRole.companyDescription}}
     </p>
   </div>
   <div class="buttons d-flex justify-content-center pt-2 gap-3">

@@ -6,6 +6,8 @@ import { CountryService } from 'src/services/country.service';
 import {FormValidation} from "../../validators/form-validation";
 import {RegisterCompanyService} from "../../../services/register-company.service";
 import {RegisterCompany} from "../../models/register-company.model";
+import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 
 // declare var $: any; // for JQUERY use
@@ -28,7 +30,9 @@ export class CompanyRegComponent implements OnInit{
   constructor(
   private apiCompanyService:CompanyService,
   private apiCountryService:CountryService,
-  private apiRegisterCompany:RegisterCompanyService
+  private apiRegisterCompany:RegisterCompanyService,
+  private toastr : ToastrService,
+  private router : Router
   ) {
     this.registerCompanyModel = new RegisterCompany();
     this.apiRegComp = apiRegisterCompany; //dependency injections
@@ -50,6 +54,8 @@ registerCompany(){
     if(res.isSuccess){
       this.displayMsg = res.message;
       this.isAccountCreated = true;
+      this.toastr.success('Registration Successful');
+      this.router.navigate(['login']);
     } else if (res == 'AlreadyExist'){
       this.displayMsg = 'Already Exist. Try another Email.';
       this.isAccountCreated = false;

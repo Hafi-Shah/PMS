@@ -32,6 +32,9 @@
             <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.email.errors?.['email'] && (formValidation.email.touched || formValidation.email.dirty)">
               Email is invalid
             </div>
+            <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.email.errors?.['pattern'] && (formValidation.email.touched || formValidation.email.dirty)">
+              Use complete format
+            </div>
             <label class="mx-2">Enter Password</label>
             <input formControlName="companyPassword" id="companyPassword" type="password" class="form-control mb-2 p-2" required>
             <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.password.errors?.['required'] && (formValidation.password.touched || formValidation.password.dirty)">
@@ -65,7 +68,7 @@
             <div class="form-text text-danger mb-1 mx-2" *ngIf="formValidation.description.errors?.['maxlength'] && (formValidation.description.touched || formValidation.description.dirty)">
               Description is long - must not exceed 400 character
             </div>
-            <label class="mx-2 mt-4">Enter Company Location</label>
+            <label class="mx-2 mt-4">Enter City</label>
             <input formControlName="companyLocation" id="companyLocation" type="text" class="form-control p-2" required>
             <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.location.errors?.['required'] && (formValidation.location.touched || formValidation.location.dirty)">
               company location required
