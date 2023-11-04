@@ -7,20 +7,23 @@ import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { LayoutRoutingModule } from './layout/layout-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {AnnouncementModule} from "./layout/announcement/announcement.module";
 import { ToastrModule } from 'ngx-toastr';
 import {TokenInterceptor} from "./core/interceptors/token.interceptor";
 import {MatSelect, MatSelectModule} from "@angular/material/select";
 import { UpdateCompanyPopupComponent } from './shared/update-company-popup/update-company-popup.component';
+import { DeleteAccountPopupComponent } from './shared/delete-account-popup/delete-account-popup.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UpdateCompanyPopupComponent
+    UpdateCompanyPopupComponent,
+    DeleteAccountPopupComponent
 
   ],
   imports: [
@@ -35,7 +38,9 @@ import { UpdateCompanyPopupComponent } from './shared/update-company-popup/updat
     BrowserAnimationsModule,
     AnnouncementModule,
     ToastrModule.forRoot(),
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

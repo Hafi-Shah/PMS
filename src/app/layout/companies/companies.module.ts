@@ -7,6 +7,8 @@ import {ViewCompanyProfileModule} from "./view-company-profile/view-company-prof
 import {CompanyRoutingModule} from "./companies-routing.module";
 import {FormsModule} from "@angular/forms";
 import {FilterPipe} from "../../core/pipes/filter.pipe";
+import {LayoutModule} from "../layout.module";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -27,7 +29,7 @@ import {FilterPipe} from "../../core/pipes/filter.pipe";
     CompanyRoutingModule,
     ViewCompanyProfileModule,
     FormsModule,
-
+    MatDialogModule,
   ],
   exports: [
     CompaniesComponent,

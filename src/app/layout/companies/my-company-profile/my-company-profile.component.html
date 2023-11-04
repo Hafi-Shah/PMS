@@ -64,7 +64,7 @@ Profile Picture
   <div class="buttons d-flex justify-content-center pt-2 gap-3">
     <button class="btn btn-outline-secondary" routerLink="/companies">Go Back</button>
     <button class="btn btn-primary" routerLink="/announcement">Announce job</button>
-    <button class="btn btn-success" >Update Account</button>
-    <button class="btn btn-danger" >Delete Account</button>
+    <button class="btn btn-success" (click)="updateDialog()" >Update Account</button>
+    <button class="btn btn-danger" (click)="deletDialog()">Delete Account</button>
   </div>
 </section>

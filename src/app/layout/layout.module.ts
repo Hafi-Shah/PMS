@@ -6,13 +6,14 @@ import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
 import { LayoutRoutingModule } from './layout-routing.module';
-//import { HomeModule } from './home/home.module';
+
 import { CompaniesModule } from './companies/companies.module';
 import { FeedModule } from './feed/feed.module';
 import { MyProfileModule } from './my-profile/my-profile.module';
 import {ViewCompanyProfileModule} from "./companies/view-company-profile/view-company-profile.module";
-import {MyCompanyProfileModule} from "./my-company-profile/my-company-profile.module";
+import {MyCompanyProfileModule} from "./companies/my-company-profile/my-company-profile.module";
 import {ToastrModule} from "ngx-toastr";
+
 
 
 
@@ -32,7 +33,6 @@ import {ToastrModule} from "ngx-toastr";
     CommonModule,
     RouterModule,
     LayoutRoutingModule,
-    
     CompaniesModule,
     FeedModule,
     MyProfileModule,

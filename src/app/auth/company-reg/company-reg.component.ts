@@ -55,7 +55,7 @@ registerCompany(){
       this.displayMsg = res.message;
       this.isAccountCreated = true;
       this.toastr.success('Registration Successful');
-      this.router.navigate(['login']);
+      this.router.navigate(['auth/login']);
     } else if (res == 'AlreadyExist'){
       this.displayMsg = 'Already Exist. Try another Email.';
       this.isAccountCreated = false;

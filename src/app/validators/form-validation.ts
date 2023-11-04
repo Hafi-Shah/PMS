@@ -20,7 +20,8 @@ export class FormValidation {
 
       companyDescription : new FormControl("",[
         Validators.required,
-        Validators.max(400)
+        Validators.max(400),
+        Validators.pattern(/^[a-zA-Z][a-zA-Z0-9]*$/),
         ]),
 
       companyEmail: new FormControl("", [
