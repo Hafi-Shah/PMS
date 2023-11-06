@@ -9,7 +9,7 @@ import { LayoutRoutingModule } from './layout/layout-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {AnnouncementModule} from "./layout/announcement/announcement.module";
+import {AnnouncementModule} from "./layout/companies/my-company-profile/announcement/announcement.module";
 import { ToastrModule } from 'ngx-toastr';
 import {TokenInterceptor} from "./core/interceptors/token.interceptor";
 import {MatSelect, MatSelectModule} from "@angular/material/select";
@@ -40,7 +40,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     ToastrModule.forRoot(),
     MatSelectModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

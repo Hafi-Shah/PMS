@@ -6,7 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 
 import { UserRegComponent } from './auth/user-reg/user-reg.component';
 import { CompanyRegComponent } from './auth/company-reg/company-reg.component';
-import {AnnouncementComponent} from "./layout/announcement/announcement.component";
+import {AnnouncementComponent} from "./layout/companies/my-company-profile/announcement/announcement.component";
 
 
 

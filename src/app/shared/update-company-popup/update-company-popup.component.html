@@ -7,7 +7,7 @@
       </p>
       <div class="col-md-6 mt-3">
         <label class="mx-2">Enter Company Name</label>
-        <input formControlName="companyName" id="companyName" type="text" class="form-control mt-1 mb-2 p-2" required>
+        <input [(ngModel)]="storedData.companyName" formControlName="companyName" id="companyName" type="text" class="form-control mt-1 mb-2 p-2" required>
         <div class="form-text text-danger mb-1 mx-2" *ngIf="formValidation.name.errors?.['required'] && (formValidation.name.touched || formValidation.name.dirty)">
           Company Name is required
         </div>
@@ -18,14 +18,15 @@
           Name should start with alphabet
         </div>
         <label class="mx-2">Select Company type</label>
-        <select formControlName="companyType" id="companyType" class="w-100 mb-2 p-2" data-placeholder="Select Company Type">
+        <select [(ngModel)]="storedData.companyType" formControlName="companyType" id="companyType" class="w-100 mb-2 p-2" required>
           <option *ngFor="let companyType of companyTypes" [value]="companyType.id">{{ companyType.name }}</option>
         </select>
+
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.type.errors?.['required'] && (formValidation.type.touched || formValidation.type.dirty)">
           Company type required
         </div>
         <label class="mx-2">Enter Email</label>
-        <input formControlName="companyEmail" id="companyEmail" type="email" class="form-control mb-2 p-2" required>
+        <input [(ngModel)]="storedData.companyEmail" formControlName="companyEmail" id="companyEmail" type="email" class="form-control mb-2 p-2" required>
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.email.errors?.['required'] && (formValidation.email.touched || formValidation.email.dirty)">
           Email required
         </div>
@@ -44,7 +45,7 @@
           password length should be (minimum 6)
         </div>
         <label class="mx-2">Enter Contact No</label>
-        <input formControlName="contactNo" id="contactNo" type="tel" class="form-control mb-3 p-2" required>
+        <input [(ngModel)]="storedData.contactNum" formControlName="contactNo" id="contactNo" type="tel" class="form-control mb-3 p-2" required>
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.contactNumber.errors?.['required'] && (formValidation.contactNumber.touched || formValidation.contactNumber.dirty)">
           contactNo Required
         </div>
@@ -61,7 +62,7 @@
 
       <div class="col-md-6 mt-3">
         <label class="mx-2 mt-1">Enter Company Description</label>
-        <textarea formControlName="companyDescription" id="companyDescription"  placeholder="(Max - 400 Characters)" class="form-control" rows="6" required></textarea>
+        <textarea [(ngModel)]="storedData.companyDescription" formControlName="companyDescription" id="companyDescription"  placeholder="(Max - 400 Characters)" class="form-control" rows="6" required></textarea>
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.description.errors?.['required'] && (formValidation.description.touched || formValidation.description.dirty)">
           Description required
         </div>
@@ -72,15 +73,15 @@
           Description is long - must not exceed 400 character
         </div>
         <label class="mx-2 mt-4">Enter City</label>
-        <input formControlName="companyLocation" id="companyLocation" type="text" class="form-control p-2" required>
+        <input [(ngModel)]="storedData.companyLocation" formControlName="companyLocation" id="companyLocation" type="text" class="form-control p-2" required>
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.location.errors?.['required'] && (formValidation.location.touched || formValidation.location.dirty)">
           company location required
         </div>
         <div class="row">
           <div class="col-md-5">
             <label class="mx-2 mt-3">Select Country</label>
-            <select formControlName="country" id="country" class="w-100 mb-3 p-2" required>
-              <option *ngFor="let country of countries" [value]="country.id" >{{ country.name }}</option>
+            <select [(ngModel)]="storedData.countryName" formControlName="country" id="country" class="w-100 mb-3 p-2" required>
+              <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
             </select>
             <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.country.errors?.['required'] && (formValidation.country.touched || formValidation.country.dirty)">
               Country required
@@ -89,8 +90,8 @@
           <div class="col-md-7">
 
             <div class="custom-file mt-3">
-              <label class="custom-file-label mt-2">Choose Profile Pic with equal size</label>
-              <input formControlName="selectImg" id="selectImg" (change)="onFileSelected($event)" type="file" class="custom-file-input w-100" required accept="image/png, image/jpeg">
+              <label class="custom-file-label mt-3">Profile Pic with equal size</label>
+              <input [(ngModel)]="storedData.profilePic" formControlName="selectImg" id="selectImg" (change)="onFileSelected($event)" type="file" class="custom-file-input w-100" required accept="image/png, image/jpeg" [disabled]="true">
             </div>
             <div class="form-text text-danger mb-2 mt-3 mx-2" *ngIf="formValidation.profileImg.errors?.['required'] && (formValidation.profileImg.touched || formValidation.profileImg.dirty)">
               equal size image required

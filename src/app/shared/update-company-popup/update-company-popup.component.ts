@@ -8,6 +8,7 @@ import {CompanyService} from "../../../services/company.service";
 import {CountryService} from "../../../services/country.service";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
+import {ViewCompanyDetailsModel} from "../../models/view-company-details.model";
 
 @Component({
   selector: 'app-update-company-popup',
@@ -22,18 +23,41 @@ export class UpdateCompanyPopupComponent implements OnInit{
   formValidation:FormValidation = new FormValidation();
   registerCompanyModel:RegisterCompany;
   apiRegComp:RegisterCompanyService;
+  userId: number = 0;
 
+  storedData: ViewCompanyDetailsModel = {
+    companyId: 0,
+    companyName: '',
+    companyType: '',
+    companyDescription: '',
+    companyEmail: '',
+    contactNum: '',
+    companyLocation: '',
+    countryName: '',
+    profilePic: '',
+    password: '',
+  };
   constructor(
     private apiCompanyService:CompanyService,
     private apiCountryService:CountryService,
     private apiRegisterCompany:RegisterCompanyService,
     private toastr : ToastrService,
-    private router : Router
+    private router : Router,
+    private getCompanyDetailsSerivce : CompanyService
   ) {
     this.registerCompanyModel = new RegisterCompany();
     this.apiRegComp = apiRegisterCompany; //dependency injections
+    const storedUserId = localStorage.getItem('userId');
+    this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
+
   }
 
+  getLoggedInDetail() {
+    this.getCompanyDetailsSerivce.getCompanyDetails(this.userId).subscribe(res => {
+      this.storedData = res;
+      console.log(this.storedData);
+    });
+  }
 
 
   registerCompany(){
@@ -95,5 +119,7 @@ export class UpdateCompanyPopupComponent implements OnInit{
   ngOnInit() {
     this.getCompanyTypes();
     this.getCountries();
+    this.getLoggedInDetail();
+
   }
 }

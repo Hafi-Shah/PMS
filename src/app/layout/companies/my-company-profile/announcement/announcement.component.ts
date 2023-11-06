@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {SkillsService} from "../../../services/skills.service";
-import {SkillsModel} from "../../models/Skills.model";
+import {SkillsService} from "../../../../../services/skills.service";
+import {SkillsModel} from "../../../../models/Skills.model";
 import {FormBuilder, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
-import {AnnouncementModel} from "../../models/announcement.model";
+import {AnnouncementModel} from "../../../../models/announcement.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Observable, of} from "rxjs";
-import {AuthService} from "../../../services/auth.service";
-import {GetDataByRoleCompany} from "../../models/role-base-data.model";
-import {CompanyService} from "../../../services/company.service";
+import {AuthService} from "../../../../../services/auth.service";
+import {GetDataByRoleCompany} from "../../../../models/role-base-data.model";
+import {CompanyService} from "../../../../../services/company.service";
 
 @Component({
   selector: 'app-announcement',

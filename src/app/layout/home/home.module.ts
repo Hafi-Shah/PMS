@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { ViewUserProfileComponent } from './view-user-profile/view-user-profile.component';
+import {ViewCompanyProfileModule} from "../companies/view-company-profile/view-company-profile.module";
 
 
 const routes: Routes = [
@@ -13,11 +14,14 @@ const routes: Routes = [
   },
 ];
 
+
 @NgModule({
-  declarations: [HomeComponent, ViewUserProfileComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes) // Import the RouterModule here
+    RouterModule.forChild(routes), // Import the RouterModule here
+      ViewCompanyProfileModule
+
   ]
 })
 export class HomeModule { }

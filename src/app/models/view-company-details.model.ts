@@ -8,4 +8,8 @@ export interface ViewCompanyDetailsModel {
   companyLocation: string ;
   countryName: string;
   profilePic: string;
+  password: string;
 }
+
+
+

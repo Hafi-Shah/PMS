@@ -1,0 +1,117 @@
+*:focus {
+    box-shadow: none;
+    font-family: poppin med;
+}
+a {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.navbar-brand {
+    background: #ffd737;
+    font-family: "poppin bold";
+}
+.focusMe:focus, .focusMe:hover {
+    background: #ffd737;
+}
+
+.btns button{
+    border: 1px solid #ffd737;
+    color: white;
+    border-radius: 0;
+}
+
+.btns .hire {
+    background: #ffd737;
+}
+.btns .hire:hover {
+    background: #e1be00;
+    border-color:#e1be00;
+}
+
+.btns .home:hover {
+    background: #ffd737;
+}
+.cover-section {
+    margin-top: 11vh;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.cover-section .cover {
+    min-height: 82vh;
+    border-radius: 10px;
+}
+.cover-section h1 {
+    font-family: poppin bold;
+    font-size: 3rem;
+}
+.cover-section .f-name {
+    line-height: 50px;
+    color: white;
+}
+.cover-section .l-name {
+    letter-spacing: 2px;
+    color: #ffd737;
+    padding-bottom: 10px;
+    border-bottom: 5px solid #ffd737;
+}
+.cover {
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+}
+.cover-section .job-title {
+    color: #e1e1e1;
+    letter-spacing: 5px;
+}
+.cover-section .yearly-exp {
+    background: #ffd737;
+    color: #171717;
+    font-family: poppin bold;
+}
+
+.section-layuot {
+    margin-top: 4vh;
+    min-height: 91vh;
+}
+.about-section {
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.about-section .profile img {
+    width: auto;
+    height: 200px;
+    transform: translateX(200px);
+}
+.about-section .card {
+    margin-top: 25vh;
+    transform: translateX(-200px);
+    border-radius: 0px;
+    & h2 {font-family: poppin bold;}
+    & button {
+        background: #ffd62a;
+        color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 0;
+    }
+    & button:hover {
+        background: #e1be00;
+        color: white;
+    }
+    & p {
+        font-family: poppin med;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+}
+
+
+
+@media only screen and (max-width: 1234px) {
+    .about-section .profile img {
+        transform: translateX(0px);
+    }
+    .about-section .card {
+        margin-top: 20vh;
+        transform: translateX(0px);
+    }
+}

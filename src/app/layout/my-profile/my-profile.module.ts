@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import { MyProfileComponent } from './my-profile.component';
+import { MyUserProfileComponent } from './my-user-profile/my-user-profile.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
   },
 ];
 @NgModule({
-  declarations: [MyProfileComponent],
+  declarations: [MyProfileComponent, MyUserProfileComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
