@@ -19,8 +19,8 @@ const routes: Routes = [
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes), // Import the RouterModule here
-      ViewCompanyProfileModule
+    RouterModule.forChild(routes) // Import the RouterModule here
+
 
   ]
 })

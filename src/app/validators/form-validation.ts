@@ -18,11 +18,12 @@ export class FormValidation {
         Validators.required
       ]),
 
-      companyDescription : new FormControl("",[
+      companyDescription: new FormControl("", [
         Validators.required,
-        Validators.max(400),
-        Validators.pattern(/^[a-zA-Z][a-zA-Z0-9]*$/),
-        ]),
+        Validators.maxLength(400),  // Use `maxLength` instead of `max`
+        Validators.pattern(/^[a-zA-Z][a-zA-Z0-9\s().,]*[a-zA-Z0-9\s.]$/),
+
+      ]),
 
       companyEmail: new FormControl("", [
         Validators.required,

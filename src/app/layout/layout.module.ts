@@ -13,6 +13,7 @@ import { MyProfileModule } from './my-profile/my-profile.module';
 import {ViewCompanyProfileModule} from "./companies/view-company-profile/view-company-profile.module";
 import {MyCompanyProfileModule} from "./companies/my-company-profile/my-company-profile.module";
 import {ToastrModule} from "ngx-toastr";
+import {HomeModule} from "./home/home.module";
 
 
 
@@ -35,6 +36,7 @@ import {ToastrModule} from "ngx-toastr";
     LayoutRoutingModule,
     CompaniesModule,
     FeedModule,
+    HomeModule,
     MyProfileModule,
     ViewCompanyProfileModule,
     MyCompanyProfileModule,

@@ -1,5 +1,5 @@
 export class GetDataByRoleCompany {
-  UserId : number = 0;
+  //UserId : number = 0;
   companyName : string  = '';
   companyType : string = '';
   companyLocation : string = '';
@@ -8,6 +8,7 @@ export class GetDataByRoleCompany {
   companyEmail : string = '';
   contactNum : string = '';
   profilePic : string = '';
+  password : string = '';
 }
 
 export class GetDataByRoleUser {

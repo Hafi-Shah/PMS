@@ -76,7 +76,6 @@ registerCompany(){
       console.log(reader.result);
       // debugger;
       this.registerCompanyModel.profilePic = reader.result as string;
-      // Here, you can use the `bytes` array as your byte array representation of the image
 
     };
     reader.readAsArrayBuffer(file);

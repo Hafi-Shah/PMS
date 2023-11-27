@@ -21,13 +21,12 @@ export class NavbarComponent {
 
     // Retrieve userId and role from localStorage
     const storedUserId = localStorage.getItem('userId');
-    const storedRole = localStorage.getItem('role');
-
-    // Parse userId to a number
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
 
-    // Set the role
+    const storedRole = localStorage.getItem('role');
     this.role = storedRole ? storedRole : '';
+
+
   }
 
   assignRole() {

@@ -34,7 +34,10 @@ export class MyCompanyProfileComponent implements OnInit{
 
   updateDialog() {
     const dialogRef = this.dialog.open(UpdateCompanyPopupComponent, {
-      width: '950px', // Set your desired width here
+      width: '950px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+       this.ngOnInit();
     });
   }
 
@@ -46,9 +49,7 @@ export class MyCompanyProfileComponent implements OnInit{
 
 
 ngOnInit() {
-    debugger;
   this.getDataByRole();
-
   }
 
 }

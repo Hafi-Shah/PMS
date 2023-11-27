@@ -1,8 +1,8 @@
 <section class="container mb-5">
-  <form class="pt-3" [formGroup]="formValidation.registrationForm" (ngSubmit)="registerCompany()">
+  <form class="pt-3" [formGroup]="formValidation.registrationForm" (ngSubmit)="updateCompany()">
     <div class="row m-4 shadow p-2 form-box">
       <h5 class="text-center mt-3 mb-3">Update Your Company Profile</h5>
-      <p class="text-center p-2" [ngClass]="isAccountCreated ? 'text-white bg-success d-block' : 'text-danger d-block'">
+      <p class="text-center p-2" [ngClass]="isAccountUpdated ? 'text-white bg-success d-block' : 'text-danger d-block'">
         {{displayMsg}}
       </p>
       <div class="col-md-6 mt-3">
@@ -17,14 +17,22 @@
         <div class="form-text text-danger mb-1 mx-2" *ngIf="formValidation.name.errors?.['pattern'] && (formValidation.name.touched || formValidation.name.dirty)">
           Name should start with alphabet
         </div>
-        <label class="mx-2">Select Company type</label>
+        <label class="mx-2 mt-3">Select Company Type</label>
         <select [(ngModel)]="storedData.companyType" formControlName="companyType" id="companyType" class="w-100 mb-2 p-2" required>
-          <option *ngFor="let companyType of companyTypes" [value]="companyType.id">{{ companyType.name }}</option>
+          <option *ngFor="let companyType of companyTypes" [value]="companyType.name">{{ companyType.name }}</option>
         </select>
 
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.type.errors?.['required'] && (formValidation.type.touched || formValidation.type.dirty)">
           Company type required
         </div>
+
+
+        <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.type.errors?.['required'] && (formValidation.type.touched || formValidation.type.dirty)">
+          Company type required
+        </div>
+
+
+
         <label class="mx-2">Enter Email</label>
         <input [(ngModel)]="storedData.companyEmail" formControlName="companyEmail" id="companyEmail" type="email" class="form-control mb-2 p-2" required>
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.email.errors?.['required'] && (formValidation.email.touched || formValidation.email.dirty)">
@@ -37,7 +45,7 @@
           Use complete format
         </div>
         <label class="mx-2">Enter Password</label>
-        <input formControlName="companyPassword" id="companyPassword" type="password" class="form-control mb-2 p-2" required>
+        <input [(ngModel)]="storedData.companyPassword" formControlName="companyPassword" id="companyPassword" type="password" class="form-control mb-2 p-2" required>
         <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.password.errors?.['required'] && (formValidation.password.touched || formValidation.password.dirty)">
           password required (minimum 6)
         </div>
@@ -81,17 +89,17 @@
           <div class="col-md-5">
             <label class="mx-2 mt-3">Select Country</label>
             <select [(ngModel)]="storedData.countryName" formControlName="country" id="country" class="w-100 mb-3 p-2" required>
-              <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+              <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
             </select>
             <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.country.errors?.['required'] && (formValidation.country.touched || formValidation.country.dirty)">
               Country required
             </div>
           </div>
-          <div class="col-md-7">
 
+          <div class="col-md-7">
             <div class="custom-file mt-3">
               <label class="custom-file-label mt-3">Profile Pic with equal size</label>
-              <input [(ngModel)]="storedData.profilePic" formControlName="selectImg" id="selectImg" (change)="onFileSelected($event)" type="file" class="custom-file-input w-100" required accept="image/png, image/jpeg" [disabled]="true">
+              <input formControlName="selectImg" id="selectImg" (change)="onFileSelected($event)" type="file" class="custom-file-input w-100" required accept="image/png, image/jpeg" [disabled]="true">
             </div>
             <div class="form-text text-danger mb-2 mt-3 mx-2" *ngIf="formValidation.profileImg.errors?.['required'] && (formValidation.profileImg.touched || formValidation.profileImg.dirty)">
               equal size image required
@@ -99,7 +107,8 @@
           </div>
         </div>
       </div>
-      <button class="btn w-100 mb-2 mt-3" type="submit" [disabled]="formValidation.registrationForm.invalid" >Update Your Account</button>
+      <button class="btn w-100 mb-2 mt-3" mat-dialog-close type="submit" [disabled]="isFormInvalid()">Update Your Account</button>
+
     </div>
 
   </form>

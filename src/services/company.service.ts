@@ -24,9 +24,9 @@ export class CompanyService {
     return this.http.get(url);
   }
 
-  getCompanyDetails(companyId : number):Observable<ViewCompanyDetailsModel>{
+  getCompanyDetails(companyId : number):Observable<any>{
     let url : string = (environment.basePath).concat(ApiPath.VIEW_COMPANY_DETAILS).concat(`/${companyId}`);
-    return this.http.get<ViewCompanyDetailsModel>(url);
+    return this.http.get<any>(url);
   }
 
 
