@@ -14,12 +14,12 @@ export class AuthGuard implements CanLoad {
               private toastr : ToastrService
   ) {}
 
-  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+  canLoad(): Observable<boolean> | Promise<boolean> | boolean {
     if (this.auth.isLoggedIn()) {
       return true; // Allow loading of the lazy-loaded module
     } else {
       // Redirect to login or any other page
-      this.toastr.error("Please login first");
+      //this.toastr.error("Please login first");
       this.router.navigate(['home'])
       return false;
     }

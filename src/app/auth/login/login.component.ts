@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
           this.loginForm.reset();
           this.apiLoginService.storeToken(res.token);
           this.toastr.success('Login Successful', 'Success');
+          localStorage.setItem('password',this.userLoginModel.Password);
           this.router.navigate(['/home']);
         },
         error => {

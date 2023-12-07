@@ -4,7 +4,6 @@ import { DeleteService } from "../../../services/delete.service";
 import { ToastrService } from "ngx-toastr";
 import { MatDialogRef } from "@angular/material/dialog";
 
-
 @Component({
   selector: 'app-delete-account-popup',
   templateUrl: './delete-account-popup.component.html',
@@ -13,6 +12,8 @@ import { MatDialogRef } from "@angular/material/dialog";
 export class DeleteAccountPopupComponent {
   userId: number = 0;
   role: string = '';
+  password: string = '';
+
   deleteForm: FormGroup;
 
   constructor(
@@ -33,25 +34,24 @@ export class DeleteAccountPopupComponent {
         Validators.minLength(6)
       ]]
     });
-
   }
 
   onDelete() {
     const password = this.deleteForm.get('companyPassword')?.value;
     this.deleteService.onDelete(this.userId, this.role, password).subscribe({
       next: (res: any) => {
-        console.log(res)
-        if (res.success === true) {
+        console.log(res);
+        if (res.success === true && password === localStorage.getItem('password')) {
           this.dialogRef.close({ success: true });
           this.deleteService.onPageReload();
         } else {
-          this.toastr.error('Account deletion failed. Please try again.');
+          this.toastr.warning('Invalid Credential. Please try again.');
           this.dialogRef.close({ success: false });
         }
       },
       error: (error) => {
         console.error('API Error:', error);
-        this.toastr.warning('Invalid Credential or Server Error');
+        this.toastr.warning('Server Error');
         this.dialogRef.close({ success: false });
       },
     });

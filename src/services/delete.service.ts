@@ -3,8 +3,8 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../environments/environment.development";
 import { ApiPath } from "../app/core/constants/api-url.constant";
 import { Observable } from "rxjs";
-import {ToastrService} from "ngx-toastr";
-import {Router} from "@angular/router";
+import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +18,18 @@ export class DeleteService {
 
   onDelete(userId: number, role: string, password: string): Observable<any> {
     let url = `${environment.basePath}${ApiPath.DELETE}?userId=${userId}&role=${role}&password=${password}`;
-        return this.http.post(url, {});
+    return this.http.post(url, {});
   }
 
-  onPageReload() {
+
+  onPageReload(): void {
     localStorage.clear();
-    this.router.navigate(['home']);
-    this.toastr.success('Account Deleted Successful','Delete');
+    sessionStorage.clear();
+    this.toastr.success('Account Deleted Successfully', 'Delete');
+
+    setTimeout(() => {
+      window.location.reload();
+      this.router.navigate(['home']);
+    }, 2000);
   }
 }
