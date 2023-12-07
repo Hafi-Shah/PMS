@@ -71,20 +71,8 @@ a {
     margin-top: 4vh;
     min-height: 91vh;
 }
-.about-section {
-    border-radius: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-.about-section .profile img {
-    width: auto;
-    height: 200px;
-    transform: translateX(200px);
-}
+
 .about-section .card {
-    margin-top: 25vh;
-    transform: translateX(-200px);
-    border-radius: 0px;
     & h2 {font-family: poppin bold;}
     & button {
         background: #ffd62a;
@@ -105,13 +93,74 @@ a {
 }
 
 
+.skills-section h1{
 
-@media only screen and (max-width: 1234px) {
-    .about-section .profile img {
-        transform: translateX(0px);
-    }
-    .about-section .card {
-        margin-top: 20vh;
-        transform: translateX(0px);
-    }
+    font-family: poppin bold;
+    font-size: 2rem;
+  color: #ffd62a;
 }
+
+.ball {
+  color:#ffd62a;
+  user-select: none;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 3px solid #ffd62a;
+  position: relative;
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  letter-spacing: 4px;
+  z-index: 1;
+  border-radius: 50px;
+  font-family: poppin bold;
+}
+
+/* The Span Wapper tag */
+.span-wrapper {
+  height: 100%;
+  position: absolute;
+  inset:0 -2px -4px 0;
+  overflow: hidden;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+/* The span tags */
+.span-wrapper span {
+  background-color:#ffd62a;
+  width: 30%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(1.8) translateY(125%) translateZ(0);
+  transition: all 1s ease;
+
+}
+
+/* The Three Individual Span Tag */
+.s1 {
+  left: -10%;
+  transition-delay: 0ms;
+  border-radius: 50px;
+}
+.s2 {
+  left: 30%;
+  transition-delay: 500ms;
+  border-radius: 50px;
+}
+.s3 {
+  left: 70%;
+  transition-delay: 800ms;
+  border-radius: 50px;
+}
+
+/* Hover State of the parent anchor tag */
+.ball:hover {
+  color: #fff;
+}
+
+.ball:hover .span-wrapper span {
+  transform: scale(1.7) translateY(0) translateZ(0);
+}
+

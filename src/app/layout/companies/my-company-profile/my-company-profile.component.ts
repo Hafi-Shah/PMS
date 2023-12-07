@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RoleService} from "../../../../services/role.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {GetDataByRoleCompany} from "../../../models/role-base-data.model";
 import {MatDialog} from "@angular/material/dialog";
 import {UpdateCompanyPopupComponent} from "../../../shared/update-company-popup/update-company-popup.component";
@@ -11,19 +11,20 @@ import {DeleteAccountPopupComponent} from "../../../shared/delete-account-popup/
   templateUrl: './my-company-profile.component.html',
   styleUrls: ['./my-company-profile.component.css']
 })
-export class MyCompanyProfileComponent implements OnInit{
+export class MyCompanyProfileComponent implements OnInit {
 
-  storeCompanyDataByRole : GetDataByRoleCompany | undefined;
+  storeCompanyDataByRole: GetDataByRoleCompany | undefined;
 
   constructor(private service: RoleService,
               private route: ActivatedRoute,
-              private dialog: MatDialog
+              private dialog: MatDialog,
+              private router: Router
   ) {
   }
 
 
-  getDataByRole(){
-    this.route.params.subscribe(param =>{
+  getDataByRole() {
+    this.route.params.subscribe(param => {
       debugger;
       this.service.loginByRoleCompany(param['UserId'], param['Role']).subscribe(res => {
         console.log(res);
@@ -37,19 +38,18 @@ export class MyCompanyProfileComponent implements OnInit{
       width: '950px',
     });
     dialogRef.afterClosed().subscribe(result => {
-       this.ngOnInit();
+      this.ngOnInit();
     });
   }
 
-  deletDialog(){
+  deleteDialog() {
     const dialogRef = this.dialog.open(DeleteAccountPopupComponent, {
-      width: '500px', // Set your desired width here
+      width: '500px',
     });
   }
 
-
-ngOnInit() {
-  this.getDataByRole();
+  ngOnInit() {
+    this.getDataByRole();
   }
 
 }

@@ -9,8 +9,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-//import {HTTP_INTERCEPTORS} from "@angular/common/http";
-//import {TokenInterceptor} from "../core/interceptors/token.interceptor";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {TokenInterceptor} from "../core/interceptors/token.interceptor";
 
 const routes: Routes = [
   {path: '', component: AuthComponent},
@@ -32,13 +32,13 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
-  // providers: [{
-  //   provide: HTTP_INTERCEPTORS,
-  //   useClass: TokenInterceptor,
-  //   multi: true
-  // }],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+   useClass: TokenInterceptor,
+    multi: true
+  }],
   exports: [AuthComponent]
 })
 export class AuthModule { }

@@ -8,4 +8,5 @@ export class ApiPath {
   static readonly LOGIN_BY_ROLE : string ='/api/UserDetailsByRole/GetDataByRole';
   static readonly GET_SKILLS : string = '/api/Skills/GetSkillsName';
   static readonly UPDATE_COMPANY_DATA : string = '/api/UpdateUserByRole/UpdateCompanyData';
+  static readonly DELETE : string = '/api/Delete';
 }

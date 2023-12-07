@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AnnouncementComponent} from "./announcement.component";
 import {RouterModule, Routes} from "@angular/router";
-import {MultiSelectAllModule} from "@syncfusion/ej2-angular-dropdowns";
+//import {MultiSelectAllModule} from "@syncfusion/ej2-angular-dropdowns";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -23,7 +23,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule,
-    MultiSelectAllModule,
+    //MultiSelectAllModule,
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,

@@ -1,92 +1,177 @@
 <section data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top" bsNavbar>
-  <div class="container-fluid">
-    <a class="navbar-brand">Hafi</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top" bsNavbar>
+    <div class="container-fluid">
+      <a class="navbar-brand">Hafi</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link mx-2 focusMe" (click)="scrollTo('me')" tabindex="0">Me</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-2 focusMe" (click)="scrollTo('about')" tabindex="0">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-2 focusMe" (click)="scrollTo('bio')" tabindex="0">Bio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link mx-2 focusMe" (click)="scrollTo('skills')" tabindex="0">Skills</a>
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('me')" tabindex="0">Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('about')" tabindex="0">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('bio')" tabindex="0">Bio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('skills')" tabindex="0">Skills</a>
+          </li>
+        </ul>
 
-      <div class="d-flex btns ms-auto"> <!-- Use ms-auto to move the buttons to the right -->
-        <button class="btn me-2 home text-white">Home</button>
-        <button class="btn me-2 hire">Hire User</button>
+        <div class="d-flex btns ms-auto"> <!-- Use ms-auto to move the buttons to the right -->
+          <button class="btn me-2 home text-white">Home</button>
+          <button class="btn me-2 hire">Hire User</button>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
   <section id="me" #me>
     <p class="text-white">0</p>
   </section>
-<section class="cover-section" >
-<!--  <div [style.background-image]="'url(' + img + ')'" class="container-fluid cover d-flex align-items-center justify-content-center bg-light">-->
-  <div style="background: url('../../../../assets/images/cover.jpg') no-repeat center; background-size: cover" class="container-fluid cover d-flex align-items-center justify-content-center bg-light">
-  <div class="position-relative text-center">
-    <h1 class="f-name">Syed Muhammad</h1>
-    <h1 class="l-name">Hafi</h1>
-    <p class="job-title">Software Engineer</p>
-    <p class="yearly-exp">5 + YEARS OF EXP</p>
-  </div>
-</div>
-</section>
-
-<section class="container-fluid section-layuot about-section bg-light" id="about" #about>
-  <div class="row">
-    <div class="col-lg-6 profile">
-      <div class="card bg-light border-0">
-        <div class="card-body d-flex justify-content-center ">
-          <img src="../../../../assets/images/avatar.png" class="img card-img " alt="">
-        </div>
-      </div>
-
-    </div>
-    <div class="col-lg-6">
-      <div class="card bg-white border-0 shadow">
-        <div class="card-body">
-          <h2 class="card-title mx-2">About Me</h2>
-          <p class="card-text p-2">Premium Vector | Autumn mountains landscape with tree silhouettes and river at sunset.
-            Opens a new tab Download this Premium Vector about Autumn mountains landscape with tree silhouettes and river at sunset., and discover more than 72 Million Professional Graphic Resources on Freepik. #freepik #vector #naturesilhouette
-            #mountainsilhouette #moutain than 72 Million Professionalthan 72 Million
-          </p>
-          <button class="btn me-2">Hire Me</button>
-        </div>
+  <section class="cover-section">
+    <!--  <div [style.background-image]="'url(' + img + ')'" class="container-fluid cover d-flex align-items-center justify-content-center bg-light">-->
+    <div style="background: url('../../../../assets/images/cover.jpg') no-repeat center; background-size: cover"
+         class="container-fluid cover d-flex align-items-center justify-content-center bg-light">
+      <div class="position-relative text-center">
+        <h1 class="f-name">Syed Muhammad</h1>
+        <h1 class="l-name">Hafi</h1>
+        <p class="job-title">Software Engineer</p>
+        <p class="yearly-exp">5 + YEARS OF EXP</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="container-fluid section-layout about-section bg-light" id="about" #about>
+    <div class="row align-items-center justify-content-center min-vh-100 p-4">
+      <div class="card bg-white border-0 p-2  shadow" style="max-width: 1000px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../../../../assets/images/avatar.png" class="img img-thumbnail m-4 p-5 rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title mx-2">About Me</h2>
+              <p class="card-text p-2">Premium Vector | Autumn mountains landscape with tree silhouettes and river at
+                sunset.
+                Opens a new tab Download this Premium Vector about Autumn mountains landscape with tree silhouettes and
+                river at sunset., and discover more than 72 Million Professional Graphic Resources on Freepik. #freepik
+                #vector #naturesilhouette
+                #mountainsilhouette #moutain than 72 Million Professionalthan 72 Million
+              </p>
+              <button class="btn me-2">Hire Me</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-<section class="section-layuot bio-section bg-info" id="bio" #bio>
-  <div class="">
-
-  </div>
-</section>
-
-
-  <section class="section-layuot skills-section bg-primary" id="skills" #skills>
-    <div class="">
+  <section class="section-layuot bio-section bg-info" id="bio" #bio>
+    <div class="row min-vh-100">
 
     </div>
   </section>
 
-</section>
 
+  <section class="section-layuot skills-section bg-white" id="skills" #skills>
+    <div class="container" style="max-width: 900px">
+      <div class="row min-vh-100">
+
+        <div>
+          <h1 class="text-center p-5">User Skills</h1>
+          <a class="ball btn mx-2 mt-3">
+            Angular
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+
+          <a class="ball btn mx-2 mt-3">
+            Dot Net Core
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+
+          <a class="ball btn mx-2 mt-3">
+            Spring Boot
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+
+          <a class="ball btn mx-2 mt-3">
+            Angular
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+
+          <a class="ball btn mx-2 mt-3">
+            Angular
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+
+          <a class="ball btn mx-2 mt-3">
+            Dot Net Core
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+          <a class="ball btn mx-2 mt-3">
+            Spring Boot
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+          <a class="ball btn mx-2 mt-3">
+            Dot Net Core
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+          <a class="ball btn mx-2 mt-3">
+            Java
+            <div class="span-wrapper">
+              <span class="s1"></span>
+              <span class="s2"></span>
+              <span class="s3"></span>
+            </div>
+          </a>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </section>
+
+</section>
 <footer class="bg-dark p-3">
   <h1 class="text-white">footer</h1>
 </footer>
-
-

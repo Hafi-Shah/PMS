@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from "@angular/forms";
-import {ToastrService} from "ngx-toastr";
-import {AuthService} from "../../../services/auth.service";
-import {Router} from "@angular/router";
-import {LoginModel, LoginResponse} from "../../models/login.model";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from "@angular/forms";
+import { ToastrService } from "ngx-toastr";
+import { AuthService } from "../../../services/auth.service";
+import { Router } from "@angular/router";
+import { LoginModel, LoginResponse } from "../../models/login.model";
 
 @Component({
   selector: 'app-login',
@@ -12,8 +12,8 @@ import {LoginModel, LoginResponse} from "../../models/login.model";
 })
 export class LoginComponent implements OnInit {
 
-  userLoginModel : LoginModel;
-  apiLoginService : AuthService;
+  userLoginModel: LoginModel;
+  apiLoginService: AuthService;
 
   loginForm = this.builder.group({
     Email: this.builder.control('', Validators.email),
@@ -21,16 +21,15 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(
-    private builder : FormBuilder,
-    private toastr : ToastrService,
-    private authService : AuthService,
-    private router : Router
+    private builder: FormBuilder,
+    private toastr: ToastrService,
+    private authService: AuthService,
+    private router: Router
   ) {
     this.userLoginModel = new LoginModel();
-    this.userLoginModel.Email = '';
-    this.userLoginModel.Password = '';
     this.apiLoginService = authService;
     sessionStorage.clear();
+    localStorage.clear();
   }
 
   loginUser() {
@@ -38,21 +37,23 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm.value);
       this.userLoginModel.Email = this.loginForm.value.Email!;
       this.userLoginModel.Password = this.loginForm.value.Password!;
-      this.apiLoginService.onLogin(this.userLoginModel).subscribe(res => {
-        console.log(res);
-        this.loginForm.reset();
-        this.apiLoginService.storeToken(res.token);
-        this.toastr.success('Login Successfully');
-        this.router.navigate(['/home']);
-      },
+      this.apiLoginService.onLogin(this.userLoginModel).subscribe(
+        res => {
+          console.log(res);
+          this.loginForm.reset();
+          this.apiLoginService.storeToken(res.token);
+          this.toastr.success('Login Successful', 'Success');
+          this.router.navigate(['/home']);
+        },
         error => {
-        this.toastr.error("Error occurred while login");
+          console.error(error);
+          this.toastr.error('Error occurred while logging in', 'Error');
         }
       );
     }
   }
 
   ngOnInit() {
-  this.loginUser();
+    // Remove this.loginUser(); from ngOnInit unless you want to automatically attempt login on component initialization.
   }
 }
