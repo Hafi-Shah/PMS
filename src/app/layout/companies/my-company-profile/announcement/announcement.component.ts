@@ -29,7 +29,7 @@ export class AnnouncementComponent implements OnInit{
 
   companyDetail : any;
   constructor(
-    private apiService : SkillsService,
+    private apiSkillsService : SkillsService,
     private builder : FormBuilder,
     private toastr : ToastrService,
     private route : ActivatedRoute,
@@ -39,19 +39,13 @@ export class AnnouncementComponent implements OnInit{
   ) {
     this.announcementModel = new AnnouncementModel();
     this.loggedInUserData = new  GetDataByRoleCompany();
-    this.isLoggedIn$ = of(this.authService.isLoggedIn()); // Assign the Observable value
+    this.isLoggedIn$ = of(this.authService.isLoggedIn());
 
 
-
-
-    // Retrieve userId and role from localStorage
     const storedUserId = localStorage.getItem('userId');
     const storedRole = localStorage.getItem('role');
 
-    // Parse userId to a number
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
-
-    // Set the role
     this.role = storedRole ? storedRole : '';
   }
 
@@ -72,7 +66,7 @@ export class AnnouncementComponent implements OnInit{
 
 
   getSkillsList(){
-    this.apiService.getSkillNames().subscribe((res:any) => {
+    this.apiSkillsService.getSkillNames().subscribe((res:any) => {
       this.skillsList = res;
     })
   }
@@ -92,8 +86,6 @@ export class AnnouncementComponent implements OnInit{
 
   onSubmitData(){
     if (this.validData.valid){
-      //subscribe data
-      debugger
       this.announcementModel.year = this.validData.value.year!;
       this.announcementModel.skills = this.validData.value.skills!;
       this.announcementModel.description = this.validData.value.description!;

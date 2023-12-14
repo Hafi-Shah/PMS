@@ -9,9 +9,6 @@ import {RegisterCompany} from "../../models/register-company.model";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
 
-
-// declare var $: any; // for JQUERY use
-
 @Component({
   selector: 'app-company-reg',
   templateUrl: './company-reg.component.html',
@@ -56,7 +53,7 @@ registerCompany(){
       this.isAccountCreated = true;
       this.toastr.success('Registration Successful');
       this.router.navigate(['auth/login']);
-    } else if (res == 'AlreadyExist'){
+    } else if (res.message == 'AlreadyExist'){
       this.displayMsg = 'Already Exist. Try another Email.';
       this.isAccountCreated = false;
     } else {
@@ -83,14 +80,14 @@ registerCompany(){
 
 
  getCompanyTypes(){
-    this.apiCompanyService.getCompanyTypes().subscribe((response:any)=>{
-    this.companyTypes = response;
+    this.apiCompanyService.getCompanyTypes().subscribe((res:any)=>{
+    this.companyTypes = res;
   })
  }
 
   getCountries() {
-    this.apiCountryService.getCountries().subscribe((response: any) => {
-      this.countries = response; // Assign the response to the 'countries' variable
+    this.apiCountryService.getCountries().subscribe((res: any) => {
+      this.countries = res;
     });
   }
 

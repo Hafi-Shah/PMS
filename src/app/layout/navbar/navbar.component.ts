@@ -10,16 +10,17 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
-  loggedInUser: LoginResponse | null = null;
   isLoggedIn$: Observable<boolean>; // Observable to track the login status
+
   userId: number = 0;
   role: string = '';
 
-  constructor(private service: AuthService, private router: Router) {
-    this.isLoggedIn$ = of(this.service.isLoggedIn()); // Assign the Observable value
+  constructor(private service: AuthService,
+              private router: Router
+  ) {
+    this.isLoggedIn$ = of(this.service.isLoggedIn());
 
-    // Retrieve userId and role from localStorage
+
     const storedUserId = localStorage.getItem('userId');
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
 
