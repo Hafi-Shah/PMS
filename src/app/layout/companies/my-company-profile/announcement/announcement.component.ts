@@ -97,11 +97,11 @@ export class AnnouncementComponent implements OnInit{
       console.log(this.announcementModel);
       this.toastr.success('Job Announced Successfully');
     } else {
-      this.toastr.warning('Please fill required data to make announcement');
+      this.toastr.warning('Please fill the required data to make announcement');
     }
   }
 
-  goBack():void{
+  goBack(){
     this.router.navigate(['my-company-profile', this.userId, this.role]);
   }
 

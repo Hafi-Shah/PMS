@@ -13,12 +13,12 @@
 }
 
 .select-box {
-  border-bottom: 1px solid #949494;
+  border: 1px solid #949494;
   border-radius:  5px;
-  background: #eeeeee;
+  background: #ffffff;
 }
 .select-box.invalid {
-    border-bottom: 1px solid red;
+    border: 1px solid red;
 }
 
 .select-box input::file-selector-button {

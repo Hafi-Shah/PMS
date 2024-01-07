@@ -23,6 +23,40 @@ Profile Picture
       <span></span>
       <span></span>
     </div>
+    <div class="d-flex setting justify-content-between">
+      <div routerLink="/home" class="back mt-3">
+        <i
+          style="font-size:1.2rem; cursor: pointer"
+          class="bi bi-arrow-left-square-fill mx-2"></i>
+        <span>Back</span>
+      </div>
+      <div class="back">
+        <span>Actions</span>
+      <button class="btn" mat-button [matMenuTriggerFor]="beforeMenu">
+        <i style="font-size:1.2rem; padding: 0 4px;"
+           class="bi bi-list rounded-1 text-white action">
+
+        </i>
+      </button>
+      <mat-menu #beforeMenu="matMenu" xPosition="before" class="gap-1">
+        <button
+          (click)="updateDialog()"
+          class="setting-btn border-0 btn text-primary p-2 mt-0 mx-auto rounded-0 w-100">
+          Update Account
+        </button>
+        <button
+          routerLink="/announcement"
+          class="setting-btn border-0 btn text-success p-2 mt-0 mx-auto rounded-0 w-100">
+          Announce Job
+        </button>
+        <button
+          (click)="deleteDialog()"
+          class="setting-btn border-0  btn text-danger p-2 mt-0 mx-auto rounded-0 w-100">
+          Delete Account
+        </button>
+      </mat-menu>
+    </div>
+    </div>
   </div>
   <div class="card border-0">
     <div class="profilePic d-flex w-100">
@@ -60,11 +94,5 @@ Profile Picture
     <p class="card-text text-justify p-3">
       {{storeCompanyDataByRole.companyDescription}}
     </p>
-  </div>
-  <div class="buttons d-flex justify-content-center pt-2 gap-3">
-    <button class="btn btn-outline-secondary" routerLink="/companies">Go Back</button>
-    <button class="btn btn-primary" routerLink="/announcement">Announce job</button>
-    <button class="btn btn-success" (click)="updateDialog()" >Update Account</button>
-    <button class="btn btn-danger" (click)="deleteDialog()">Delete Account</button>
   </div>
 </section>

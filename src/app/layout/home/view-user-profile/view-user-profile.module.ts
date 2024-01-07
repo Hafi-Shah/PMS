@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ViewUserProfileComponent} from "./view-user-profile.component";
-import {Routes} from "@angular/router";
+import {RouterLink, Routes} from "@angular/router";
 
 const routes: Routes = [
   {
@@ -13,8 +13,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ViewUserProfileComponent],
-  imports: [
-    CommonModule
-  ]
+    imports: [
+        CommonModule,
+        RouterLink
+    ]
 })
 export class ViewUserProfileModule { }

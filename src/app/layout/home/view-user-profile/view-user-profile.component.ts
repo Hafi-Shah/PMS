@@ -1,4 +1,5 @@
 import { Component, HostListener, ElementRef } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-view-user-profile',
@@ -18,7 +19,7 @@ export class ViewUserProfileComponent {
     { id: 'skills', label: 'Skills' },
   ];
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, private router: Router) {}
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -43,5 +44,9 @@ export class ViewUserProfileComponent {
       sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
       this.activeSection = sectionId;
     }
+  }
+
+  onRoute(path: any){
+    this.router.navigate([path]);
   }
 }

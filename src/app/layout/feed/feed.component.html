@@ -1,26 +1,29 @@
 <section class="search-form m-auto container pb-5">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search Feed">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button"><i class="bi bi-search-heart-fill"></i></button>
-        </div>
-      </div>
+  <div class="input-group mb-3">
+    <input [(ngModel)]="filteredString" type="text" class="form-control" placeholder="Search Feed">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="button"><i class="bi bi-search-heart-fill"></i></button>
+    </div>
+  </div>
 </section>
 
 
 <section class="feed-post mx-auto p-2">
 
+<!--  *ngFor="let card of CompanyCards | filter:filteredString:['companyName', 'companyType', 'country']"-->
   <div class="card border-0 shadow mb-4">
-      <div class="card-body">
-        <p class="card-text w-100 country">Pakistan</p>
-        <div class="d-flex profile">
+    <div class="card-body">
+      <p class="card-text w-100 country">Pakistan</p>
+      <div class="d-flex profile">
         <img src="../../../assets/images/avatar.png" alt="Profile Image" class="img img-thumbnail shadow">
-          <div class="d-block mx-3">
+        <div class="d-block mx-3">
           <h6 class="card-title">System Ltd</h6>
           <p class="card-text company-type">It Export Company</p>
-            <div class="job-description">
+          <div class="job-description">
             <p class="card-text text-justify w-100">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, sint corrupti ullam porro sequi unde? Explicabo eaque inventore veritatis sequi repudiandae doloremque accusantium, culpa minima quasi mollitia et, corporis in!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, sint corrupti ullam porro sequi unde?
+              Explicabo eaque inventore veritatis sequi repudiandae doloremque accusantium, culpa minima quasi mollitia
+              et, corporis in!
             </p>
             <p>Experience Required - 3+ yrs</p>
           </div>
@@ -32,9 +35,12 @@
             <p>.NetCore</p>
             <p>Nodejs</p>
           </div>
-          <div class="w-100 my-2">
-          <button class="btn float-sm-end float-sm-start apply px-4 py-1">Apply</button>
-        </div>
+          <div class="w-100 mt-2">
+            <button
+              *ngIf="(isLoggedIn$ | async) && roleBaseAccess.isRoleUserTrue()"
+              class="btn mx-1 float-sm-end float-sm-start apply px-4 py-1">Apply</button>
+            <button class="btn float-sm-end float-sm-start view px-4 py-1">View</button>
+          </div>
         </div>
       </div>
     </div>

@@ -12,35 +12,37 @@
                     <div class="row">
                         <div class="col-md-6">
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>First Name</mat-label>
                                 <input matInput type="text" formControlName="firstName" required>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Email</mat-label>
                                 <input matInput type="email" formControlName="email" required>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Contact</mat-label>
                                 <input matInput type="text" formControlName="contact" required>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Choose your job title</mat-label>
-                                <mat-select formControlName="jobTitle">
-                                    <mat-option value="Software Engineer">Software Engineer</mat-option>
-                                    <mat-option value="Web Developer">Web Developer</mat-option>
-                                    <mat-option value="Data Analyst">Data Analyst</mat-option>
+                                <mat-select  formControlName="jobTitle">
+                                    <mat-option *ngFor="let types of userTypeList" [value]="types.id">
+                                      {{ types.name }}
+                                    </mat-option>
                                 </mat-select>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>gender</mat-label>
                                 <mat-select formControlName="gender">
-                                    <mat-option value="Male">Male</mat-option>
-                                    <mat-option value="Female">Female</mat-option>
+                                    <mat-option *ngFor="let list of genderList" [value]="list.id">
+                                      {{list.name}}
+                                    </mat-option>
+
                                 </mat-select>
                             </mat-form-field>
 
@@ -48,45 +50,48 @@
 
                         <div class="col-md-6">
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Last Name</mat-label>
                                 <input matInput type="text" formControlName="lastName" required>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Password</mat-label>
                                 <input matInput type="password" formControlName="password" required>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Date of Birth</mat-label>
                                 <input matInput [matDatepicker]="dobPicker" formControlName="dob" required>
                                 <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
                                 <mat-datepicker #dobPicker></mat-datepicker>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Yearly Experience</mat-label>
                                 <input matInput type="number" formControlName="yearlyExp" required>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Status</mat-label>
                                 <mat-select formControlName="status">
-                                    <mat-option value="married">Married</mat-option>
-                                    <mat-option value="unmarried">Unmarried</mat-option>
+                                    <mat-option *ngFor="let status of maritalStatusList"
+                                                [value]="status.id">
+                                      {{status.name}}
+                                    </mat-option>
                                 </mat-select>
                             </mat-form-field>
 
                         </div>
 
                         <div class="col-md-12">
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>About</mat-label>
-                                <textarea formControlName="about" matInput placeholder="Maximum 400 words"></textarea>
+                                <textarea formControlName="about" matInput placeholder="Maximum 400 words">
+                                </textarea>
                             </mat-form-field>
 
-                            <mat-form-field class="w-100">
+                            <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Choose Your Skills</mat-label>
                                 <mat-select multiple formControlName="skills">
                                     <mat-option *ngFor="let skill of skillsList" [value]="skill.id">
@@ -121,9 +126,12 @@
                             </div>
                         </div>
 
+                      <div class="col-md-12">
+
                         <button type="submit" class="w-100">
                             Register
                         </button>
+                      </div>
 
                     </div>
 

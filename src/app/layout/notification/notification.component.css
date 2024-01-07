@@ -1,0 +1,38 @@
+.title {
+  font-family: poppin bold;
+  color: #565656;
+}
+.box {
+  border-radius: 10px;
+  background: #fff8e6;
+  transition: 0.3s;
+  max-width: 900px;
+  border: 1px solid #efefef;
+}
+.box:hover {
+  box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.22);
+  border-color: white;
+}
+img {
+  width: auto;
+  height: 70px;
+}
+.name{
+  font-family: poppin bold;
+  font-size: 1.3rem;
+  padding-top: 8px;
+  color: #565656;
+}
+.jobTitle {
+  color: #989898;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-family: poppin med;
+}
+.view {
+  background: #35B6C2;
+}
+.view:hover {
+  background: #2d9da6;
+}
+

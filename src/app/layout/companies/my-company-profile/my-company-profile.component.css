@@ -7,6 +7,20 @@
   height: 200px;
   border-radius: 10px;
 }
+.back{transition: 0.2s; cursor: pointer;}
+
+.back:hover {
+  color: #2b959e;
+}
+.setting-btn {
+  font-family: poppin med;
+}
+.setting-btn:hover {
+  background: rgba(127, 32, 217, 0.08)
+}
+.action{background: #484848
+}
+.action:hover {background: #2b959e;}
 .profileTemplate .banner span {
   height: 100px;
   border: 20px solid rgba(255, 255, 255, 0.14);
@@ -69,8 +83,4 @@ p {
   color: #6b6b6b;
   font-size: 1rem;
   line-height: 20px;
-}
-
-.buttons button {
-  width: 200px;
 }

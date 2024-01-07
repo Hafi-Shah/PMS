@@ -3,6 +3,7 @@ import { AuthService } from "../../../services/auth.service";
 import { Observable, of } from "rxjs";
 import { LoginResponse } from "../../models/login.model";
 import { Router } from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-navbar',
@@ -10,13 +11,15 @@ import { Router } from "@angular/router";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  isLoggedIn$: Observable<boolean>; // Observable to track the login status
+  isLoggedIn$: Observable<boolean>;
 
   userId: number = 0;
   role: string = '';
 
-  constructor(private service: AuthService,
-              private router: Router
+  constructor(
+    private service: AuthService,
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.isLoggedIn$ = of(this.service.isLoggedIn());
 
@@ -33,7 +36,7 @@ export class NavbarComponent {
   assignRole() {
     debugger;
     if (this.role === "user") {
-      this.router.navigate(['', this.userId, this.role]);
+      this.router.navigate(['my-user-profile', this.userId, this.role]);
     } else if (this.role === "company") {
       this.router.navigate(['my-company-profile', this.userId, this.role]);
     } else {
@@ -41,7 +44,15 @@ export class NavbarComponent {
     }
   }
 
+  notifactionRoute(){
+    this.router.navigate(['notification']);
+  }
+
   logOut() {
     this.service.onLogout();
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+
   }
 }

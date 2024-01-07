@@ -9,9 +9,6 @@ export class RoleBaseComponentAccess {
   constructor() {
   }
 
-  // get storedRole(): string {
-  //   return this.userRole !== null ? this.userRole : '';
-  // }
 
   isRoleCompanyTrue() {
     let data = this.userRole;

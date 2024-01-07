@@ -16,4 +16,5 @@ export class SkillsService{
     let url = (environment.basePath).concat(ApiPath.GET_SKILLS);
     return this.http.get(url);
   }
+
 }

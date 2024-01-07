@@ -37,17 +37,16 @@
   <div class="row">
 
 
-    <div class="col-lg-3 col-sm-6 p-3" *ngFor="let card of CompanyCards | filter:filteredString">
-
-      <div class="card text-center mx-auto">
+    <div class="col-lg-3 col-sm-6 p-3" *ngFor="let card of CompanyCards | filter:filteredString:['companyName', 'companyType', 'country']">
+    <div class="card text-center mx-auto">
         <div class="card-body">
           <img src="{{card.profilePic}}" class="mb-2 mx-auto d-block" loading="lazy"  alt="profile Pic"/>
           <h5 class="card-title">{{card.companyName}}</h5>
           <p class="card-text company-name">{{card.companyType}}</p>
           <p class="country-name">{{card.country}}</p>
-          <div class="d-flex justify-content-around">
+          <div class="d-flex justify-content-between">
             <button class="btn btn-apply" *ngIf="isRoleCompany()">Apply</button>
-            <button class="btn btn-view" id="{{card.compnanyId}}" (click)="onButtonClick(card.compnanyId)">View</button>
+            <button class="btn btn-view m-1" id="{{card.compnanyId}}" (click)="onButtonClick(card.compnanyId)">View</button>
           </div>
         </div>
       </div>

@@ -108,11 +108,24 @@
     border-color: rgba(102, 0, 255, 0.84);
 }
 
+.view{
+  border: 1px solid #35B6C2;
+  font-family: poppin med;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  color: #35B6C2;
+}
+
+.view:hover{
+  background: #35B6C2;
+  color: #fff;
+}
+
 .feed-post .apply {
     background: #35B6C2;
     font-family: poppin med;
     font-size: 0.8rem;
-    border-radius: 50px;
+    border-radius: 5px;
     color: #fff;
 }
 .feed-post .apply:hover {

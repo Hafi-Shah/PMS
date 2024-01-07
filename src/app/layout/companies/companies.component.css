@@ -43,6 +43,7 @@
  .card {
     border-radius: 10px;
     max-width: 270px;
+
     border: none;
     box-shadow: 1px 3px 10px rgba(150, 150, 150, 0.151);
     z-index: 2;
@@ -51,7 +52,7 @@
 }
 .card:hover{box-shadow: 1px 7px 20px rgba(53, 182, 194, 0.21);}
 .card img {
-    width: 100px;
+    width: auto;
     height: 100px;
     border-radius: 100%;
     box-shadow: 1px 3px 10px rgba(150, 150, 150, 0.151);
@@ -61,14 +62,15 @@
 .card .card-title {
     font-family: poppin med;
     color:#35B6C2;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     letter-spacing: 1px;
-  line-height: 25px;
+  margin-top: 25px;
 }
 
 .card .company-name {
     font-family: poppin light;
     color: #a7a7a7;
+  font-size: 0.8rem;
 }
 
 .card .country-name {
@@ -80,7 +82,8 @@
     color: #fff;
     padding: 2px 25px;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 5px;
+  width: 100%;
 }
 .card .btn-apply:hover {background: #2c99a3;}
 

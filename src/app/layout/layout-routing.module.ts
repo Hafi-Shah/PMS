@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
-
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-
-
 import {AuthGuard} from "../auth/guard/auth.guard";
-
 import {ViewUserProfileComponent} from "./home/view-user-profile/view-user-profile.component";
 
 
@@ -22,11 +18,12 @@ const routes: Routes = [
       { path: 'myProfile', loadChildren: () => import('./my-profile/my-profile.module').then(m => m.MyProfileModule) },
       { path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule) },
       { path: 'my-company-profile/:UserId/:Role', canLoad: [AuthGuard], loadChildren: () => import('./companies/my-company-profile/my-company-profile.module').then(m => m.MyCompanyProfileModule) },
-      {path: 'announcement', canLoad: [AuthGuard], loadChildren: ()=> import('./companies/my-company-profile/announcement/announcement.module').then(m => m.AnnouncementModule)}
-
+      {path: 'announcement', canLoad: [AuthGuard], loadChildren: ()=> import('./companies/my-company-profile/announcement/announcement.module').then(m => m.AnnouncementModule)},
+      {path: 'notification', canLoad: [AuthGuard], loadChildren: ()=> import('./notification/notification.module').then(m => m.NotificationModule)},
     ]
   },
-  {path:'view-user-profile', component:ViewUserProfileComponent}
+  {
+    path:'view-user-profile', component:ViewUserProfileComponent}
   ];
 
 

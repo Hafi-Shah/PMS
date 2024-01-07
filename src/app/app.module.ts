@@ -30,7 +30,6 @@ import {MatDialogModule} from "@angular/material/dialog";
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    LayoutModule,
     AuthModule,
     LayoutRoutingModule,
     HttpClientModule,

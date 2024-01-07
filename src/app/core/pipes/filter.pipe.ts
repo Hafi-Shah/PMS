@@ -4,27 +4,18 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(value: any, filterString: string) {
+  transform(value: any, filterString: string, fields: string[] = []) {
     if (!value || value.length === 0 || !filterString) {
       return value;
     }
-    filterString = filterString.toLowerCase(); // Convert filterString to lowercase for case-insensitive filtering
-    return value.filter((user: any) =>
-      user['companyName'].toLowerCase().includes(filterString)
-    );
-  }
 
+    filterString = filterString.toLowerCase();
 
-}
-export class UserSearchPipe extends FilterPipe{
-  // @ts-ignore
-  transform(value: any, filterString: string) {
-    if (!value || value.length === 0 || !filterString) {
-      return value;
-    }
-    filterString = filterString.toLowerCase(); // Convert filterString to lowercase for case-insensitive filtering
-    return value.filter((user: any) =>
-      user['userName'].toLowerCase().includes(filterString)
-    );
+    return value.filter((item: any) => {
+      return fields.some(field => {
+        const fieldValue = item[field];
+        return fieldValue && fieldValue.toString().toLowerCase().includes(filterString);
+      });
+    });
   }
 }

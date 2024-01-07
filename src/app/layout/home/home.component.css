@@ -66,9 +66,11 @@
     box-shadow: 3px 3px 19px rgba(150, 150, 150, 0.288);
 }
 .user-cards-section .user-card-cover-image {
-    width: auto;
-    border-radius: 10px;
+  width: auto;
+  border-radius: 10px;
 }
+
+
 
 .user-cards-section .card .profile-pic {
     width: 80px;
@@ -79,21 +81,38 @@
 }
 
 .user-cards-section .card .profile-text{
-    margin-top: -20px;
+    margin-top: -17px;
     line-height: 10px;
+  font-family: poppin med;
 }
-.user-cards-section .card p {
-    font-family: poppin med;
-    font-size: 1.1rem;
+.name {
+  font-family: poppin med;
+  font-size: 1.3rem;
+  color: #fdfdfd;
 }
-
+.title {
+  padding-top: 3px;
+  font-family: poppin med;
+  color: #6e6e6e;
+}
+.xp{
+  font-family: poppin med;
+  color: #35B6C2;
+}
+.cover {
+  width: auto;
+  height: 200px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+}
 .user-cards-section .card .btn-view {
-    margin-top: -35px;
+    margin-top: -33px;
     padding: 0 40px;
-    border-radius: 8px;
+    border-radius: 7px;
     background: #35B6C2;
     color: #fff;
 }
 .user-cards-section .card .btn-view:hover {
     background: #2b959e;
 }
+

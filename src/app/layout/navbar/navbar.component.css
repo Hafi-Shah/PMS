@@ -22,14 +22,24 @@ li > a {
     color: rgb(0, 0, 0);
     border-radius: 5px;
     margin: 2px;
-  font-family: poppin med;
-    /* padding: 10px; */
+    font-family: poppin med;
 }
-li > a:hover {
+li > a:hover{color: white}
+li > .home:hover {
     background: #ff8244bd;
-    color: #fff;
-
 }
+li > .companies:hover {
+  background: #0095ff;
+}
+li > .feed:hover {
+  background: #2fff00;
+}
+
+li > .profile:hover {
+  background: #ff0062;
+  cursor: pointer;
+}
+
 
 .signUp {
     border-radius: 50px;
@@ -48,10 +58,27 @@ li > a:hover {
   }
 
   .dropdown>.dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
       pointer-events: none;
+  }
+  .person {
+    background: #646464;
+    border-radius: 100px;
+    padding: 6px 10px;
+    color: #ffffff;
   }
 
   .dropdown-menu {
-    width: 300px;
+    width: 200px;
+    margin-left: -70px;
   }
+  .dropdown-menu a {
+    padding: 8px 10px;
+  }
+.dropdown-item:hover {
+  background: white;
+}
+.ddItems:hover {
+  color: #ff8244bd;
+  cursor: pointer;
+  background: #f3f3f3;
+}

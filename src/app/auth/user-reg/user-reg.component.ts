@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ToastrService} from "ngx-toastr";
 import Compressor from 'compressorjs';
 import {DatePipe} from "@angular/common";
+import {SkillsService} from "../../../services/skills.service";
+import {UserService} from "../../../services/user.service";
 
 @Component({
     selector: 'app-user-reg',
@@ -14,19 +16,40 @@ export class UserRegComponent implements OnInit {
     userRegForm: FormGroup | any;
     userRegFormSubmitted = false;
 
-    skillsList: any[] = [
-        { id: 1, name: 'Angular' },
-        { id: 2, name: 'React' },
-        { id: 3, name: '.NET' },
-    ];
+    userTypeList: any[] = [];
+    skillsList: any[] = [];
+    genderList: any[] = [];
+    maritalStatusList: any[] = [];
 
     constructor(
         private builder: FormBuilder,
         private toastr: ToastrService,
-        private datePipe: DatePipe
+        private datePipe: DatePipe,
+        private apiSkillService: SkillsService,
+        private apiUserService: UserService
     ) {
     }
 
+    getSkillList(){
+      this.apiSkillService.getSkillNames().subscribe((res) =>{
+        this.skillsList = res;
+      })
+    }
+    getUserType(){
+      this.apiUserService.getUserTypes().subscribe((res) =>{
+        this.userTypeList = res;
+      })
+    }
+    getGenderType(){
+      this.apiUserService.getGenderType().subscribe((res) =>{
+        this.genderList = res;
+      })
+    }
+    getMaritalStatus(){
+      this.apiUserService.getMaritalStatus().subscribe((res) => {
+        this.maritalStatusList = res;
+      })
+    }
     userRegFormValid() {
         this.userRegForm = this.builder.group({
             firstName: this.builder.control('', Validators.compose([
@@ -122,6 +145,10 @@ export class UserRegComponent implements OnInit {
     }
     ngOnInit() {
         this.userRegFormValid();
+        this.getSkillList();
+        this.getUserType();
+        this.getMaritalStatus();
+        this.getGenderType();
     }
 
 }

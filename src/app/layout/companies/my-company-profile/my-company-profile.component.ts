@@ -43,7 +43,7 @@ export class MyCompanyProfileComponent implements OnInit {
   }
 
   deleteDialog() {
-    const dialogRef = this.dialog.open(DeleteAccountPopupComponent, {
+    this.dialog.open(DeleteAccountPopupComponent, {
       width: '500px',
     });
   }
