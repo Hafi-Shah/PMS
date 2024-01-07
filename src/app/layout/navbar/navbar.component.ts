@@ -19,18 +19,14 @@ export class NavbarComponent {
   constructor(
     private service: AuthService,
     private router: Router,
-    private toastr: ToastrService
   ) {
     this.isLoggedIn$ = of(this.service.isLoggedIn());
-
 
     const storedUserId = localStorage.getItem('userId');
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
 
     const storedRole = localStorage.getItem('role');
     this.role = storedRole ? storedRole : '';
-
-
   }
 
   assignRole() {
