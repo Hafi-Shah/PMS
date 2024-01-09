@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {CommonModule, DatePipe} from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -13,11 +13,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { LoginComponent } from './login/login.component';
 import { AuthComponent } from './auth.component';
 import { UserRegComponent } from './user-reg/user-reg.component';
-import { CompanyRegModule } from './company-reg/company-reg.module';
 import { TokenInterceptor } from '../core/interceptors/token.interceptor';
+import {CompanyRegComponent} from "./company-reg/company-reg.component";
 
 const routes: Routes = [
-  { path: '', component: AuthComponent },
+  { path: '', component: AuthComponent }
 ];
 
 @NgModule({
@@ -25,11 +25,11 @@ const routes: Routes = [
     LoginComponent,
     AuthComponent,
     UserRegComponent,
+    CompanyRegComponent
   ],
   imports: [
     CommonModule,
-    CompanyRegModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forChild(routes), // Use forChild instead of forRoot
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,

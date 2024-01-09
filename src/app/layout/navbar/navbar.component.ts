@@ -40,7 +40,7 @@ export class NavbarComponent {
     }
   }
 
-  notifactionRoute(){
+  notificationRoute(){
     this.router.navigate(['notification']);
   }
 

@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ViewUserProfileComponent} from "./view-user-profile.component";
-import {RouterLink, Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
   {
     path: '',
     component: ViewUserProfileComponent,
-    // Other child routes within the HomeModule if needed
   },
 ];
 
@@ -15,7 +14,7 @@ const routes: Routes = [
   declarations: [ViewUserProfileComponent],
     imports: [
         CommonModule,
-        RouterLink
+      RouterModule.forChild(routes)
     ]
 })
 export class ViewUserProfileModule { }

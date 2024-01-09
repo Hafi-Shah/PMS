@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { ViewUserProfileComponent } from './view-user-profile/view-user-profile.component';
-import {ViewCompanyProfileModule} from "../companies/view-company-profile/view-company-profile.module";
+import {ViewUserProfileModule} from "./view-user-profile/view-user-profile.module";
 
 
 const routes: Routes = [

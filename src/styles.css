@@ -17,7 +17,6 @@
     outline: none;
   }
 
-
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgb(223, 223, 223);
@@ -26,7 +25,7 @@
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #b30000;
+    background: #da9500;
   }
 
   @font-face {

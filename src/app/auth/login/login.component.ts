@@ -33,26 +33,31 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      this.userLoginModel.Email = this.loginForm.value.Email!;
-      this.userLoginModel.Password = this.loginForm.value.Password!;
-      this.apiLoginService.onLogin(this.userLoginModel).subscribe(
-        res => {
-          console.log(res);
-          this.loginForm.reset();
-          this.apiLoginService.storeToken(res.token);
-          this.toastr.success('Login Successful', 'Success');
-          localStorage.setItem('password',this.userLoginModel.Password);
-          this.router.navigate(['/home']);
-        },
-        error => {
-          console.error(error);
-          this.toastr.error('Error occurred while logging in', 'Error');
-        }
-      );
+    if (this.loginForm.invalid) {
+      this.toastr.warning('Please Fill The Required Data');
+      return;
     }
+
+    console.log(this.loginForm.value);
+    this.userLoginModel.Email = this.loginForm.value.Email!;
+    this.userLoginModel.Password = this.loginForm.value.Password!;
+
+    this.apiLoginService.onLogin(this.userLoginModel).subscribe(
+      res => {
+        console.log(res);
+        this.loginForm.reset();
+        this.apiLoginService.storeToken(res.token);
+        this.toastr.success('Login Successful', 'Success');
+        localStorage.setItem('password', this.userLoginModel.Password);
+        this.router.navigate(['/home']);
+      },
+      error => {
+        console.error(error);
+        this.toastr.error('Error occurred while logging in', 'Error');
+      }
+    );
   }
+
 
   ngOnInit() {
     // Remove this.loginUser(); from ngOnInit unless you want to automatically attempt login on component initialization.

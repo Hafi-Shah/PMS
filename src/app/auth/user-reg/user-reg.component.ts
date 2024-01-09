@@ -140,7 +140,7 @@ export class UserRegComponent implements OnInit {
             this.toastr.success('User Registered Successfully');
         }
         else {
-            this.toastr.warning('Complete Your Form Fields First');
+            this.toastr.warning('Enter Your Data Correctly First');
         }
     }
     ngOnInit() {
