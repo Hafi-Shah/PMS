@@ -1,52 +1,60 @@
 .card {
-    max-width: 500px;
-    margin-top: 22vh;
-    font-family: poppin med;
-    border-radius: 15px;
+  max-width: 900px;
+  margin-top: 18vh;
+  font-family: poppin med;
+  border-radius: 5px;
 }
+
 .card .login-icon {
-    font-size: 3.5rem;
-    padding: 10px 20px;
-    background: #fff;
-    border-radius: 100px;
-    box-shadow: 0px 6px 10px #d1d1d1cc;
-    position: relative;
-    top: -76px;
+  font-size: 3.5rem;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 100px;
+  box-shadow: 0px 6px 10px #d1d1d1cc;
+  position: relative;
+
 }
+
 .card h6 {
-    font-family: poppin bold;
-    font-size: 1.5rem;
-    margin-top: -30px;
+  font-family: poppin bold;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  color: #a660a0;
+  letter-spacing: 2px;
 }
+
 .card .ii {
-    font-size: 1.1rem;
-    margin-left: 5px;
-    color: #657af5;
+  font-size: 1.1rem;
+  margin-left: 5px;
+  color: #ca76c3;
 }
+
 input {
-    border-radius: 50px;
+  border-radius: 50px;
 }
+
 input:focus {
-    box-shadow: none;
+  box-shadow: none;
 }
+
 input::placeholder {
-    color: #8a88f0;
-    font-family: poppin light;
-}
-small {
-    color: rgb(161, 161, 161);
+  color: #ca76c3;
+  font-family: poppin light;
 }
 
 .form-group {
-    border: 1px solid #0000FF;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+  border: 1px solid #ca76c3;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
 }
-button {
 
-    border-radius: 50px;
+button {
+  background: #ca76c3;
+  border-radius: 5px;
 }
+
 button:hover {
-    box-shadow: 1px 8px 15px #94a3fa85;
+  background: #ca76c3;
+  box-shadow: 1px 8px 15px rgba(202, 118, 195, 0.24);
 }
