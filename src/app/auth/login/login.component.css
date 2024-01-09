@@ -27,6 +27,7 @@
   font-size: 1.1rem;
   margin-left: 5px;
   color: #ca76c3;
+  transform: translateY(5px);
 }
 
 input {
