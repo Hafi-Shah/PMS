@@ -45,4 +45,9 @@
   </div>
   </div>
 
+  <div class="mx-auto p-5 mt-5 w-100 no-found text-center" *ngIf="!data || data.length <= 0" >
+    No Feed Found
+    <i class="bi bi-emoji-frown"></i>
+  </div>
+
 </section>
