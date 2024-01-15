@@ -4,7 +4,7 @@
       <h3 class="card-title mx-2">Make Your Announcement</h3>
       <form [formGroup]="validData" (ngSubmit)="onSubmitData()">
 
-        <mat-form-field class="form-control border-0">
+        <mat-form-field appearance="outline" class="form-control border-0">
           <mat-label>Choose Required Skills</mat-label>
           <mat-select multiple matInput placeholder="No More than 6 skills" formControlName="skills" id="selectSkill">
             <mat-option *ngFor="let skill of skillsList" [value]="skill.id">
@@ -13,12 +13,12 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="form-control border-0">
+        <mat-form-field appearance="outline" class="form-control border-0">
           <mat-label>Experience Required (in years)</mat-label>
           <input formControlName="year" id="inputYear" matInput placeholder="Type in Number" value="">
         </mat-form-field>
 
-        <mat-form-field class="form-control border-0">
+        <mat-form-field appearance="outline" class="form-control border-0">
           <mat-label>Job Description</mat-label>
           <textarea formControlName="description" id="inputDescription" matInput
                     placeholder="Maximum 400 words"></textarea>
@@ -30,7 +30,7 @@
           </div>
           <div>
             <button class="cancel-btn" (click)="goBack()" mat-raised-button color="basic">Cancel</button>
-            <button type="submit" mat-raised-button color="accent" (click)="getLoggedInDetail()">Submit</button>
+            <button type="submit" mat-raised-button color="accent" >Submit</button>
             </div>
         </div>
       </form>

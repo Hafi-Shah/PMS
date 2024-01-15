@@ -15,11 +15,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [FeedComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    FormsModule,
-    // Import the RouterModule here
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FormsModule,
+        CompaniesModule,
+        // Import the RouterModule here
+    ]
 })
 export class FeedModule { }

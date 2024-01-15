@@ -29,5 +29,9 @@ export class CompanyService {
     return this.http.get<any>(url);
   }
 
+  postAnnouncementDetail(userId: number, role:string, body: any):Observable<any>{
+    let url:string =`${environment.basePath}${ApiPath.MAKE_ANNOUNCEMENT}?userId=${userId}&role=${role}`
+    return this.http.post(url, body);
+  }
 
 }

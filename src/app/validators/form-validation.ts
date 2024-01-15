@@ -11,6 +11,7 @@ export class FormValidation {
       companyName : new FormControl("", [
         Validators.required,
         Validators.minLength(2),
+        Validators.maxLength(20),
         Validators.pattern("[a-zA-z].*")
       ]),
 
@@ -21,6 +22,7 @@ export class FormValidation {
       companyDescription: new FormControl("", [
         Validators.required,
         Validators.maxLength(400),
+        Validators.minLength(3),
         Validators.pattern(/^[a-zA-Z][a-zA-Z0-9\s().,]*[a-zA-Z0-9\s.]$/),
 
       ]),
@@ -34,7 +36,8 @@ export class FormValidation {
 
       companyPassword : new FormControl("", [
         Validators.required,
-        Validators.minLength(6)
+        Validators.minLength(6),
+        Validators.maxLength(15)
       ]),
 
       contactNo : new FormControl("", [
@@ -45,7 +48,9 @@ export class FormValidation {
       ]),
 
       companyLocation : new FormControl("",[
-        Validators.required
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(15),
       ]),
       country : new FormControl("", [
         Validators.required

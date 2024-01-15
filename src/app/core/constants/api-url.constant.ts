@@ -13,4 +13,7 @@ export class ApiPath {
   static readonly REGISTER_USER : string = '/api/UserRegistration/RegisterUser';
   static readonly GET_GENDER_TYPES : string = '/api/UserRegistration/GetUserGender';
   static readonly GET_MARITAL_STATUS : string = '/api/UserRegistration/GetUserStatus';
+    static readonly MAKE_ANNOUNCEMENT : string = '/api/Announcement/AddCompanyAnnouncement';
+    static readonly GET_FEED_DATA : string = '/api/Feed/GetFeedData';
+
 }

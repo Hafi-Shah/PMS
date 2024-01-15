@@ -1,114 +1,118 @@
 .search-form {
-    max-width: 750px;
+  max-width: 750px;
 }
+
 .search-form > .input-group {
-    margin-top: 14vh;
+  margin-top: 14vh;
 }
+
 .search-form input,
 .search-form button {
-    height: 50px;
+  height: 50px;
 }
+
 .search-form button {
-    border-radius: 10px 50px 50px 10px;
-    box-shadow: 3px 5px 10px #0554ff63;
-    font-size: 1.2rem;
+  border-radius: 10px 50px 50px 10px;
+  box-shadow: 3px 5px 10px #0554ff63;
+  font-size: 1.2rem;
 }
+
 .search-form input[type=text] {
-    border-radius: 50px;
-    border: none;
-    background: #fff;
-    box-shadow: 3px 5px 10px #53535352;
-    padding: 0 30px;
+  border-radius: 50px;
+  border: none;
+  background: #fff;
+  box-shadow: 3px 5px 10px #53535352;
+  padding: 0 30px;
 }
 
 .feed-post {
-    max-width: 730px;
+  max-width: 770px;
 }
 
 .feed-post .country {
-    text-align: right;
-    margin-top: -10px;
-    font-family: poppin med;
-    font-size: 0.8rem;
-    color: rgba(75, 114, 129, 0.671);
+  text-align: right;
+  margin-top: -10px;
+  font-family: poppin med;
+  font-size: 0.8rem;
+  color: rgba(75, 114, 129, 0.671);
 }
+
 .feed-post .profile {
-    margin-top: -20px;
+  margin-top: -20px;
 }
+
 .feed-post .profile h6 {
-    font-family: "poppin bold";
+  font-family: "poppin bold";
   font-size: 1.1rem;
 }
+
 .feed-post .profile .company-type {
-    font-family: poppin med;
-    font-size: 0.8rem;
-    color: rgb(150, 149, 149);
+  font-family: poppin med;
+  font-size: 0.8rem;
+  color: rgb(150, 149, 149);
 }
+
 .feed-post img {
-    width: 50px;
-    height: 50px;
+  width: auto;
+  height: 50px;
 }
+
 .feed-post .job-description p {
-    font-family: poppin med;
-    font-size: 0.8rem;
-    color: rgb(63, 63, 63);
+  font-family: poppin med;
+  font-size: 0.8rem;
+  color: rgb(63, 63, 63);
+  text-align: justify;
+  text-justify: inter-word;
 }
+
 .feed-post .job-description p:nth-child(2) {
-    color: rgb(98, 139, 105);
+  color: rgb(98, 139, 105);
 }
+
 .feed-post .experties p {
-    padding: 1px 9px;
-    border-radius: 50px;
-    font-family: poppin med;
-    font-size: 0.7rem;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-family: poppin med;
+  font-size: 0.7rem;
   letter-spacing: 1px;
-}
-.feed-post .experties p:nth-child(1),
-.feed-post .experties p:nth-child(2),
-.feed-post .experties p:nth-child(3),
-.feed-post .experties p:nth-child(4),
-.feed-post .experties p:nth-child(5),
-.feed-post .experties p:nth-child(6) {
-    border: 1px solid;
+  margin: 2px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .feed-post .experties p:nth-child(1) {
-    background: rgba(255, 0, 0, 0.178);
-    color: rgba(194, 59, 59, 0.829);
-    border-color: rgb(194, 59, 59);
+  background: rgba(255, 0, 0, 0.178);
+  color: rgba(194, 59, 59, 0.829);
+  border-color: rgb(194, 59, 59);
 }
 
 .feed-post .experties p:nth-child(2) {
-    background: rgba(0, 81, 255, 0.13);
-    color: rgba(0, 81, 255, 0.815);
-    border-color: rgba(0, 81, 255, 0.842);
+  background: rgba(0, 81, 255, 0.13);
+  color: rgba(0, 81, 255, 0.815);
+
 }
 
 .feed-post .experties p:nth-child(3) {
-    background: rgba(162, 0, 255, 0.13);
-    color: rgba(174, 0, 255, 0.815);
-    border-color: rgba(183, 0, 255, 0.842);
+  background: rgba(162, 0, 255, 0.13);
+  color: rgba(174, 0, 255, 0.815);
 }
 
 .feed-post .experties p:nth-child(4) {
-    background: rgba(255, 0, 221, 0.13);
-    color: rgba(255, 0, 170, 0.815);
-    border-color: rgba(255, 0, 157, 0.842);
+  background: rgba(255, 0, 221, 0.13);
+  color: rgba(255, 0, 170, 0.815);
 }
 
 .feed-post .experties p:nth-child(5) {
-    background: rgba(0, 183, 255, 0.13);
-    color: rgba(0, 183, 255, 0.815);
-    border-color: rgba(0, 204, 255, 0.842);
+  background: rgba(0, 183, 255, 0.13);
+  color: rgba(0, 183, 255, 0.815);
 }
 
 .feed-post .experties p:nth-child(6) {
-    background: rgba(102, 0, 255, 0.13);
-    color: rgba(102, 0, 255, 0.84);
-    border-color: rgba(102, 0, 255, 0.84);
+  background: rgba(102, 0, 255, 0.13);
+  color: rgba(102, 0, 255, 0.84);
 }
 
-.view{
+.view {
   border: 1px solid #35B6C2;
   font-family: poppin med;
   font-size: 0.8rem;
@@ -116,19 +120,20 @@
   color: #35B6C2;
 }
 
-.view:hover{
+.view:hover {
   background: #35B6C2;
   color: #fff;
 }
 
 .feed-post .apply {
-    background: #35B6C2;
-    font-family: poppin med;
-    font-size: 0.8rem;
-    border-radius: 5px;
-    color: #fff;
+  background: #35B6C2;
+  font-family: poppin med;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  color: #fff;
 }
+
 .feed-post .apply:hover {
-    background: #32abb6;
-    box-shadow: 1px 5px 10px #35b6c283;
+  background: #32abb6;
+  box-shadow: 1px 5px 10px #35b6c283;
 }

@@ -24,4 +24,9 @@ export class UserService {
     let url = environment.basePath.concat(ApiPath.GET_MARITAL_STATUS);
     return this.http.get(url);
   }
+
+  registerUser(body:any):Observable<any>{
+    let url: string = environment.basePath.concat(ApiPath.REGISTER_USER);
+    return this.http.post(url, body);
+  }
 }

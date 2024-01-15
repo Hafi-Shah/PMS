@@ -13,3 +13,6 @@ h3 {
 .cancel-btn {
   margin-right: 10px;
 }
+mat-form-field{
+  font-family: poppin med;
+}

@@ -15,10 +15,10 @@ section {
 
 input , textarea, select{
     border-radius: 5px;
-    border: 1px solid #4a4f74;
+    border: 1px solid #a9a9a9;
     font-size: 1rem;
 }
-select {color: #3437528f;}
+select {color: #343752;}
 option {color: #343752;}
 input::file-selector-button {
     background: #4a4f74;
