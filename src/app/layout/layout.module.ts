@@ -27,7 +27,6 @@ import {NotificationModule} from "./notification/notification.module";
   ],
   imports: [
     CommonModule,
-    RouterModule,
     LayoutRoutingModule,
     CompaniesModule,
     FeedModule,

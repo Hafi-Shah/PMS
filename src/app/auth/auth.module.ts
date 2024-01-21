@@ -29,7 +29,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes), // Use forChild instead of forRoot
+    RouterModule.forChild(routes),
     ReactiveFormsModule,
     FormsModule,
     MatCardModule,
@@ -47,5 +47,8 @@ const routes: Routes = [
       multi: true,
     },
   ],
+  exports: [
+    AuthComponent
+  ]
 })
 export class AuthModule { }

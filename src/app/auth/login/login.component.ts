@@ -34,10 +34,9 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     if (this.loginForm.invalid) {
-      this.toastr.warning('Please Fill The Required Data');
+      this.toastr.warning('Please enter your email and password');
       return;
     }
-
     console.log(this.loginForm.value);
     this.userLoginModel.Email = this.loginForm.value.Email!;
     this.userLoginModel.Password = this.loginForm.value.Password!;
@@ -47,7 +46,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         this.loginForm.reset();
         this.apiLoginService.storeToken(res.token);
-        this.toastr.success('Login Successful', 'Success');
+        this.toastr.success('Login Successful', 'Success', {timeOut:1500});
         localStorage.setItem('password', this.userLoginModel.Password);
         this.router.navigate(['/home']);
       },
@@ -60,6 +59,5 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
-    // Remove this.loginUser(); from ngOnInit unless you want to automatically attempt login on component initialization.
-  }
+    }
 }

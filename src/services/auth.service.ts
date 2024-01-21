@@ -29,7 +29,7 @@ export class AuthService {
     localStorage.clear();
     sessionStorage.clear();
     this.router.navigate(['home']);
-    this.toastr.success('System logout successful','LogOut');
+    this.toastr.success('System logout successful','LogOut', {timeOut:1500});
   }
 
   storeToken(tokenValue: string) {

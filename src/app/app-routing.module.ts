@@ -7,7 +7,7 @@ import {UserRegComponent} from "./auth/user-reg/user-reg.component";
 import {CompanyRegComponent} from "./auth/company-reg/company-reg.component";
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '', component: LayoutComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
   {
     path: 'auth',
     component: AuthComponent,
@@ -21,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
