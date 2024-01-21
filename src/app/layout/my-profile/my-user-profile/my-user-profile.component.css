@@ -1,0 +1,248 @@
+*:focus {
+  box-shadow: none;
+  font-family: poppin med;
+}
+a {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.navbar-brand {
+  background: #ffd737;
+  font-family: "poppin bold";
+}
+.focusMe:focus, .focusMe:hover {
+  background: #ffd737;
+}
+
+.btns button{
+  border: 1px solid #ffd737;
+  color: white;
+  border-radius: 0;
+}
+
+.btns .hire {
+  background: #ffd737;
+}
+.btns .hire:hover {
+  background: #e1be00;
+  border-color:#e1be00;
+}
+
+.btns .home:hover {
+  background: #ffd737;
+}
+.cover-section {
+  margin-top: 11vh;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.cover-section .cover {
+  min-height: 82vh;
+  border-radius: 10px;
+}
+.cover-section h1 {
+  font-family: poppin bold;
+  font-size: 3rem;
+}
+.cover-section .f-name {
+  line-height: 50px;
+  color: white;
+}
+.cover-section .l-name {
+  letter-spacing: 2px;
+  color: #ffd737;
+  padding-bottom: 10px;
+  border-bottom: 5px solid #ffd737;
+}
+.cover {
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
+}
+
+.cover-section .job-title {
+  color: #e1e1e1;
+  letter-spacing: 5px;
+}
+.cover-section .yearly-exp {
+  background: #ffd737;
+  color: #171717;
+  font-family: poppin bold;
+}
+.profilePic{
+  height: 350px;
+  border-radius: 7px;
+}
+.section-layuot {
+  margin-top: 4vh;
+  min-height: 91vh;
+}
+
+.about-section .card {
+  & h2 {font-family: poppin bold;}
+  & button {
+    background: #ffd62a;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 0;
+  }
+  & button:hover {
+    background: #e1be00;
+    color: white;
+  }
+  & p {
+    font-family: poppin med;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+.bio-section {
+  background: #F9F9F9;
+  padding-top: 20px;
+  & h1 {
+    font-family: poppin bold;
+    font-size: 2.3rem;
+    color: #666666;
+    letter-spacing: 2px;
+  }
+  & .max-width {
+    max-width: 1100px;
+  }
+
+  & .bio-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  & .dot {
+    border-radius: 50px;
+    width: 70%;
+    height: 70%;
+  }
+  & span {
+    font-family: poppin bold;
+    font-size: 1.3rem;
+  }
+  & .bio-data {
+    font-family: poppin med;
+    font-size: 1.2rem;
+    opacity: 0.6;
+  }
+  & .mt{margin-top: 120px}
+
+  & .card{border-radius: 0; margin-bottom: 10px; padding: 5px}
+
+  & .gender-card{background: #FFDEDE}
+  & .gender-icon {background: #FFCFCF}
+  & .gender-dot {background: #FFA6A6}
+
+  & .dob-card {background: #FFECDE}
+  & .dob-icon {background: #FFE4CF}
+  & .dob-dot {background: #FFCDA6}
+
+  & .status-card {background: #F0DEFF}
+  & .status-icon {background: #E9CFFF}
+  & .status-dot {background: #D6A6FF}
+
+  & .contact-card {background: #DEE1FF}
+  & .contact-icon {background: #CFD3FF}
+  & .contact-dot {background: #A6AEFF}
+
+  & .city-card {background: #FFFCDE}
+  & .city-icon {background: #FFFBCF}
+  & .city-dot {background: #FFF7A6}
+
+  & .email-card {background: #DEFFE0}
+  & .email-icon {background: #CFFFD3}
+  & .email-dot {background: #A6FFAB}
+
+}
+
+.skills-section h1{
+
+  font-family: poppin bold;
+  font-size: 2rem;
+  color: #ffd62a;
+}
+
+.ball {
+  color:#ffd62a;
+  user-select: none;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 3px solid #ffd62a;
+  position: relative;
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  letter-spacing: 4px;
+  z-index: 1;
+  border-radius: 50px;
+  font-family: poppin bold;
+}
+
+/* The Span Wapper tag */
+.span-wrapper {
+  height: 100%;
+  position: absolute;
+  inset:0 -2px -4px 0;
+  overflow: hidden;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+/* The span tags */
+.span-wrapper span {
+  background-color:#ffd62a;
+  width: 30%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  transform: scale(1.8) translateY(125%) translateZ(0);
+  transition: all 1s ease;
+
+}
+
+/* The Three Individual Span Tag */
+.s1 {
+  left: -10%;
+  transition-delay: 0ms;
+  border-radius: 50px;
+}
+.s2 {
+  left: 30%;
+  transition-delay: 500ms;
+  border-radius: 50px;
+}
+.s3 {
+  left: 70%;
+  transition-delay: 800ms;
+  border-radius: 50px;
+}
+
+/* Hover State of the parent anchor tag */
+.ball:hover {
+  color: #fff;
+}
+
+.ball:hover .span-wrapper span {
+  transform: scale(1.7) translateY(0) translateZ(0);
+}
+
+.mdq-city {
+  margin-top: -260px;
+}
+.mdq-email {
+  margin-top: -260px;
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+
+  .mdq-city {
+    margin-top: -80px;
+  }
+  .mdq-email {
+    margin-top: -80px;
+  }
+}
+

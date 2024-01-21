@@ -12,19 +12,21 @@ export class GetDataByRoleCompany {
 }
 
 export class GetDataByRoleUser {
-  UserId : number = 0;
-  FirstName : string = '';
-  LastName : string = '';
-  Title : string = '';
-  Gender : string = '';
-  MartialStatus: string = '';
-  Dob : string = '';
-  Email : string = '';
-  TotalExperience : string = '';
-  About : string = '';
-  CurrentCompany : string = '';
-  ContactNum : string = '';
-  ProfilePic : string = '';
+  userId: number = 0;
+  firstName: string = '';
+  lastName: string = '';
+  userType: string = '';
+  userSkills: any[] = [];
+  gender: string = '';
+  martialStatus: string = '';
+  dob: string = '';
+  city: string = '';
+  email: string = '';
+  totalExperience: number = 0;
+  about: string = '';
+  contactNum: string = '';
+  profilePic: string = '';
+  coverPic: string = '';
 }
 
 

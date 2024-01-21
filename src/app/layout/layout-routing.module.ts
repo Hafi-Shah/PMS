@@ -12,6 +12,7 @@ import {MyProfileComponent} from "./my-profile/my-profile.component";
 import {AuthComponent} from "../auth/auth.component";
 import {MyCompanyProfileComponent} from "./companies/my-company-profile/my-company-profile.component";
 import {NotificationComponent} from "./notification/notification.component";
+import {MyUserProfileComponent} from "./my-profile/my-user-profile/my-user-profile.component";
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
     ]
   },
   {path: 'view-user-profile/:id', component: ViewUserProfileComponent},
+  {path: 'my-user-profile/:UserId/:Role', canLoad: [AuthGuard], component: MyUserProfileComponent},
   {path: 'announcement', canLoad: [AuthGuard], component: AnnouncementComponent}
   ]
 

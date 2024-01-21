@@ -12,7 +12,7 @@ import {AuthService} from "../../../../services/auth.service";
   styleUrls: ['./my-user-profile.component.css']
 })
 export class MyUserProfileComponent implements OnInit {
-  data: GetDataByRoleUser = new GetDataByRoleUser();
+  data: GetDataByRoleUser[] = [];
 
   activeSection: string | null = null;
 
@@ -37,7 +37,7 @@ export class MyUserProfileComponent implements OnInit {
       this.roleService.loginByRoleCompany(param['UserId'], param['Role']).subscribe(
         (res: GetDataByRoleUser[]) => {
           if (res.length > 0) {
-            this.data = res[0];
+            this.data = res;
           } else {
             console.error('Empty response received from the API.');
           }

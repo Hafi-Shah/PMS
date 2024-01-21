@@ -1,0 +1,184 @@
+<section data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50" *ngIf="data && data.length > 0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top" bsNavbar>
+    <div class="container-fluid">
+      <a class="navbar-brand">{{ data[0].firstName }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('me')" tabindex="0">Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('about')" tabindex="0">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('bio')" tabindex="0">Bio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 focusMe" (click)="scrollTo('skills')" tabindex="0">Skills</a>
+          </li>
+        </ul>
+
+        <div class="d-flex btns ms-auto"> <!-- Use ms-auto to move the buttons to the right -->
+          <button class="btn me-2 home text-white" (click)="onRoute('/home')">Home</button>
+          <button class="btn me-2 hire">Hire User</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="me" #me>
+    <p class="text-white">0</p>
+  </section>
+
+  <section class="cover-section">
+    <div [style.background]="'url(' + data[0].coverPic + ') no-repeat center / cover'"
+         class="container-fluid cover d-flex align-items-center justify-content-center ">
+      <div class="position-relative text-center">
+        <h1 class="f-name">{{ data[0].firstName }}</h1>
+        <h1 class="l-name">{{ data[0].lastName }}</h1>
+        <p class="job-title">{{ data[0].userType }}</p>
+        <p class="yearly-exp">{{ data[0].totalExperience }} + YEARS OF EXP</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid section-layout about-section bg-white" id="about" #about>
+    <div class="row align-items-center justify-content-center min-vh-100 p-4">
+      <div class="card bg-white border-0 p-2 shadow" style="max-width: 1000px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <div [style.background-image]="'url(' + data[0].profilePic + ')'"
+                 [style.background-size]="'cover'"
+                 [style.background-repeat]="'no-repeat'"
+                 class=" profilePic">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title mx-2">About Me</h2>
+              <p class="card-text p-2">
+                {{data[0].about}}
+              </p>
+              <button class="btn me-2">Hire Me</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-layuot container-fluid bio-section" id="bio" #bio>
+    <h1 class="text-center p-5">Bio</h1>
+
+    <div class="container-fluid pb-5">
+      <div class="row mx-auto g-3">
+        <div class="col-lg-4 col-md-6">
+          <div class="p-3 mb-2 gender-card">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="bio-icon gender-icon">
+                  <span class="dot gender-dot d-flex justify-content-center m-2 align-items-center"></span>
+                </div>
+                <span style="opacity: 0.7" class="p-2 card-text mt-2">Gender</span>
+              </div>
+              <span class="mt-3 card-text bio-data">{{data[0].gender}}</span>
+            </div>
+          </div>
+          <div class="p-3 mb-2 dob-card">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="bio-icon dob-icon">
+                  <span class="dot dob-dot d-flex justify-content-center m-2 align-items-center"></span>
+                </div>
+                <span style="opacity: 0.7" class="p-2 mt-2">Dob</span>
+              </div>
+              <span class="mt-3 bio-data">{{ data[0].dob }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="p-3 status-card">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="bio-icon status-icon">
+                  <span class="dot status-dot d-flex justify-content-center m-2 align-items-center"></span>
+                </div>
+                <span style="opacity: 0.7" class="p-2 card-text mt-2">Status</span>
+              </div>
+              <span class="mt card-text bio-data">{{data[0].martialStatus}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="p-3 contact-card">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="bio-icon contact-icon">
+                  <span class="dot contact-dot d-flex justify-content-center m-2 align-items-center"></span>
+                </div>
+                <span style="opacity: 0.7" class="p-2 card-text mt-2">Contact</span>
+              </div>
+              <span class="mt card-text bio-data">{{data[0].contactNum}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="p-3 city-card">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="bio-icon city-icon">
+                  <span class="dot city-dot d-flex justify-content-center m-2 align-items-center"></span>
+                </div>
+                <span style="opacity: 0.7" class="p-2 card-text mt-2">City</span>
+              </div>
+              <span class="mt card-text bio-data">{{data[0].city}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-md-12">
+          <div class="p-3 mb-4 email-card">
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="bio-icon email-icon">
+                  <span class="dot email-dot d-flex justify-content-center m-2 align-items-center"></span>
+                </div>
+                <span style="opacity: 0.7" class="p-2 card-text mt-2">Email</span>
+              </div>
+              <span class="mt card-text bio-data">{{data[0].email}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-layuot skills-section bg-white" id="skills" #skills>
+    <div class="container" style="max-width: 900px">
+      <div class="row min-vh-100">
+        <div class="mb-5">
+          <h1 class="text-center p-5">User Skills</h1>
+          <div >
+            <a class="ball btn mx-2 mt-3" *ngFor="let skill of data[0].userSkills">
+              {{ skill }}
+              <div class="span-wrapper">
+                <span class="s1"></span>
+                <span class="s2"></span>
+                <span class="s3"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
+<footer class="bg-dark p-5">
+</footer>
