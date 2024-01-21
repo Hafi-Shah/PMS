@@ -59,55 +59,56 @@ export class UserRegComponent implements OnInit {
 
   userRegFormValid() {
     this.userRegForm = this.builder.group({
-      firstName: this.builder.control('haseeb', Validators.compose([
+      firstName: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(10),
         Validators.pattern("[a-zA-z].*"),
       ])),
-      lastName: this.builder.control('shah', Validators.compose([
+      lastName: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(10),
         Validators.pattern("[a-zA-z].*"),
       ])),
-      email: this.builder.control('haseebshahcs@gmail.com', Validators.compose([
+      email: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.email,
-        Validators.pattern("^[\\w.%+-]+@gmail\\.com$")
+        Validators.pattern("^[^0-9][\\w.%+-]+@gmail\\.com$")
       ])),
-      password: this.builder.control('asdasd', Validators.compose([
+
+      password: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(12)
       ])),
-      yearlyExp: this.builder.control('8', Validators.compose([
+      yearlyExp: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.pattern(/^\d{1,2}$/),
       ])),
-      about: this.builder.control('hello DP world', Validators.compose([
+      about: this.builder.control('', Validators.compose([
         Validators.required,
-        Validators.minLength(4),
+        Validators.minLength(50),
         Validators.maxLength(400),
         Validators.pattern(/^[a-zA-Z][a-zA-Z0-9\s().,]*[a-zA-Z0-9\s.]$/),
       ])),
-      city: this.builder.control('Kohat', Validators.compose([
+      city: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(60),
         Validators.pattern(/^[a-zA-Z\s]*$/)
       ])),
-      contact: this.builder.control('03215789681', Validators.compose([
+      contact: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.minLength(11),
         Validators.maxLength(15),
         Validators.pattern("[0-9]*"),
       ])),
 
-      userType: this.builder.control('', Validators.required),
-      gender: this.builder.control('', Validators.required),
-      status: this.builder.control('', Validators.required),
-      skills: this.builder.control([1, 2, 3], Validators.required),
+      userTypeId: this.builder.control('', Validators.required),
+      genderId: this.builder.control('', Validators.required),
+      maritalStatusId: this.builder.control('', Validators.required),
+      skills: this.builder.control([], Validators.required),
       dob: this.builder.control('', Validators.required),
       profilePic: this.builder.control('', Validators.required),
       coverImg: this.builder.control('', Validators.required),

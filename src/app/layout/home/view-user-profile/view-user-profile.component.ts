@@ -7,7 +7,7 @@ export class UserData {
   firstName: string = '';
   lastName: string = '';
   userType: string = '';
-  userSkills: any;
+  userSkills: any[] = [];
   gender: string = '';
   martialStatus: string = '';
   dob: string = '';
@@ -50,8 +50,8 @@ export class ViewUserProfileComponent implements OnInit {
 
   getData() {
     this.routeParam.params.subscribe(params => {
+      debugger
       const userId = this.routeParam.snapshot.params['id'];
-      console.log(userId);
       this.userService.getUserDetailById(userId).subscribe(res => {
         this.data = res;
         console.log(this.data);

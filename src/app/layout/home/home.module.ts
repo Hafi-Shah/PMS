@@ -9,7 +9,6 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    // Other child routes within the HomeModule if needed
   },
 ];
 
@@ -18,7 +17,8 @@ const routes: Routes = [
   declarations: [HomeComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes) // Import the RouterModule here
+    ViewUserProfileModule,
+    RouterModule.forChild(routes)
 
 
   ]

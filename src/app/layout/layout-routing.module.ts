@@ -31,8 +31,8 @@ const routes: Routes = [
       {path: 'notification', canLoad: [AuthGuard], component: NotificationComponent},
     ]
   },
-  {path: 'view-user-profile', component: ViewUserProfileComponent},
-  {path: 'announcement', component: AnnouncementComponent}
+  {path: 'view-user-profile/:id', component: ViewUserProfileComponent},
+  {path: 'announcement', canLoad: [AuthGuard], component: AnnouncementComponent}
   ]
 
 

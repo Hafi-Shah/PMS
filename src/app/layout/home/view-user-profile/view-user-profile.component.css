@@ -67,7 +67,10 @@ a {
     color: #171717;
     font-family: poppin bold;
 }
-
+.profilePic{
+  height: 350px;
+  border-radius: 7px;
+}
 .section-layuot {
     margin-top: 4vh;
     min-height: 91vh;

@@ -29,7 +29,7 @@
 
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Choose User Type</mat-label>
-                                <mat-select  formControlName="userType">
+                                <mat-select  formControlName="userTypeId">
                                     <mat-option *ngFor="let types of userTypeList" [value]="types.id">
                                       {{ types.name }}
                                     </mat-option>
@@ -38,7 +38,7 @@
 
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>gender</mat-label>
-                                <mat-select formControlName="gender">
+                                <mat-select formControlName="genderId">
                                     <mat-option *ngFor="let list of genderList" [value]="list.id">
                                       {{list.name}}
                                     </mat-option>
@@ -74,7 +74,7 @@
 
                             <mat-form-field appearance="outline" class="w-100">
                                 <mat-label>Status</mat-label>
-                                <mat-select formControlName="status">
+                                <mat-select formControlName="maritalStatusId">
                                     <mat-option *ngFor="let status of maritalStatusList"
                                                 [value]="status.id">
                                       {{status.name}}

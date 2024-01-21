@@ -15,5 +15,7 @@ export class ApiPath {
   static readonly GET_MARITAL_STATUS : string = '/api/UserRegistration/GetUserStatus';
     static readonly MAKE_ANNOUNCEMENT : string = '/api/Announcement/AddCompanyAnnouncement';
     static readonly GET_FEED_DATA : string = '/api/Feed/GetFeedData';
+    static readonly GET_USERS_CARDS : string = '/api/UserCards/GetUserCards';
+    static readonly VIEW_USER_DETAIL : string = '/api/ViewUser/';
 
 }

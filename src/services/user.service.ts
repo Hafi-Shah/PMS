@@ -24,6 +24,15 @@ export class UserService {
     let url = environment.basePath.concat(ApiPath.GET_MARITAL_STATUS);
     return this.http.get(url);
   }
+  getUserCards():Observable<any>{
+    let url = environment.basePath.concat(ApiPath.GET_USERS_CARDS);
+    return this.http.get(url);
+  }
+
+  getUserDetailById(id: number):Observable<any>{
+    let url = environment.basePath.concat(ApiPath.VIEW_USER_DETAIL) + id;
+    return this.http.get(url);
+  }
 
   registerUser(body:any):Observable<any>{
     let url: string = environment.basePath.concat(ApiPath.REGISTER_USER);

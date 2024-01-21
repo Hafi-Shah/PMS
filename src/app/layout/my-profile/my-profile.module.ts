@@ -9,7 +9,6 @@ const routes: Routes = [
   {
     path: '',
     component: MyProfileComponent,
-    // Other child routes within the Module if needed
   },
 ];
 @NgModule({

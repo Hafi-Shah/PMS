@@ -1,7 +1,7 @@
 <section data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 fixed-top" bsNavbar>
     <div class="container-fluid">
-      <a class="navbar-brand">Hafi</a>
+      <a class="navbar-brand">{{ data.firstName }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
               aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
           </li>
         </ul>
 
-        <div class="d-flex btns ms-auto"> <!-- Use ms-auto to move the buttons to the right -->
+        <div class="d-flex btns ms-auto">
           <button class="btn me-2 home text-white" (click)="onRoute('/home')">Home</button>
           <button class="btn me-2 hire">Hire User</button>
         </div>
@@ -34,14 +34,16 @@
     <p class="text-white">0</p>
   </section>
   <section class="cover-section">
-    <!--  <div [style.background-image]="'url(' + img + ')'" class="container-fluid cover d-flex align-items-center justify-content-center bg-light">-->
-    <div style="background: url('../../../../assets/images/cover.jpg') no-repeat center; background-size: cover"
-         class="container-fluid cover d-flex align-items-center justify-content-center bg-light">
+    <div [style.background-image]="'url(' + data.coverPic + ')'"
+         [style.background-size]="'cover'"
+         [style.background-repeat]="'no-repeat'"
+         class="container-fluid cover d-flex align-items-center justify-content-center">
+
       <div class="position-relative text-center">
-        <h1 class="f-name">Syed Muhammad</h1>
-        <h1 class="l-name">Hafi</h1>
-        <p class="job-title">Software Engineer</p>
-        <p class="yearly-exp">5 + YEARS OF EXP</p>
+        <h1 class="f-name">{{ data.firstName }}</h1>
+        <h1 class="l-name">{{ data.lastName }}</h1>
+        <p class="job-title">{{ data.userType }}</p>
+        <p class="yearly-exp">{{ data.totalExperience }} + YEARS OF EXP</p>
       </div>
     </div>
   </section>
@@ -51,22 +53,23 @@
       <div class="card bg-white border-0 p-2  shadow" style="max-width: 1000px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="../../../../assets/images/avatar.png" class="img img-thumbnail m-4 p-5 rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h2 class="card-title mx-2">About Me</h2>
-              <p class="card-text p-2">
-                Premium Vector | Autumn mountains landscape with tree silhouettes and river at
-                sunset.
-                Opens a new tab Download this Premium Vector about Autumn mountains landscape with tree silhouettes and
-                river at sunset., and discover more than 72 Million Professional Graphic Resources on Freepik. #freepik
-                #vector #naturesilhouette
-                #mountainsilhouette #moutain than 72 Million Professionalthan 72 Million
-              </p>
-              <button class="btn me-2">Hire Me</button>
+            <div [style.background-image]="'url(' + data.profilePic + ')'"
+                 [style.background-size]="'cover'"
+                 [style.background-repeat]="'no-repeat'"
+                 class=" profilePic">
             </div>
           </div>
+
+            <div class="col-md-8">
+              <div class="card-body">
+                <h2 class="card-title mx-2">About Me</h2>
+                <p class="card-text p-2">
+                  {{ data.about }}
+                </p>
+                <button class="btn me-2">Hire Me</button>
+              </div>
+            </div>
+
         </div>
       </div>
     </div>
@@ -87,7 +90,7 @@
                 </div>
                 <span style="opacity: 0.7" class="p-2 card-text mt-2">Gender</span>
               </div>
-              <span class="mt-3 card-text bio-data">Male</span>
+              <span class="mt-3 card-text bio-data">{{ data.gender }}</span>
             </div>
           </div>
           <div class="p-3 mb-2 dob-card">
@@ -98,7 +101,7 @@
                 </div>
                 <span style="opacity: 0.7" class="p-2 mt-2">Dob</span>
               </div>
-              <span class="mt-3 bio-data">28 Jul 2000</span>
+              <span class="mt-3 bio-data">{{ data.dob }}</span>
             </div>
           </div>
         </div>
@@ -111,7 +114,7 @@
                 </div>
                 <span style="opacity: 0.7" class="p-2 card-text mt-2">Status</span>
               </div>
-              <span class="mt card-text bio-data">Married</span>
+              <span class="mt card-text bio-data">{{ data.martialStatus }}</span>
             </div>
           </div>
         </div>
@@ -124,7 +127,7 @@
                 </div>
                 <span style="opacity: 0.7" class="p-2 card-text mt-2">Contact</span>
               </div>
-              <span class="mt card-text bio-data">03215789681</span>
+              <span class="mt card-text bio-data">{{ data.contactNum }}</span>
             </div>
           </div>
         </div>
@@ -138,7 +141,7 @@
                 </div>
                 <span style="opacity: 0.7" class="p-2 card-text mt-2">City</span>
               </div>
-              <span class="mt card-text bio-data">Islamabad</span>
+              <span class="mt card-text bio-data">{{ data.city }}</span>
             </div>
           </div>
         </div>
@@ -152,7 +155,7 @@
                 </div>
                 <span style="opacity: 0.7" class="p-2 card-text mt-2">Email</span>
               </div>
-              <span class="mt card-text bio-data">devhafi1337@gmail.com</span>
+              <span class="mt card-text bio-data">{{ data.email }}</span>
             </div>
           </div>
         </div>
@@ -168,83 +171,14 @@
 
         <div class="mb-5">
           <h1 class="text-center p-5">User Skills</h1>
-          <a class="ball btn mx-2 mt-3">
-            Angular
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-
-          <a class="ball btn mx-2 mt-3">
-            Dot Net Core
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-
-          <a class="ball btn mx-2 mt-3">
-            Spring Boot
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-
-          <a class="ball btn mx-2 mt-3">
-            Angular
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-
-          <a class="ball btn mx-2 mt-3">
-            Angular
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-
-          <a class="ball btn mx-2 mt-3">
-            Dot Net Core
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-          <a class="ball btn mx-2 mt-3">
-            Spring Boot
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-          <a class="ball btn mx-2 mt-3">
-            Dot Net Core
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
-          <a class="ball btn mx-2 mt-3">
-            Java
-            <div class="span-wrapper">
-              <span class="s1"></span>
-              <span class="s2"></span>
-              <span class="s3"></span>
-            </div>
-          </a>
+            <a class="ball btn mx-2 mt-3" *ngFor="let skill of data.userSkills">
+              {{ skill }}
+              <div class="span-wrapper">
+                <span class="s1"></span>
+                <span class="s2"></span>
+                <span class="s3"></span>
+              </div>
+            </a>
         </div>
 
 

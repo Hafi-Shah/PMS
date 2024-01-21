@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit{
   }
 
   getCardsDetail(){
-    this.userService.getUserCards().subscribe(res =>{
+    this.userService.getUserCards().subscribe((res: CardData[]) =>{
       this.cards = res;
       console.log(this.cards);
     })
