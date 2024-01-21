@@ -1,25 +1,63 @@
-import { Component, HostListener, ElementRef } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, HostListener, ElementRef, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {UserService} from "../../../../services/user.service";
+
+export class UserData {
+  userId: number = 0;
+  firstName: string = '';
+  lastName: string = '';
+  userType: string = '';
+  userSkills: any;
+  gender: string = '';
+  martialStatus: string = '';
+  dob: string = '';
+  city: string = '';
+  email: string = '';
+  totalExperience: number = 0;
+  about: string = '';
+  contactNum: string = '';
+  profilePic: string = '';
+  coverPic: string = '';
+}
 
 @Component({
   selector: 'app-view-user-profile',
   templateUrl: './view-user-profile.component.html',
   styleUrls: ['./view-user-profile.component.css']
 })
-export class ViewUserProfileComponent {
+export class ViewUserProfileComponent implements OnInit {
 
-  img: string = ''; // declare 64-bit code for the cover image from the DB
+  data: UserData;
 
   activeSection: string | null = null;
 
   sections = [
-    { id: 'me', label: 'Me' },
-    { id: 'about', label: 'About' },
-    { id: 'bio', label: 'Bio' },
-    { id: 'skills', label: 'Skills' },
+    {id: 'me', label: 'Me'},
+    {id: 'about', label: 'About'},
+    {id: 'bio', label: 'Bio'},
+    {id: 'skills', label: 'Skills'},
   ];
 
-  constructor(private el: ElementRef, private router: Router) {}
+  constructor(
+    private el: ElementRef,
+    private router: Router,
+    private routeParam: ActivatedRoute,
+    private userService: UserService
+  ) {
+    this.data = new UserData();
+  }
+
+
+  getData() {
+    this.routeParam.params.subscribe(params => {
+      const userId = this.routeParam.snapshot.params['id'];
+      console.log(userId);
+      this.userService.getUserDetailById(userId).subscribe(res => {
+        this.data = res;
+        console.log(this.data);
+      });
+    });
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -41,12 +79,16 @@ export class ViewUserProfileComponent {
   scrollTo(sectionId: string) {
     const sectionElement = this.el.nativeElement.querySelector(`#${sectionId}`);
     if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'start' });
+      sectionElement.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'start'});
       this.activeSection = sectionId;
     }
   }
 
-  onRoute(path: any){
+  onRoute(path: any) {
     this.router.navigate([path]);
+  }
+
+  ngOnInit() {
+    this.getData();
   }
 }

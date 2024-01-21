@@ -1,0 +1,155 @@
+<div class="w-100 d-flex justify-content-end">
+  <button (click)="cancel()" mat-dialog-close class="btn m-2 close p-2">Close</button>
+</div>
+<div class="container pb-5">
+  <div class="card mx-auto p-3 border-0">
+    <div class="card-body m-2">
+      <div class="d-flex justify-content-center">
+        <div class="d-block text-center mb-3">
+          <h6>Update Your Profile</h6>
+        </div>
+      </div>
+      <form [formGroup]="userRegForm" (ngSubmit)="onSubmit()">
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" formControlName="firstName" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Contact</mat-label>
+                <input matInput type="text" formControlName="contact" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Choose User Type</mat-label>
+                <mat-select  formControlName="userTypeId">
+                  <mat-option *ngFor="let types of userTypeList" [value]="types.id">
+                    {{ types.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>gender</mat-label>
+                <mat-select formControlName="genderId">
+                  <mat-option *ngFor="let list of genderList" [value]="list.id">
+                    {{list.name}}
+                  </mat-option>
+
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" formControlName="lastName" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="dobPicker" formControlName="dob" required>
+                <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                <mat-datepicker #dobPicker></mat-datepicker>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Yearly Experience</mat-label>
+                <input matInput type="number" formControlName="yearlyExp" required>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="maritalStatusId">
+                  <mat-option *ngFor="let status of maritalStatusList"
+                              [value]="status.id">
+                    {{status.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+
+            <div class="col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>City</mat-label>
+                <input matInput type="text" formControlName="city" required>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>About</mat-label>
+                <textarea formControlName="about" matInput placeholder="Maximum 400 words">
+                                </textarea>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Choose Your Skills</mat-label>
+                <mat-select multiple formControlName="skills">
+                  <mat-option *ngFor="let skill of skillsList" [value]="skill.id">
+                    {{ skill.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <div class="select-box w-100 p-1"
+                   [ngClass]="{
+                                'invalid': userRegForm.get('profilePic').invalid && userRegFormSubmitted,
+                                'file-selected': userRegForm.get('profilePic').value
+                                }">
+                <mat-label class="">Profile Picture [square]</mat-label>
+                <input type="file" (change)="onFileChange($event, 'profilePic')"
+                       accept=".jpg, .jpeg, .png" name="profilePic">
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-4">
+              <div class="select-box w-100 p-1"
+                   [ngClass]="{
+                                 'invalid': userRegForm.get('coverImg').invalid && userRegFormSubmitted,
+                                 'file-selected': userRegForm.get('coverImg').value
+                                 }">
+                <mat-label class="">Cover Image [landscape]</mat-label>
+                <input type="file" (change)="onFileChange($event, 'coverImg')"
+                       accept=".jpg, .jpeg, .png" name="coverImg">
+              </div>
+            </div>
+
+            <div style="display: none">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Role</mat-label>
+                <input matInput type="text" formControlName="role" required>
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+
+              <button type="submit" class="w-100">
+                Update
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
