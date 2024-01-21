@@ -15,6 +15,9 @@ import {MatSelectModule} from "@angular/material/select";
 import { UpdateCompanyPopupComponent } from './shared/update-company-popup/update-company-popup.component';
 import { DeleteAccountPopupComponent } from './shared/delete-account-popup/delete-account-popup.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { UpdateUserDialogComponent } from './shared/update-user-dialog/update-user-dialog.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
 
 
 
@@ -22,7 +25,8 @@ import {MatDialogModule} from "@angular/material/dialog";
   declarations: [
     AppComponent,
     UpdateCompanyPopupComponent,
-    DeleteAccountPopupComponent
+    DeleteAccountPopupComponent,
+    UpdateUserDialogComponent
 
   ],
   imports: [
@@ -39,6 +43,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatSelectModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatInputModule,
 
   ],
   providers: [{

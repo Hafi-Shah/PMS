@@ -25,7 +25,7 @@
 
         <div class="d-flex btns ms-auto">
           <button class="btn me-2 home text-white" (click)="onRoute('/home')">Home</button>
-          <button class="btn me-2 hire">Hire User</button>
+          <button *ngIf="isCompanyLoggedIn()" class="btn me-2 hire">Hire User</button>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
             <div [style.background-image]="'url(' + data.profilePic + ')'"
                  [style.background-size]="'cover'"
                  [style.background-repeat]="'no-repeat'"
-                 class=" profilePic">
+                 class="profilePic">
             </div>
           </div>
 
@@ -66,7 +66,7 @@
                 <p class="card-text p-2">
                   {{ data.about }}
                 </p>
-                <button class="btn me-2">Hire Me</button>
+                <button *ngIf="isCompanyLoggedIn()" class="btn me-2">Hire Me</button>
               </div>
             </div>
 

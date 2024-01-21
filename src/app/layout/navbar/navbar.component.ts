@@ -4,6 +4,7 @@ import { Observable, of } from "rxjs";
 import { LoginResponse } from "../../models/login.model";
 import { Router } from "@angular/router";
 import {ToastrService} from "ngx-toastr";
+import {RoleBaseComponentAccess} from "../../shared/role-base-component-acess";
 
 @Component({
   selector: 'app-navbar',
@@ -19,6 +20,7 @@ export class NavbarComponent {
   constructor(
     private service: AuthService,
     private router: Router,
+    private access: RoleBaseComponentAccess
   ) {
     this.isLoggedIn$ = of(this.service.isLoggedIn());
 
@@ -42,6 +44,10 @@ export class NavbarComponent {
 
   notificationRoute(){
     this.router.navigate(['notification']);
+  }
+
+  roleBaseAccess():boolean{
+    return this.access.isRoleCompanyTrue();
   }
 
   logOut() {

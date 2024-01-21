@@ -68,7 +68,8 @@ a {
     font-family: poppin bold;
 }
 .profilePic{
-  height: 350px;
+  height: 250px;
+  width: 250px;
   border-radius: 7px;
 }
 .section-layuot {

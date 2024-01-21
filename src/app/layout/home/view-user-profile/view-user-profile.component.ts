@@ -1,6 +1,7 @@
 import {Component, HostListener, ElementRef, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../services/user.service";
+import {RoleBaseComponentAccess} from "../../../shared/role-base-component-acess";
 
 export class UserData {
   userId: number = 0;
@@ -42,7 +43,8 @@ export class ViewUserProfileComponent implements OnInit {
     private el: ElementRef,
     private router: Router,
     private routeParam: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private roleBaseAccess: RoleBaseComponentAccess
   ) {
     this.data = new UserData();
   }
@@ -88,6 +90,9 @@ export class ViewUserProfileComponent implements OnInit {
     this.router.navigate([path]);
   }
 
+  isCompanyLoggedIn():boolean{
+    return this.roleBaseAccess.isRoleCompanyTrue();
+  }
   ngOnInit() {
     this.getData();
   }

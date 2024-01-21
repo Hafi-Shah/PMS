@@ -1,19 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
-import Compressor from 'compressorjs';
 import {DatePipe} from "@angular/common";
 import {SkillsService} from "../../../services/skills.service";
 import {UserService} from "../../../services/user.service";
-import {Router} from "@angular/router";
+import Compressor from "compressorjs";
 
 @Component({
-  selector: 'app-user-reg',
-  templateUrl: './user-reg.component.html',
-  styleUrls: ['./user-reg.component.css']
+  selector: 'app-update-user-dialog',
+  templateUrl: './update-user-dialog.component.html',
+  styleUrls: ['./update-user-dialog.component.css']
 })
-export class UserRegComponent implements OnInit {
-
+export class UpdateUserDialogComponent implements OnInit{
   userRegForm: FormGroup | any;
   userRegFormSubmitted = false;
 
@@ -30,8 +28,7 @@ export class UserRegComponent implements OnInit {
     private toastr: ToastrService,
     private datePipe: DatePipe,
     private apiSkillService: SkillsService,
-    private apiUserService: UserService,
-    private router: Router
+    private apiUserService: UserService
   ) {
   }
 
@@ -92,7 +89,7 @@ export class UserRegComponent implements OnInit {
         Validators.required,
         Validators.minLength(50),
         Validators.maxLength(400),
-        Validators.pattern(/^[a-zA-Z][a-zA-Z0-9\s'".,]*[a-zA-Z0-9\s.]$/)
+        Validators.pattern(/^[a-zA-Z][a-zA-Z0-9\s().,]*[a-zA-Z0-9\s.]$/),
       ])),
       city: this.builder.control('', Validators.compose([
         Validators.required,
@@ -165,14 +162,16 @@ export class UserRegComponent implements OnInit {
         if (res.success) {
           console.log('Request Body:', requestBody);
           this.toastr.success('User Registered Successfully');
-          this.userRegForm.reset();
-          this.router.navigate(['/auth/login']);
         }
       });
 
     } else {
       this.toastr.warning('Enter Your Data Correctly First');
     }
+  }
+
+  cancel(){
+    this.toastr.show('Update Action Cancelled', '', {timeOut:1500});
   }
 
   ngOnInit() {

@@ -5,6 +5,7 @@ import { GetDataByRoleUser } from '../../../models/role-base-data.model';
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteAccountPopupComponent} from "../../../shared/delete-account-popup/delete-account-popup.component";
 import {AuthService} from "../../../../services/auth.service";
+import {UpdateUserDialogComponent} from "../../../shared/update-user-dialog/update-user-dialog.component";
 
 @Component({
   selector: 'app-my-user-profile',
@@ -57,15 +58,15 @@ export class MyUserProfileComponent implements OnInit {
     this.authService.onLogout();
   }
 
-  // onUpdate(){
-  //   this.dialog.open(UpdateUserDialogComponent, {
-  //     maxWidth: '100%',
-  //     maxHeight: '100%',
-  //     width: '95%',
-  //     height: '90vh',
-  //     panelClass: 'full-screen-dialog'
-  //   })
-  // }
+  onUpdate(){
+    this.dialog.open(UpdateUserDialogComponent, {
+      maxWidth: '100%',
+      maxHeight: '100%',
+      width: '95%',
+      height: '90vh',
+      panelClass: 'full-screen-dialog'
+    })
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
