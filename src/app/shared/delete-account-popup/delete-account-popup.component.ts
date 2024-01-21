@@ -56,4 +56,8 @@ export class DeleteAccountPopupComponent {
       },
     });
   }
+
+  cancel(){
+    this.toastr.info('Delete Cancelled','', {timeOut:1500});
+  }
 }
