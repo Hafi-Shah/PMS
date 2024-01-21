@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import { MyProfileComponent } from './my-profile.component';
 import { MyUserProfileComponent } from './my-user-profile/my-user-profile.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
 
 
 const routes: Routes = [
@@ -13,11 +14,12 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [MyProfileComponent, MyUserProfileComponent],
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatSidenavModule,
 
-        // Import the RouterModule here
-    ]
+    // Import the RouterModule here
+  ]
 })
 export class MyProfileModule { }

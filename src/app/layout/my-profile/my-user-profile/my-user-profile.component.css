@@ -7,29 +7,28 @@ a {
   padding-right: 8px;
 }
 .navbar-brand {
-  background: #ffd737;
+  background: #ff8437;
   font-family: "poppin bold";
 }
 .focusMe:focus, .focusMe:hover {
-  background: #ffd737;
+  background: #ff8437;
 }
 
 .btns button{
-  border: 1px solid #ffd737;
+  border: 1px solid #ff8437;
   color: white;
   border-radius: 0;
 }
 
 .btns .hire {
-  background: #ffd737;
+  background: #ff8437;
 }
 .btns .hire:hover {
-  background: #e1be00;
-  border-color:#e1be00;
+  background: #e07230;
 }
 
 .btns .home:hover {
-  background: #ffd737;
+  background: #ff8437;
 }
 .cover-section {
   margin-top: 11vh;
@@ -50,9 +49,9 @@ a {
 }
 .cover-section .l-name {
   letter-spacing: 2px;
-  color: #ffd737;
+  color: #ff8437;
   padding-bottom: 10px;
-  border-bottom: 5px solid #ffd737;
+  border-bottom: 5px solid #ff8437;
 }
 .cover {
   box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6);
@@ -63,7 +62,7 @@ a {
   letter-spacing: 5px;
 }
 .cover-section .yearly-exp {
-  background: #ffd737;
+  background: #ff8437;
   color: #171717;
   font-family: poppin bold;
 }
@@ -78,17 +77,6 @@ a {
 
 .about-section .card {
   & h2 {font-family: poppin bold;}
-  & button {
-    background: #ffd62a;
-    color: white;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 0;
-  }
-  & button:hover {
-    background: #e1be00;
-    color: white;
-  }
   & p {
     font-family: poppin med;
     text-align: justify;
@@ -162,17 +150,17 @@ a {
 
   font-family: poppin bold;
   font-size: 2rem;
-  color: #ffd62a;
+  color: #ff8437;
 }
 
 .ball {
-  color:#ffd62a;
+  color:#ff8437;
   user-select: none;
   font-size: 1rem;
   padding: 1rem 2rem;
   text-transform: uppercase;
   text-decoration: none;
-  border: 3px solid #ffd62a;
+  border: 3px solid #ff8437;
   position: relative;
   transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
   letter-spacing: 4px;
@@ -193,7 +181,7 @@ a {
 
 /* The span tags */
 .span-wrapper span {
-  background-color:#ffd62a;
+  background-color:#ff8437;
   width: 30%;
   height: 100%;
   border-radius: 100%;
@@ -246,3 +234,19 @@ a {
   }
 }
 
+mat-drawer {
+  width: 300px;
+  position: fixed;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.actions{
+  background: #eeeeee;
+  font-family: poppin med;
+}
+
+.actions:hover{
+  background: #ff8437;
+  color: white;
+}
