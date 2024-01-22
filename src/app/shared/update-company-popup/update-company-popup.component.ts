@@ -100,12 +100,22 @@
 
     onFileSelected(event: any) {
       const file: File = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.updateModel.profilePic = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+
+      if (file) {
+        const reader = new FileReader();
+
+        if (!this.updateModel.profilePic) {
+          this.updateModel.profilePic = this.storedData.profilePic;
+        }
+
+        reader.onload = () => {
+          this.updateModel.profilePic = reader.result as string;
+        };
+
+        reader.readAsDataURL(file);
+      }
     }
+
 
 
     getCompanyTypes(){

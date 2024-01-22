@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import {environment} from 'src/environments/environment.development';
 import {ApiPath} from "../app/core/constants/api-url.constant";
 import {ViewCompanyDetailsModel} from "../app/models/view-company-details.model";
-
 
 
 @Injectable({
@@ -12,25 +11,26 @@ import {ViewCompanyDetailsModel} from "../app/models/view-company-details.model"
 })
 export class CompanyService {
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) {
+  }
 
-  getCompanyTypes():Observable<any>{
-    let url:string = (environment.basePath).concat(ApiPath.GET_COMPANY_TYPES);
+  getCompanyTypes(): Observable<any> {
+    let url: string = (environment.basePath).concat(ApiPath.GET_COMPANY_TYPES);
     return this.http.get(url);
   }
 
-  getCompanyCards():Observable<any>{
-    let url : string = (environment.basePath).concat(ApiPath.GET_COMPANY_CARDS);
+  getCompanyCards(): Observable<any> {
+    let url: string = (environment.basePath).concat(ApiPath.GET_COMPANY_CARDS);
     return this.http.get(url);
   }
 
-  getCompanyDetails(companyId : number):Observable<any>{
-    let url : string = (environment.basePath).concat(ApiPath.VIEW_COMPANY_DETAILS).concat(`/${companyId}`);
+  getCompanyDetails(companyId: number): Observable<any> {
+    let url: string = (environment.basePath).concat(ApiPath.VIEW_COMPANY_DETAILS).concat(`/${companyId}`);
     return this.http.get<any>(url);
   }
 
-  postAnnouncementDetail(userId: number, role:string, body: any):Observable<any>{
-    let url:string =`${environment.basePath}${ApiPath.MAKE_ANNOUNCEMENT}?userId=${userId}&role=${role}`
+  postAnnouncementDetail(userId: number, role: string, body: any): Observable<any> {
+    let url: string = `${environment.basePath}${ApiPath.MAKE_ANNOUNCEMENT}?userId=${userId}&role=${role}`
     return this.http.post(url, body);
   }
 

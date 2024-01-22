@@ -17,6 +17,14 @@
       </div>
     </div>
     <div class=" w-100 p-3">
+      <div class="d-flex justify-content-between mb-2">
+        <span style="font-family: poppin med; font-size: 0.8rem">Auto Apply</span>
+        <form [formGroup]="onAutoApply">
+        <div class="form-check form-switch">
+          <input formControlName="autoApply" class="form-check-input px-3 py-2" type="checkbox" id="flexSwitchCheckDefault">
+        </div>
+        </form>
+      </div>
       <button (click)="onUpdate()"
               class="btn actions w-100 mb-2">Update Profile
       </button>
@@ -24,7 +32,8 @@
               class="btn actions w-100 mb-2">Delete Profile
       </button>
       <button (click)="onLogOut()"
-              class="btn btn-danger w-100" style="font-family: poppin med">Log Out
+              class="btn btn-danger w-100" style="font-family: poppin med">
+        Log Out
       </button>
     </div>
   </mat-drawer>

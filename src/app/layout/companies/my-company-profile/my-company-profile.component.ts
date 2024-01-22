@@ -26,7 +26,7 @@ export class MyCompanyProfileComponent implements OnInit {
   getDataByRole() {
     this.route.params.subscribe(param => {
       debugger;
-      this.service.loginByRoleCompany(param['UserId'], param['Role']).subscribe(res => {
+      this.service.loginByRole(param['UserId'], param['Role']).subscribe(res => {
         console.log(res);
         this.storeCompanyDataByRole = res;
       })

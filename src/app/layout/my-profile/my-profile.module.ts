@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { MyProfileComponent } from './my-profile.component';
 import { MyUserProfileComponent } from './my-user-profile/my-user-profile.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 const routes: Routes = [
@@ -18,8 +19,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MatSidenavModule,
-
-    // Import the RouterModule here
+    ReactiveFormsModule,
   ]
 })
 export class MyProfileModule { }

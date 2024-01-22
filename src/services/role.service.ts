@@ -11,7 +11,7 @@ import { GetDataByRoleCompany } from "../app/models/role-base-data.model";
 export class RoleService {
   constructor(private http: HttpClient) {}
 
-  loginByRoleCompany(id: number, role: string): Observable<any> {
+  loginByRole(id: number, role: string): Observable<any> {
     debugger;
     const url: string = environment.basePath + ApiPath.LOGIN_BY_ROLE + `?id=${id}&role=${role}`;
     return this.http.get<any>(url);

@@ -1,0 +1,51 @@
+.card {
+  max-width: 1000px;
+  margin-top: 10vh;
+  font-family: poppin med;
+  border-radius: 15px;
+  box-shadow: 5px 10px 40px #c7c7c7;
+}
+
+.card h6 {
+  font-family: poppin bold;
+  font-size: 1.5rem;
+  color: #3c005d;
+}
+
+.select-box {
+  border: 1px solid #949494;
+  border-radius:  5px;
+  background: #ffffff;
+}
+.select-box.invalid {
+  border: 1px solid red;
+}
+
+.select-box input::file-selector-button {
+  background: #3c005d;
+  color: white;
+  padding: 0 30px;
+  border-radius: 3px;
+}
+button {
+  background: #3c005d;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+button:hover {
+  background: #4c0079;
+  color: #fff;
+}
+.accordion-btn{
+  background: white;
+  box-shadow: 1px 6px 20px #dadada;
+  color: #5d5d5d;
+  font-family: poppin med;
+  border-radius: 10px;
+}
+
+.accordion-btn:hover{
+  background: #f6f6f6;
+  color: #5d5d5d;
+}

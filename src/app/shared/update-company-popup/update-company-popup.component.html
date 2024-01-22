@@ -99,10 +99,10 @@
           <div class="col-md-7">
             <div class="custom-file mt-3">
               <label class="custom-file-label mt-3">Profile Pic with equal size</label>
-              <input formControlName="selectImg" id="selectImg" (change)="onFileSelected($event)" type="file" class="custom-file-input w-100" required accept="image/png, image/jpeg" [disabled]="true">
+              <input [(ngModel)]="storedData.profilePic" formControlName="selectImg" id="selectImg" (change)="onFileSelected($event)" type="file" class="custom-file-input w-100" required accept="image/png, image/jpeg" [disabled]="true">
             </div>
             <div class="form-text text-danger mb-2 mt-3 mx-2" *ngIf="formValidation.profileImg.errors?.['required'] && (formValidation.profileImg.touched || formValidation.profileImg.dirty)">
-              equal size image required
+              select equal size image if needed
             </div>
           </div>
         </div>

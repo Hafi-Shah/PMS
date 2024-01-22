@@ -6,6 +6,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DeleteAccountPopupComponent} from "../../../shared/delete-account-popup/delete-account-popup.component";
 import {AuthService} from "../../../../services/auth.service";
 import {UpdateUserDialogComponent} from "../../../shared/update-user-dialog/update-user-dialog.component";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-my-user-profile',
@@ -16,6 +17,8 @@ export class MyUserProfileComponent implements OnInit {
   data: GetDataByRoleUser[] = [];
 
   activeSection: string | null = null;
+
+  onAutoApply: FormGroup | any;
 
   sections = [
     { id: 'me', label: 'Me' },
@@ -30,12 +33,13 @@ export class MyUserProfileComponent implements OnInit {
     private routeParam: ActivatedRoute,
     private roleService: RoleService,
     private dialog: MatDialog,
-    private authService: AuthService
+    private authService: AuthService,
+    private builder: FormBuilder
   ) { }
 
   getData() {
     this.routeParam.params.subscribe(param => {
-      this.roleService.loginByRoleCompany(param['UserId'], param['Role']).subscribe(
+      this.roleService.loginByRole(param['UserId'], param['Role']).subscribe(
         (res: GetDataByRoleUser[]) => {
           if (res.length > 0) {
             this.data = res;
@@ -68,6 +72,13 @@ export class MyUserProfileComponent implements OnInit {
     })
   }
 
+  autoApply(){
+    this.onAutoApply = this.builder.group({
+      autoApply: this.builder.control('')
+    })
+  }
+
+
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     const scrollPosition = window.pageYOffset;
@@ -97,7 +108,16 @@ export class MyUserProfileComponent implements OnInit {
     this.router.navigate([path]);
   }
 
+  autoApplyChanges() {
+    console.log('Initial value of autoApply:', this.onAutoApply.get('autoApply').value);
+    this.onAutoApply.get('autoApply').valueChanges.subscribe((value: any) => {
+      console.log('autoApply value changed:', value);
+    });
+  }
+
   ngOnInit() {
     this.getData();
+    this.autoApply();
+    this.autoApplyChanges();
   }
 }

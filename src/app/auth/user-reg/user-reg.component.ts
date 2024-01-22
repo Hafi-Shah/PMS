@@ -159,7 +159,6 @@ export class UserRegComponent implements OnInit {
         coverImg: this.object.coverImg,
         role: this.object.role,
       };
-      console.log(formattedDob);
       debugger
       this.apiUserService.registerUser(this.object).subscribe((res: any) => {
         if (res.success) {
