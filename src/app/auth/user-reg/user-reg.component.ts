@@ -64,8 +64,8 @@ export class UserRegComponent implements OnInit {
       firstName: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(10),
-        Validators.pattern("[a-zA-z].*"),
+        Validators.maxLength(15),
+        Validators.pattern("[a-zA-Z]{3}.*"),
       ])),
       lastName: this.builder.control('', Validators.compose([
         Validators.required,
@@ -86,7 +86,7 @@ export class UserRegComponent implements OnInit {
       ])),
       yearlyExp: this.builder.control('', Validators.compose([
         Validators.required,
-        Validators.pattern(/^\d{1,2}$/),
+        Validators.pattern(/^([0-3]\d{0,1}|[4-9])$/),
       ])),
       about: this.builder.control('', Validators.compose([
         Validators.required,

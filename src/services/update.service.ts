@@ -17,9 +17,8 @@ export class UpdateService {
     return this.http.put<any>(url+'?role=company', obj);
   }
 
-  updateUserData(obj: any): Observable<any> {
-    debugger
+  updateUserData(role:string, obj: any): Observable<any> {
     let url: string = (environment.basePath).concat(ApiPath.UPDATE_USER_DATA);
-    return this.http.put<any>(url +'?role=user', obj);
+    return this.http.put<any>(url +`?role=${role}`, obj);
   }
 }

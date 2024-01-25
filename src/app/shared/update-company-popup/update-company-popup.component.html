@@ -8,9 +8,7 @@
         <div mat-dialog-close (click)="actionClosed()" class="btn btn-danger mt-1">Cancel</div>
       </div>
       <h5 class="text-center mt-1 mb-3">Update Your Company Profile</h5>
-      <p class="text-center p-2" [ngClass]="isAccountUpdated ? 'text-white bg-success d-block' : 'text-danger d-block'">
-        {{displayMsg}}
-      </p>
+
       <div class="col-md-6 mt-3">
         <label class="mx-2">Enter Company Name</label>
         <input [(ngModel)]="storedData.companyName" formControlName="companyName" id="companyName" type="text" class="form-control mt-1 mb-2 p-2" required>
