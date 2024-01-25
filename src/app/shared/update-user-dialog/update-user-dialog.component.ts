@@ -114,8 +114,8 @@ export class UpdateUserDialogComponent implements OnInit {
       firstName: this.builder.control('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(10),
-        Validators.pattern("[a-zA-z].*"),
+        Validators.maxLength(15),
+        Validators.pattern("[a-zA-Z]{3}.*"),
       ])),
       lastName: this.builder.control('', Validators.compose([
         Validators.required,
@@ -136,7 +136,7 @@ export class UpdateUserDialogComponent implements OnInit {
       ])),
       yearlyExp: this.builder.control('', Validators.compose([
         Validators.required,
-        Validators.pattern(/^\d{1,2}$/),
+        Validators.pattern(/^([0-3]\d{0,1}|[4-9])$/),
       ])),
       about: this.builder.control('', Validators.compose([
         Validators.required,
@@ -189,30 +189,29 @@ export class UpdateUserDialogComponent implements OnInit {
     this.userUpdateFormSubmitted = true;
     if (this.userUpdateForm.valid) {
       this.object = this.userUpdateForm.value;
+
+      // Convert skill names to skill IDs
+      const skillIds = this.userUpdateForm.get('skills').value.map((skillName: string) => {
+        const skill = this.skillsList.find((s) => s.name === skillName);
+        return skill ? skill.id : null;
+      });
+
       const formattedDob = this.datePipe.transform(this.object.dob, 'yyyy-MM-dd');
-      const selectedgender = this.genderList.find(g => g.name === this.defaultValue.gender);
+      const selectedGender = this.genderList.find(g => g.name === this.defaultValue.gender);
       const selectedUserType = this.userTypeList.find(u => u.name === this.defaultValue.userType);
       const selectedStatus = this.maritalStatusList.find(m => m.name === this.defaultValue.martialStatus);
-      const selectedSkills = this.skillsList.find(s => s.name === this.defaultValue.userSkills);
-      if (selectedgender) {
-        this.object.gender = selectedgender.name; // Keep the value in the dropdown
-        this.object.gender = selectedgender.id; // Send the key (ID) to the server
+
+      if (selectedGender) {
+        this.object.genderId = selectedGender.id;
       }
       if (selectedUserType) {
-        this.object.userType = selectedUserType.name; // Keep the value in the dropdown
-        this.object.userType = selectedUserType.id; // Send the key (ID) to the server
+        this.object.userTypeId = selectedUserType.id;
       }
       if (selectedStatus) {
-        this.object.status = selectedStatus.name; // Keep the value in the dropdown
-        this.object.status = selectedStatus.id; // Send the key (ID) to the server
-      }
-      if (selectedSkills) {
-        this.object.skills = selectedSkills.id;  // Assign the skill ID
+        this.object.maritalStatusId = selectedStatus.id;
       }
 
-
-      debugger
-      const requestBody = {
+      let requestBody = {
         userId: this.defaultValue.userId,
         firstName: this.object.firstName,
         lastName: this.object.lastName,
@@ -220,33 +219,59 @@ export class UpdateUserDialogComponent implements OnInit {
         password: this.object.password,
         yearlyExp: this.object.yearlyExp,
         about: this.object.about,
-        maritalStatusId: this.object.status,
-        skills: this.findKeyByValueSkills(this.defaultValue.userSkills || this.object.skills),
+        maritalStatusId: this.object.maritalStatusId,
+        skills: skillIds,
         dob: formattedDob,
-        genderId: this.object.gender,
+        genderId: this.object.genderId,
         contact: this.object.contact,
-        profilePic: this.defaultValue.profilePic || this.object.profilePic,
-        coverImg: this.defaultValue.coverPic || this.object.coverImg,
-        userTypeId: this.object.userType,
+        profilePic: this.defaultValue.profilePic ? this.defaultValue.profilePic : this.object.profilePic,
+        coverImg: this.defaultValue.coverPic ? this.defaultValue.coverPic : this.object.coverImg,
+        userTypeId: this.object.userTypeId,
         role: this.object.role,
         city: this.object.city,
       };
-      console.log(requestBody);
-
-      this.apiUpdateService.updateUserData(requestBody).subscribe((res: any) => {
-        debugger
+      console.log(requestBody)
+      debugger
+      this.apiUpdateService.updateUserData(this.object.role, requestBody).subscribe((res: any) => {
         if (res.success) {
-          debugger
           console.log('Request Body:', requestBody);
-          this.toastr.success('User Updated Successfully');
+          this.toastr.success(`${res.message}`);
           this.dialogRef.close({ success: true });
           this.ngOnInit();
         }
       });
-
     } else {
       this.toastr.warning('Provide Suitable Data');
     }
+  }
+
+
+  onUserTypeChange(event: any) {
+    const userType = this.userTypeList.find((type) => type.id === event.value);
+    this.userUpdateForm.get('userTypeId')?.setValue(userType ? userType.id : null);
+    // Update the defaultValue object as well
+    this.defaultValue.userType = userType ? userType.name : null;
+  }
+
+  onGenderChange(event: any) {
+    const gender = this.genderList.find((g) => g.id === event.value);
+    this.userUpdateForm.get('genderId')?.setValue(gender ? gender.id : null);
+    this.defaultValue.gender = gender ? gender.name : null;
+  }
+
+  onStatusChange(event: any) {
+    const status = this.maritalStatusList.find((s) => s.id === event.value);
+    this.userUpdateForm.get('maritalStatusId')?.setValue(status ? status.id : null);
+    this.defaultValue.martialStatus = status ? status.name : null;
+  }
+
+  onSkillsChange(event: any) {
+    const selectedSkills = event.value.map((selectedSkill: number) => {
+      const skill = this.skillsList.find((s) => s.id === selectedSkill);
+      return skill ? skill.name : null;
+    });
+    this.userUpdateForm.get('skills')?.setValue(selectedSkills);
+    this.defaultValue.userSkills = selectedSkills;
   }
 
 
