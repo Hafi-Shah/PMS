@@ -45,7 +45,9 @@
 
 
     }
-
+    actionClosed(){
+      this.toastr.show('Update Action Cancelled', '', {timeOut:1000});
+    }
     getLoggedInDetail() {
       this.getCompanyDetailsSerivce.getCompanyDetails(this.updateModel.userId).subscribe(res => {
         console.log(res)

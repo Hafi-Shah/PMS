@@ -1,31 +1,26 @@
-import {Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
+import { AuthService } from "../../services/auth.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class RoleBaseComponentAccess {
-  private userRole = localStorage.getItem('role');
+  private userRole: any;
 
-  constructor() {
+  constructor(private authService: AuthService) {
+    this.userRole = localStorage.getItem('role');
+    this.authService.roleChange.subscribe((role) => {
+      if (role !== null) {
+        this.userRole = role;
+      }
+    });
   }
-
 
   isRoleCompanyTrue(): boolean {
-    let data = this.userRole;
-    if (data === 'company') {
-      return true;
-    } else {
-      return false
-    }
+    return this.userRole === 'company';
   }
 
-  isRoleUserTrue():boolean {
-    let data = this.userRole;
-    if (data === 'user') {
-      return true;
-    } else {
-      return false
-    }
+  isRoleUserTrue(): boolean {
+    return this.userRole === 'user';
   }
-
 }

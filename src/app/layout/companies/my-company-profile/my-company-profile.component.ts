@@ -35,7 +35,11 @@ export class MyCompanyProfileComponent implements OnInit {
 
   updateDialog() {
     const dialogRef = this.dialog.open(UpdateCompanyPopupComponent, {
-      width: '950px',
+      maxWidth: '100%',
+      maxHeight: '100%',
+      width: '95%',
+      height: '90vh',
+      panelClass: 'full-screen-dialog'
     });
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();

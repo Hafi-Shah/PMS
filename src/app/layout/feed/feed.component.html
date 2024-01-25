@@ -23,7 +23,7 @@
             <p class="card-text w-100">
               {{ data.jobDescription }}
             </p>
-            <p>Experience Required - {{data.yearOfExp}}+ yrs</p>
+            <p>Experience Required - {{data.yearOfExp}} + yrs</p>
           </div>
           <div class="experties">
             <p class="d-inline" *ngFor="let skill of data.skills">{{skill}}</p>
@@ -32,7 +32,7 @@
           <div class="w-100 mt-2">
             <div class="float-end">
             <button
-              *ngIf="(isLoggedIn$ | async) && roleBaseAccess.isRoleUserTrue()"
+              *ngIf="(isLoggedIn$ | async) && isRoleUserTrue()"
               class="btn mx-1 float-sm-end float-sm-start apply px-4 py-1">Apply</button>
             <button
               (click)="detailView(data.companyId)"

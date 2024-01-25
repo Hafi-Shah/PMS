@@ -1,7 +1,13 @@
+
 <section class="container mb-5">
+
   <form class="pt-3" [formGroup]="formValidation.registrationForm" (ngSubmit)="updateCompany()">
+
     <div class="row m-4 shadow p-2 form-box">
-      <h5 class="text-center mt-3 mb-3">Update Your Company Profile</h5>
+      <div class="w-100 d-flex justify-content-end">
+        <div mat-dialog-close (click)="actionClosed()" class="btn btn-danger mt-1">Cancel</div>
+      </div>
+      <h5 class="text-center mt-1 mb-3">Update Your Company Profile</h5>
       <p class="text-center p-2" [ngClass]="isAccountUpdated ? 'text-white bg-success d-block' : 'text-danger d-block'">
         {{displayMsg}}
       </p>
@@ -87,8 +93,8 @@
         </div>
         <div class="row">
           <div class="col-md-5">
-            <label class="mx-2 mt-3">Select Country</label>
-            <select [(ngModel)]="storedData.countryName" formControlName="country" id="country" class="w-100 mb-3 p-2" required>
+            <label class="mx-2 mt-4">Select Country</label>
+            <select style="margin-top: 7px" [(ngModel)]="storedData.countryName" formControlName="country" id="country" class="w-100 mb-3 p-2" required>
               <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
             </select>
             <div class="form-text text-danger mb-2 mx-2" *ngIf="formValidation.country.errors?.['required'] && (formValidation.country.touched || formValidation.country.dirty)">
@@ -97,18 +103,20 @@
           </div>
 
           <div class="col-md-7">
-            <div class="custom-file mt-3">
+            <div class="custom-file mt-4">
               <label class="custom-file-label mt-3">Profile Pic with equal size</label>
               <input [(ngModel)]="storedData.profilePic" formControlName="selectImg" id="selectImg" (change)="onFileSelected($event)" type="file" class="custom-file-input w-100" required accept="image/png, image/jpeg" [disabled]="true">
             </div>
             <div class="form-text text-danger mb-2 mt-3 mx-2" *ngIf="formValidation.profileImg.errors?.['required'] && (formValidation.profileImg.touched || formValidation.profileImg.dirty)">
-              select equal size image if needed
+              select equal size image
             </div>
           </div>
         </div>
-      </div>
-      <button class="btn w-100 mb-2 mt-3" mat-dialog-close type="submit" [disabled]="isFormInvalid()">Update Your Account</button>
 
+      </div>
+      <div class="col-md-12">
+      <button class="btn w-100 mb-2 mt-3" mat-dialog-close type="submit" [disabled]="isFormInvalid()">Update Your Account</button>
+      </div>
     </div>
 
   </form>

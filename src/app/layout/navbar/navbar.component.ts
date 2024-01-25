@@ -1,19 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../../services/auth.service";
-import { Observable, of } from "rxjs";
-import { LoginResponse } from "../../models/login.model";
 import { Router } from "@angular/router";
-import {ToastrService} from "ngx-toastr";
-import {RoleBaseComponentAccess} from "../../shared/role-base-component-acess";
+import { RoleBaseComponentAccess } from "../../shared/role-base-component-acess";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  isLoggedIn$: Observable<boolean>;
-
+export class NavbarComponent implements OnInit {
+  isLoggedIn: boolean = false;
   userId: number = 0;
   role: string = '';
 
@@ -22,7 +18,7 @@ export class NavbarComponent {
     private router: Router,
     private access: RoleBaseComponentAccess
   ) {
-    this.isLoggedIn$ = of(this.service.isLoggedIn());
+    this.updateLoggedInStatus();
 
     const storedUserId = localStorage.getItem('userId');
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
@@ -31,8 +27,11 @@ export class NavbarComponent {
     this.role = storedRole ? storedRole : '';
   }
 
+  private updateLoggedInStatus() {
+    this.isLoggedIn = this.service.isLoggedIn();
+  }
+
   assignRole() {
-    debugger;
     if (this.role === "user") {
       this.router.navigate(['my-user-profile', this.userId, this.role]);
     } else if (this.role === "company") {
@@ -42,19 +41,28 @@ export class NavbarComponent {
     }
   }
 
-  notificationRoute(){
+  notificationRoute() {
     this.router.navigate(['notification']);
   }
 
-  roleBaseAccess():boolean{
+  isRoleCompany(): boolean {
     return this.access.isRoleCompanyTrue();
+  }
+
+  isRoleUser(): boolean {
+    return this.access.isRoleUserTrue();
   }
 
   logOut() {
     this.service.onLogout();
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+  }
 
+  roleAccess() {
+    this.isRoleCompany();
+    this.isRoleUser();
+  }
+
+  ngOnInit() {
+    this.roleAccess();
   }
 }

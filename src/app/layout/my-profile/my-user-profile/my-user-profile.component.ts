@@ -55,7 +55,10 @@ export class MyUserProfileComponent implements OnInit {
   }
 
   onDelete(){
-    this.dialog.open(DeleteAccountPopupComponent);
+    const dialogRef = this.dialog.open(DeleteAccountPopupComponent)
+    dialogRef.afterClosed().subscribe(data => {
+      this.ngOnInit();
+    });
   }
 
   onLogOut(){

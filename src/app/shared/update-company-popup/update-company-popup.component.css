@@ -4,7 +4,7 @@ section {
 }
 
 .form-box {
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .form-box h5 {
   font-family: poppin bold;
@@ -13,7 +13,7 @@ section {
 }
 
 input , textarea, select{
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #4a4f74;
   font-size: 1rem;
 }
@@ -38,7 +38,7 @@ input:focus {
 button {
   background: #4a4f74;
   color: #fff;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 button:hover {
   background: rgb(59, 62, 90);

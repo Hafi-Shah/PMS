@@ -5,6 +5,8 @@ import {DatePipe} from "@angular/common";
 import {SkillsService} from "../../../services/skills.service";
 import {UserService} from "../../../services/user.service";
 import Compressor from "compressorjs";
+import {UpdateService} from "../../../services/update.service";
+import {MatDialogRef} from "@angular/material/dialog";
 
 
 export type defaultDbValue = {
@@ -67,7 +69,9 @@ export class UpdateUserDialogComponent implements OnInit {
     private toastr: ToastrService,
     private datePipe: DatePipe,
     private apiSkillService: SkillsService,
-    private apiUserService: UserService
+    private apiUserService: UserService,
+    private apiUpdateService: UpdateService,
+    public dialogRef: MatDialogRef<UpdateUserDialogComponent>
   ) {
     const storedUserId = localStorage.getItem('userId');
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
@@ -76,13 +80,13 @@ export class UpdateUserDialogComponent implements OnInit {
   getUserValueFromDb() {
     this.apiUserService.getUserDetailById(this.userId).subscribe(res => {
       this.defaultValue = res;
-      console.log('default user values from DB', this.defaultValue);
+      // console.log('default user values from DB', this.defaultValue);
     });
   }
 
   getSkillList() {
     this.apiSkillService.getSkillNames().subscribe((res) => {
-      console.log(res);
+      console.log('total Skills',res);
       this.skillsList = res;
     })
   }
@@ -185,7 +189,7 @@ export class UpdateUserDialogComponent implements OnInit {
     this.userUpdateFormSubmitted = true;
     if (this.userUpdateForm.valid) {
       this.object = this.userUpdateForm.value;
-      const formattedDob = this.datePipe.transform(this.object.dob, 'dd/MM/yyyy');
+      const formattedDob = this.datePipe.transform(this.object.dob, 'yyyy-MM-dd');
       const selectedgender = this.genderList.find(g => g.name === this.defaultValue.gender);
       const selectedUserType = this.userTypeList.find(u => u.name === this.defaultValue.userType);
       const selectedStatus = this.maritalStatusList.find(m => m.name === this.defaultValue.martialStatus);
@@ -202,43 +206,46 @@ export class UpdateUserDialogComponent implements OnInit {
         this.object.status = selectedStatus.name; // Keep the value in the dropdown
         this.object.status = selectedStatus.id; // Send the key (ID) to the server
       }
-      debugger
       if (selectedSkills) {
-        this.object.skills = selectedSkills.name;
-        this.object.skills = selectedSkills.id;
-        this.object.skills = this.findKeyByValueSkills(this.object.skills);
+        this.object.skills = selectedSkills.id;  // Assign the skill ID
       }
-      console.log('this.object.skills:', this.object.skills);
+
+
       debugger
       const requestBody = {
+        userId: this.defaultValue.userId,
         firstName: this.object.firstName,
         lastName: this.object.lastName,
         email: this.object.email,
         password: this.object.password,
         yearlyExp: this.object.yearlyExp,
         about: this.object.about,
-        MaritalStatusId: this.object.status,
-        skills: this.findKeyByValueSkills(this.object.skills),
+        maritalStatusId: this.object.status,
+        skills: this.findKeyByValueSkills(this.defaultValue.userSkills || this.object.skills),
         dob: formattedDob,
-        city: this.object.city,
         genderId: this.object.gender,
-        userTypeId: this.object.userType,
         contact: this.object.contact,
         profilePic: this.defaultValue.profilePic || this.object.profilePic,
         coverImg: this.defaultValue.coverPic || this.object.coverImg,
+        userTypeId: this.object.userType,
         role: this.object.role,
+        city: this.object.city,
       };
       console.log(requestBody);
-      // debugger
-      // this.apiUserService.registerUser(this.object).subscribe((res: any) => {
-      //   if (res.success) {
-      //     console.log('Request Body:', requestBody);
-      //     this.toastr.success('User Registered Successfully');
-      //   }
-      // });
+
+      this.apiUpdateService.updateUserData(requestBody).subscribe((res: any) => {
+        debugger
+        if (res.success) {
+          debugger
+          console.log('Request Body:', requestBody);
+          this.toastr.success('User Updated Successfully');
+          this.dialogRef.close({ success: true });
+          this.ngOnInit();
+        }
+      });
 
     } else {
-      this.toastr.warning('Enter Your Data Correctly First');
+      this.toastr.warning('Provide Suitable Data');
     }
   }
 
@@ -259,7 +266,7 @@ export class UpdateUserDialogComponent implements OnInit {
   }
 
   findKeyByValueSkills(values: string | string[] | number | number[]): number[] | null {
-    if (values === null) {
+    if (values === null || values === undefined) {
       return null;
     }
 
@@ -283,20 +290,25 @@ export class UpdateUserDialogComponent implements OnInit {
   }
 
 
+
+
   cancel() {
     this.toastr.show('Update Action Cancelled', '', {timeOut: 1500});
   }
 
   ngOnInit() {
     this.userUpdateFormValid();
-    this.getSkillList();
     this.getUserType();
     this.getMaritalStatus();
     this.getGenderType();
     this.getUserValueFromDb();
-    this.userUpdateForm.patchValue({
-      skills: this.defaultValue.userSkills || []
+    this.getSkillList();
+    this.apiSkillService.getSkillNames().subscribe((skills) => {
+      this.skillsList = skills;
+      // Check if the user has selected other skills; if not, set default values
+      if (!this.userUpdateForm.get('skills').value || this.userUpdateForm.get('skills').value.length === 0) {
+        this.userUpdateForm.get('skills').setValue(this.defaultValue.userSkills ? this.findKeyByValueSkills(this.defaultValue.userSkills) : []);
+      }
     });
   }
-
 }

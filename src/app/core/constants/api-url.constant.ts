@@ -8,6 +8,7 @@ export class ApiPath {
   static readonly LOGIN_BY_ROLE : string ='/api/UserDetailsByRole/GetDataByRole';
   static readonly GET_SKILLS : string = '/api/Skills/GetSkillsName';
   static readonly UPDATE_COMPANY_DATA : string = '/api/UpdateUserByRole/UpdateCompanyData';
+  static readonly UPDATE_USER_DATA : string = '/api/UpdateUserByRole/UpdateUserData';
   static readonly DELETE : string = '/api/Delete';
   static readonly GET_USER_TYPES : string = '/api/UserRegistration/GetUserTypes';
   static readonly REGISTER_USER : string = '/api/UserRegistration/RegisterUser';

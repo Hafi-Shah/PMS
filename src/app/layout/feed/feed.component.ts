@@ -6,7 +6,7 @@ import {FeedService} from "../../../services/feed.service";
 import {Router} from "@angular/router";
 
 
-export class FeedData{
+export class FeedData {
   companyId: number = 0;
   companyName: string = '';
   companyType: string = '';
@@ -29,14 +29,14 @@ export class FeedComponent implements OnInit {
   data: FeedData[] = [];
 
   isLoggedIn$: Observable<boolean>;
-  roleBaseAccess: RoleBaseComponentAccess;
 
   constructor(
     private authSerivce: AuthService,
     private feedService: FeedService,
-    private router: Router
+    private router: Router,
+    private roleBaseAccess: RoleBaseComponentAccess
   ) {
-    this.roleBaseAccess = new RoleBaseComponentAccess();
+
     this.isLoggedIn$ = of(this.authSerivce.isLoggedIn());
   }
 
@@ -47,8 +47,12 @@ export class FeedComponent implements OnInit {
     })
   }
 
-  detailView(id: number){
+  detailView(id: number) {
     this.router.navigate(['view-company-profile', id])
+  }
+
+  isRoleUserTrue(): boolean {
+    return this.roleBaseAccess.isRoleUserTrue();
   }
 
   ngOnInit() {
