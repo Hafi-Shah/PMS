@@ -18,7 +18,7 @@ export class DefaultDbValue {
   userType: any;
   userSkills: any;
   gender: any;
-  maritalStatusId: any;
+  martialStatus: any;
   dob: any;
   email: string = '';
   totalExperience: number = 0;
@@ -125,7 +125,7 @@ export class UpdateUserDialogComponent implements OnInit {
         Validators.maxLength(15),
         Validators.pattern("[a-zA-Z]{3}.*"),
       ])],
-      lastName: [this.defaultValue.lastName, Validators.compose([
+      lastName: ['', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(10),
@@ -163,10 +163,10 @@ export class UpdateUserDialogComponent implements OnInit {
         Validators.maxLength(15),
         Validators.pattern("[0-9]*"),
       ])],
-      userTypeId: [this.defaultValue.userType, Validators.required],
-      genderId: [this.defaultValue.gender, Validators.required],
-      maritalStatusId: [this.defaultValue.maritalStatusId, Validators.required],
-      skills: [this.defaultValue.userSkills, Validators.required],
+      userTypeId: [this.defaultValue.userType],
+      genderId: [this.defaultValue.gender],
+      maritalStatusId: [this.defaultValue.martialStatus],
+      skills: [this.defaultValue.userSkills],
       dob: ['', Validators.required],
       profilePic: [''],
       coverImg: [''],
@@ -240,7 +240,7 @@ export class UpdateUserDialogComponent implements OnInit {
       // Find selected marital status
       const maritalStatusIdControl = this.userUpdateForm.get('maritalStatusId');
       const selectedStatus = this.maritalStatusList.find(m => m.id === maritalStatusIdControl.value);
-      this.object.maritalStatusId = selectedStatus ? selectedStatus.id : this.findKeyByValueStatus(this.defaultValue.maritalStatusId);
+      this.object.maritalStatusId = selectedStatus ? selectedStatus.id : this.findKeyByValueStatus(this.defaultValue.martialStatus);
 
       // Perform any additional checks or modifications if needed
 
