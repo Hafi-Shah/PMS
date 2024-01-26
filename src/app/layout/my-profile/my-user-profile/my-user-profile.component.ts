@@ -66,12 +66,15 @@ export class MyUserProfileComponent implements OnInit {
   }
 
   onUpdate(){
-    this.dialog.open(UpdateUserDialogComponent, {
+    const dialogRef = this.dialog.open(UpdateUserDialogComponent, {
       maxWidth: '100%',
       maxHeight: '100%',
       width: '95%',
       height: '90vh',
       panelClass: 'full-screen-dialog'
+    })
+    dialogRef.afterClosed().subscribe(res=>{
+      this.ngOnInit();
     })
   }
 

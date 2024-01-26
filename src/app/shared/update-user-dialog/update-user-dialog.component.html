@@ -87,12 +87,13 @@
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Marital Status</mat-label>
-                <mat-select formControlName="maritalStatusId">
+                <mat-select [(ngModel)]="defaultValue.maritalStatusId" formControlName="maritalStatusId">
                   <mat-option *ngFor="let status of maritalStatusList" [value]="status.id">
                     {{ status.name }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
+
 
             </div>
 

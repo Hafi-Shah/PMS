@@ -79,7 +79,7 @@ export class UpdateUserDialogComponent implements OnInit {
   ) {
 
     this.defaultValue = new DefaultDbValue();
-    this.object = new  Object();
+    this.object = new Object();
 
     const storedUserId = localStorage.getItem('userId');
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
@@ -211,12 +211,21 @@ export class UpdateUserDialogComponent implements OnInit {
 
       // Convert skill names to skill IDs
       const newSkills = this.userUpdateForm.get('skills').value;
-      const skillIds = newSkills.map((skillId: number) => {
-        return skillId;
+
+      // Convert skill names to skill IDs
+      const skillIds = newSkills.map((skill: string | number) => {
+        if (typeof skill === 'string') {
+          // Skill is a string, find corresponding ID
+          const skillObject = this.skillsList.find((s) => s.name === skill);
+          return skillObject ? skillObject.id : null;
+        } else {
+          // Skill is already an ID (number), no need for conversion
+          return skill;
+        }
       });
+
       console.log('Final skillIds:', skillIds);
       this.object.skills = [...skillIds];
-
 
       // Find selected user type
       const userTypeIdControl = this.userUpdateForm.get('userTypeId');
@@ -241,17 +250,13 @@ export class UpdateUserDialogComponent implements OnInit {
         if (res.success) {
           console.log(res);
           this.toastr.success(`${res.message}`);
-          this.dialogRef.close({ success: true });
+          this.dialogRef.close({success: true});
         }
       });
     } else {
       this.toastr.warning('Provide Suitable Data');
     }
   }
-
-
-
-
 
 
   findKeyByValueGender(value: string): number | null {
@@ -314,8 +319,6 @@ export class UpdateUserDialogComponent implements OnInit {
       this.object.skills = [...skillIds];
     });
   }
-
-
 
 
 }
