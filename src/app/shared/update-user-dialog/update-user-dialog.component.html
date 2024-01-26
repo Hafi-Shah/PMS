@@ -17,27 +17,26 @@
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>First Name</mat-label>
-                <input [ngModel]="defaultValue?.firstName"
+                <input [(ngModel)]="defaultValue.firstName"
                        matInput type="text" formControlName="firstName" required>
               </mat-form-field>
 
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Email</mat-label>
-                <input [ngModel]="defaultValue?.email"
+                <input [(ngModel)]="defaultValue.email"
                        matInput type="email" formControlName="email" required>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Contact</mat-label>
-                <input [ngModel]="defaultValue.contactNum"
+                <input [(ngModel)]="defaultValue.contactNum"
                        matInput type="text" formControlName="contact" required>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Choose User Type</mat-label>
-                <mat-select formControlName="userTypeId"
-                            [value]="findKeyByValueUserType(defaultValue.userType)">
+                <mat-select [(ngModel)]="defaultValue.userType" formControlName="userTypeId">
                   <mat-option *ngFor="let types of userTypeList" [value]="types.id">
                     {{ types.name }}
                   </mat-option>
@@ -47,9 +46,8 @@
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>gender</mat-label>
-                <mat-select
-                  formControlName="genderId"
-                  [value]="findKeyByValueGender(defaultValue.gender)">
+                <mat-select [(ngModel)]="defaultValue.gender"
+                  formControlName="genderId">
                   <mat-option *ngFor="let list of genderList" [value]="list.id">
                     {{ list.name }}
                   </mat-option>
@@ -63,19 +61,19 @@
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Last Name</mat-label>
-                <input [ngModel]="defaultValue.lastName"
+                <input [(ngModel)]="defaultValue.lastName"
                        matInput type="text" formControlName="lastName" required>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Password</mat-label>
-                <input [ngModel]="defaultValue.password"
+                <input [(ngModel)]="defaultValue.password"
                        matInput type="password" formControlName="password" required>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Date of Birth</mat-label>
-                <input matInput [ngModel]="defaultValue.dob"
+                <input matInput [(ngModel)]="defaultValue.dob"
                        [matDatepicker]="dobPicker" formControlName="dob" required>
                 <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
                 <mat-datepicker #dobPicker></mat-datepicker>
@@ -83,16 +81,14 @@
 
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>Yearly Experience</mat-label>
-                <input [ngModel]="defaultValue.totalExperience"
+                <input [(ngModel)]="defaultValue.totalExperience"
                        matInput type="number" formControlName="yearlyExp" required>
               </mat-form-field>
 
               <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Status</mat-label>
-                <mat-select [value]="findKeyByValueStatus(defaultValue.martialStatus)"
-                            formControlName="maritalStatusId">
-                  <mat-option *ngFor="let status of maritalStatusList"
-                              [value]="status.id">
+                <mat-label>Marital Status</mat-label>
+                <mat-select formControlName="maritalStatusId">
+                  <mat-option *ngFor="let status of maritalStatusList" [value]="status.id">
                     {{ status.name }}
                   </mat-option>
                 </mat-select>
@@ -103,12 +99,12 @@
             <div class="col-md-12">
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>City</mat-label>
-                <input [ngModel]="defaultValue.city"
+                <input [(ngModel)]="defaultValue.city"
                        matInput type="text" formControlName="city" required>
               </mat-form-field>
               <mat-form-field appearance="outline" class="w-100">
                 <mat-label>About</mat-label>
-                <textarea [ngModel]="defaultValue.about"
+                <textarea [(ngModel)]="defaultValue.about"
                           formControlName="about" matInput placeholder="Maximum 400 words">
                                 </textarea>
               </mat-form-field>
@@ -133,7 +129,6 @@
                         {{ skill.name }}
                       </mat-option>
                     </mat-select>
-
                   </mat-form-field>
                 </div>
               </div>
@@ -180,13 +175,6 @@
               </div>
             </div>
 
-
-            <div style="display: none">
-              <mat-form-field appearance="outline" class="w-100">
-                <mat-label>Role</mat-label>
-                <input matInput type="text" formControlName="role" required>
-              </mat-form-field>
-            </div>
             <div class="col-md-12">
               <button type="submit" class="w-100">
                 Update

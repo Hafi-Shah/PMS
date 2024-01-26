@@ -9,23 +9,42 @@ import {UpdateService} from "../../../services/update.service";
 import {MatDialogRef} from "@angular/material/dialog";
 
 
-export type defaultDbValue = {
-  userId: number;
-  firstName: string;
-  lastName: string;
-  city: string;
-  password: string;
+export class DefaultDbValue {
+  userId: number = 0;
+  firstName: string = '';
+  lastName: string = '';
+  city: string = '';
+  password: string = '';
   userType: any;
   userSkills: any;
   gender: any;
-  martialStatus: any;
+  maritalStatusId: any;
   dob: any;
-  email: string;
-  totalExperience: number;
-  about: string;
-  contactNum: string;
-  profilePic: string;
-  coverPic: string;
+  email: string = '';
+  totalExperience: number = 0;
+  about: string = '';
+  contactNum: string = '';
+  profilePic: string = '';
+  coverPic: string = '';
+}
+
+export class Object {
+  userId: number = 0;
+  firstName: string = '';
+  lastName: string = '';
+  email: string = '';
+  password: string = '';
+  yearlyExp: any;
+  about: string = '';
+  skills: any;
+  dob: any
+  genderId: any;
+  contact: string = '';
+  profilePic: string = '';
+  coverImg: string = '';
+  userTypeId: any = '';
+  city: string = '';
+  maritalStatusId: number | null = null;
 }
 
 @Component({
@@ -42,27 +61,12 @@ export class UpdateUserDialogComponent implements OnInit {
   genderList: any[] = [];
   maritalStatusList: any[] = [];
 
-  object: any = {};
+  object: Object;
 
   userId: number = 0;
-  defaultValue: defaultDbValue = {
-    userId: 0,
-    firstName: '',
-    lastName: '',
-    city: '',
-    password: '',
-    userType: null,  // Replace null with the appropriate default value
-    userSkills: [],  // Replace null with the appropriate default value
-    gender: null,  // Replace null with the appropriate default value
-    martialStatus: null,  // Replace null with the appropriate default value
-    dob: null,  // Replace null with the appropriate default value
-    email: '',
-    totalExperience: 0,
-    about: '',
-    contactNum: '',
-    profilePic: '',
-    coverPic: ''
-  };
+  defaultValue: DefaultDbValue;
+
+  role: string = 'user';
 
   constructor(
     private builder: FormBuilder,
@@ -73,6 +77,10 @@ export class UpdateUserDialogComponent implements OnInit {
     private apiUpdateService: UpdateService,
     public dialogRef: MatDialogRef<UpdateUserDialogComponent>
   ) {
+
+    this.defaultValue = new DefaultDbValue();
+    this.object = new  Object();
+
     const storedUserId = localStorage.getItem('userId');
     this.userId = storedUserId ? parseInt(storedUserId, 10) : 0;
   }
@@ -80,13 +88,12 @@ export class UpdateUserDialogComponent implements OnInit {
   getUserValueFromDb() {
     this.apiUserService.getUserDetailById(this.userId).subscribe(res => {
       this.defaultValue = res;
-      // console.log('default user values from DB', this.defaultValue);
+      console.log(this.defaultValue)
     });
   }
 
   getSkillList() {
     this.apiSkillService.getSkillNames().subscribe((res) => {
-      console.log('total Skills',res);
       this.skillsList = res;
     })
   }
@@ -106,67 +113,66 @@ export class UpdateUserDialogComponent implements OnInit {
   getMaritalStatus() {
     this.apiUserService.getMaritalStatus().subscribe((res) => {
       this.maritalStatusList = res;
+      console.log(this.maritalStatusList)
     })
   }
 
   userUpdateFormValid() {
     this.userUpdateForm = this.builder.group({
-      firstName: this.builder.control('', Validators.compose([
+      firstName: ['', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(15),
         Validators.pattern("[a-zA-Z]{3}.*"),
-      ])),
-      lastName: this.builder.control('', Validators.compose([
+      ])],
+      lastName: [this.defaultValue.lastName, Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(10),
         Validators.pattern("[a-zA-z].*"),
-      ])),
-      email: this.builder.control('', Validators.compose([
+      ])],
+      email: ['', Validators.compose([
         Validators.required,
         Validators.email,
         Validators.pattern("^[^0-9][\\w.%+-]+@gmail\\.com$")
-      ])),
-
-      password: this.builder.control('', Validators.compose([
+      ])],
+      password: ['', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(12)
-      ])),
-      yearlyExp: this.builder.control('', Validators.compose([
+      ])],
+      yearlyExp: ['', Validators.compose([
         Validators.required,
         Validators.pattern(/^([0-3]\d{0,1}|[4-9])$/),
-      ])),
-      about: this.builder.control('', Validators.compose([
+      ])],
+      about: ['', Validators.compose([
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(400),
         Validators.pattern(/^[a-zA-Z][a-zA-Z0-9\s().,]*[a-zA-Z0-9\s.]$/),
-      ])),
-      city: this.builder.control('', Validators.compose([
+      ])],
+      city: ['', Validators.compose([
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(60),
         Validators.pattern(/^[a-zA-Z\s]*$/)
-      ])),
-      contact: this.builder.control('', Validators.compose([
+      ])],
+      contact: ['', Validators.compose([
         Validators.required,
         Validators.minLength(11),
         Validators.maxLength(15),
         Validators.pattern("[0-9]*"),
-      ])),
-
-      userTypeId: this.builder.control('', Validators.required),
-      genderId: this.builder.control('', Validators.required),
-      maritalStatusId: this.builder.control('', Validators.required),
-      skills: this.builder.control([], Validators.required),
-      dob: this.builder.control('', Validators.required),
-      profilePic: this.builder.control(''),
-      coverImg: this.builder.control(''),
-      role: this.builder.control('user', Validators.required)
+      ])],
+      userTypeId: [this.defaultValue.userType, Validators.required],
+      genderId: [this.defaultValue.gender, Validators.required],
+      maritalStatusId: [this.defaultValue.maritalStatusId, Validators.required],
+      skills: [this.defaultValue.userSkills, Validators.required],
+      dob: ['', Validators.required],
+      profilePic: [''],
+      coverImg: [''],
     });
   }
+
 
   onFileChange(event: any, fileType: string) {
     const file = event.target.files[0];
@@ -187,57 +193,55 @@ export class UpdateUserDialogComponent implements OnInit {
 
   onSubmit() {
     this.userUpdateFormSubmitted = true;
+
     if (this.userUpdateForm.valid) {
-      this.object = this.userUpdateForm.value;
+      this.object.userId = this.userId;
+      this.object.firstName = this.userUpdateForm.get('firstName').value;
+      this.object.lastName = this.userUpdateForm.get('lastName').value;
+      this.object.email = this.userUpdateForm.get('email').value;
+      this.object.password = this.userUpdateForm.get('password').value;
+      this.object.yearlyExp = this.userUpdateForm.get('yearlyExp').value;
+      this.object.about = this.userUpdateForm.get('about').value;
+      this.object.skills = this.userUpdateForm.get('skills').value;
+      this.object.dob = this.userUpdateForm.get('dob').value;
+      this.object.contact = this.userUpdateForm.get('contact').value;
+      this.object.profilePic = this.userUpdateForm.get('profilePic').value || this.defaultValue.profilePic;
+      this.object.coverImg = this.userUpdateForm.get('coverImg').value || this.defaultValue.coverPic;
+      this.object.city = this.userUpdateForm.get('city').value;
 
       // Convert skill names to skill IDs
-      const skillIds = this.userUpdateForm.get('skills').value.map((skillName: string) => {
-        const skill = this.skillsList.find((s) => s.name === skillName);
-        return skill ? skill.id : null;
+      const newSkills = this.userUpdateForm.get('skills').value;
+      const skillIds = newSkills.map((skillId: number) => {
+        return skillId;
       });
+      console.log('Final skillIds:', skillIds);
+      this.object.skills = [...skillIds];
 
-      const formattedDob = this.datePipe.transform(this.object.dob, 'yyyy-MM-dd');
-      const selectedGender = this.genderList.find(g => g.name === this.defaultValue.gender);
-      const selectedUserType = this.userTypeList.find(u => u.name === this.defaultValue.userType);
-      const selectedStatus = this.maritalStatusList.find(m => m.name === this.defaultValue.martialStatus);
 
-      if (selectedGender) {
-        this.object.genderId = selectedGender.id;
-      }
-      if (selectedUserType) {
-        this.object.userTypeId = selectedUserType.id;
-      }
-      if (selectedStatus) {
-        this.object.maritalStatusId = selectedStatus.id;
-      }
+      // Find selected user type
+      const userTypeIdControl = this.userUpdateForm.get('userTypeId');
+      const selectedUserType = this.userTypeList.find(u => u.id === userTypeIdControl.value);
+      this.object.userTypeId = selectedUserType ? selectedUserType.id : this.findKeyByValueUserType(this.defaultValue.userType);
 
-      let requestBody = {
-        userId: this.defaultValue.userId,
-        firstName: this.object.firstName,
-        lastName: this.object.lastName,
-        email: this.object.email,
-        password: this.object.password,
-        yearlyExp: this.object.yearlyExp,
-        about: this.object.about,
-        maritalStatusId: this.object.maritalStatusId,
-        skills: skillIds,
-        dob: formattedDob,
-        genderId: this.object.genderId,
-        contact: this.object.contact,
-        profilePic: this.defaultValue.profilePic ? this.defaultValue.profilePic : this.object.profilePic,
-        coverImg: this.defaultValue.coverPic ? this.defaultValue.coverPic : this.object.coverImg,
-        userTypeId: this.object.userTypeId,
-        role: this.object.role,
-        city: this.object.city,
-      };
-      console.log(requestBody)
+      // Find selected gender
+      const genderIdControl = this.userUpdateForm.get('genderId');
+      const selectedGender = this.genderList.find(g => g.id === genderIdControl.value);
+      this.object.genderId = selectedGender ? selectedGender.id : this.findKeyByValueGender(this.defaultValue.gender);
+
+      // Find selected marital status
+      const maritalStatusIdControl = this.userUpdateForm.get('maritalStatusId');
+      const selectedStatus = this.maritalStatusList.find(m => m.id === maritalStatusIdControl.value);
+      this.object.maritalStatusId = selectedStatus ? selectedStatus.id : this.findKeyByValueStatus(this.defaultValue.maritalStatusId);
+
+      // Perform any additional checks or modifications if needed
+
+      console.log(this.object);
       debugger
-      this.apiUpdateService.updateUserData(this.object.role, requestBody).subscribe((res: any) => {
+      this.apiUpdateService.updateUserData(this.role, this.object).subscribe((res: any) => {
         if (res.success) {
-          console.log('Request Body:', requestBody);
+          console.log(res);
           this.toastr.success(`${res.message}`);
           this.dialogRef.close({ success: true });
-          this.ngOnInit();
         }
       });
     } else {
@@ -246,33 +250,8 @@ export class UpdateUserDialogComponent implements OnInit {
   }
 
 
-  onUserTypeChange(event: any) {
-    const userType = this.userTypeList.find((type) => type.id === event.value);
-    this.userUpdateForm.get('userTypeId')?.setValue(userType ? userType.id : null);
-    // Update the defaultValue object as well
-    this.defaultValue.userType = userType ? userType.name : null;
-  }
 
-  onGenderChange(event: any) {
-    const gender = this.genderList.find((g) => g.id === event.value);
-    this.userUpdateForm.get('genderId')?.setValue(gender ? gender.id : null);
-    this.defaultValue.gender = gender ? gender.name : null;
-  }
 
-  onStatusChange(event: any) {
-    const status = this.maritalStatusList.find((s) => s.id === event.value);
-    this.userUpdateForm.get('maritalStatusId')?.setValue(status ? status.id : null);
-    this.defaultValue.martialStatus = status ? status.name : null;
-  }
-
-  onSkillsChange(event: any) {
-    const selectedSkills = event.value.map((selectedSkill: number) => {
-      const skill = this.skillsList.find((s) => s.id === selectedSkill);
-      return skill ? skill.name : null;
-    });
-    this.userUpdateForm.get('skills')?.setValue(selectedSkills);
-    this.defaultValue.userSkills = selectedSkills;
-  }
 
 
   findKeyByValueGender(value: string): number | null {
@@ -284,6 +263,7 @@ export class UpdateUserDialogComponent implements OnInit {
     const userType = this.userTypeList.find((ct) => ct.name === value);
     return userType ? userType.id : null;
   }
+
 
   findKeyByValueStatus(value: number | string): number | null {
     const status = this.maritalStatusList.find((ct) => ct.name === value);
@@ -314,9 +294,6 @@ export class UpdateUserDialogComponent implements OnInit {
     return keys.length > 0 ? keys : null;
   }
 
-
-
-
   cancel() {
     this.toastr.show('Update Action Cancelled', '', {timeOut: 1500});
   }
@@ -328,12 +305,17 @@ export class UpdateUserDialogComponent implements OnInit {
     this.getGenderType();
     this.getUserValueFromDb();
     this.getSkillList();
-    this.apiSkillService.getSkillNames().subscribe((skills) => {
-      this.skillsList = skills;
-      // Check if the user has selected other skills; if not, set default values
-      if (!this.userUpdateForm.get('skills').value || this.userUpdateForm.get('skills').value.length === 0) {
-        this.userUpdateForm.get('skills').setValue(this.defaultValue.userSkills ? this.findKeyByValueSkills(this.defaultValue.userSkills) : []);
-      }
+
+    this.userUpdateForm.get('skills').valueChanges.subscribe((newSkills: string[]) => {
+      const skillIds = newSkills.map((skillName: string) => {
+        const skill = this.skillsList.find((s) => s.name === skillName);
+        return skill ? skill.id : null;
+      });
+      this.object.skills = [...skillIds];
     });
   }
+
+
+
+
 }
