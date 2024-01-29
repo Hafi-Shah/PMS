@@ -116,4 +116,10 @@
 .user-cards-section .card .btn-view:hover {
     background: #2b959e;
 }
+.no-found {
+  font-size: 1.5rem;
+  font-family: "poppin bold";
+  color: #2b959e;
+}
+
 
